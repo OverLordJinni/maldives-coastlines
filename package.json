@@ -1,0 +1,14 @@
+{
+  "name": "maldives-coastlines",
+  "private": true,
+  "type": "module",
+  "license": "SEE LICENSE IN LICENSE",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "chart": "node scripts/chart/build-chart.ts",
+    "check:chart": "node scripts/chart/check-chart.ts",
+    "test": "vitest run"
+  },
+  "dependencies": { "zod": "4.6.5" },
+  "devDependencies": { "typescript": "5.9.3", "vitest": "5.0.2" }
+}

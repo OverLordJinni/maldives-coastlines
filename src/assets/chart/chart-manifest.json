@@ -1,0 +1,8923 @@
+{
+  "why": "The record of the chart's data (R57, AC136, AC137). Written by scripts/chart/build-chart.ts; held to by scripts/chart/check-chart.ts. Never imported by the app: it carries island names, which v1 never shows (D221, AC138), so they live here only for AC138's search.",
+  "chartId": "osm-2026-10-14.f1.t5",
+  "format": 1,
+  "licence": "© OpenStreetMap contributors. Data under the Open Database Licence (ODbL) 1.0, https://opendatacommons.org/licenses/odbl/1-0/",
+  "extract": {
+    "file": "maldives-latest.osm.pbf",
+    "url": "https://download.geofabrik.de/asia/maldives-latest.osm.pbf",
+    "fetchedAt": "2026-10-14T12:48:06Z",
+    "date": "2026-10-14",
+    "bytes": 3653360,
+    "md5": "edb25771ae143da5a637f0edf5610fc1",
+    "sha256": "858582dd024b7bf5fc46f6f2118a684f78508992075c5f890ed64a2863ec6ba6"
+  },
+  "method": {
+    "filter": {
+      "version": 1,
+      "minAreaM2": 1000,
+      "rules": "scripts/chart/filter.ts",
+      "handList": "scripts/chart/excluded.json",
+      "handListReviewed": null
+    },
+    "islandToleranceM": 5,
+    "cloudToleranceM": 200,
+    "simplification": "Douglas–Peucker on each closed ring in local equirectangular metres at the ring's mean latitude; a ring never falls below three points",
+    "quantum": "1e-5 degrees, rounded once after simplification",
+    "atolls": "OSM admin_level=4 relations, named from scripts/chart/atolls.json (today's names, D235)",
+    "cloud": "OSM place=archipelago tagged natural=atoll or natural=reef, outer rings (D246)"
+  },
+  "bin": {
+    "file": "maldives.bin",
+    "bytes": 70147,
+    "sha256": "897f24e1c1d99af3a25e9acac3b5b4ff167424c151c2e55d47b4a9a702648b53"
+  },
+  "counts": {
+    "rings": 1351,
+    "islands": 909,
+    "excluded": 442,
+    "atolls": 20,
+    "cloudAreas": 22,
+    "points": 23071,
+    "cloudPoints": 832,
+    "aliases": 0
+  },
+  "excludedByRule": {
+    "inner": 0,
+    "hand": 12,
+    "tag": 10,
+    "small": 38,
+    "bare": 382,
+    "atoll": 0
+  },
+  "crossing": {
+    "home": "w19879672",
+    "destination": "w19879671",
+    "atoll": "haa-dhaalu",
+    "nearestShoreM": 10611,
+    "nearestShoreFullResolutionM": 10612,
+    "note": "Nearest coastline point to nearest coastline point (R59), on the shipped 5 m-simplified, quantised outlines and on OSM's full outlines (AC137, D224)"
+  },
+  "atolls": [
+    {
+      "id": "haa-alif",
+      "name": "Haa Alif",
+      "osmRelations": [
+        "r6599296"
+      ],
+      "islands": 42
+    },
+    {
+      "id": "haa-dhaalu",
+      "name": "Haa Dhaalu",
+      "osmRelations": [
+        "r6599297"
+      ],
+      "islands": 31
+    },
+    {
+      "id": "noonu",
+      "name": "Noonu",
+      "osmRelations": [
+        "r6599323"
+      ],
+      "islands": 60
+    },
+    {
+      "id": "shaviyani",
+      "name": "Shaviyani",
+      "osmRelations": [
+        "r6599324"
+      ],
+      "islands": 40
+    },
+    {
+      "id": "lhaviyani",
+      "name": "Lhaviyani",
+      "osmRelations": [
+        "r6599328"
+      ],
+      "islands": 47
+    },
+    {
+      "id": "raa",
+      "name": "Raa",
+      "osmRelations": [
+        "r6599331"
+      ],
+      "islands": 77
+    },
+    {
+      "id": "baa",
+      "name": "Baa",
+      "osmRelations": [
+        "r6599335"
+      ],
+      "islands": 69
+    },
+    {
+      "id": "kaafu",
+      "name": "Kaafu",
+      "osmRelations": [
+        "r6599336",
+        "r6599423"
+      ],
+      "islands": 117
+    },
+    {
+      "id": "alif-alif",
+      "name": "Alif Alif",
+      "osmRelations": [
+        "r6599351"
+      ],
+      "islands": 36
+    },
+    {
+      "id": "alif-dhaal",
+      "name": "Alif Dhaal",
+      "osmRelations": [
+        "r6599352"
+      ],
+      "islands": 45
+    },
+    {
+      "id": "meemu",
+      "name": "Meemu",
+      "osmRelations": [
+        "r6599365"
+      ],
+      "islands": 29
+    },
+    {
+      "id": "dhaalu",
+      "name": "Dhaalu",
+      "osmRelations": [
+        "r6599371"
+      ],
+      "islands": 41
+    },
+    {
+      "id": "faafu",
+      "name": "Faafu",
+      "osmRelations": [
+        "r6599372"
+      ],
+      "islands": 15
+    },
+    {
+      "id": "thaa",
+      "name": "Thaa",
+      "osmRelations": [
+        "r6599381"
+      ],
+      "islands": 60
+    },
+    {
+      "id": "laamu",
+      "name": "Laamu",
+      "osmRelations": [
+        "r6599390"
+      ],
+      "islands": 65
+    },
+    {
+      "id": "gaafu-alif",
+      "name": "Gaafu Alif",
+      "osmRelations": [
+        "r6599410"
+      ],
+      "islands": 44
+    },
+    {
+      "id": "gaafu-dhaalu",
+      "name": "Gaafu Dhaalu",
+      "osmRelations": [
+        "r6599411"
+      ],
+      "islands": 52
+    },
+    {
+      "id": "gnaviyani",
+      "name": "Gnaviyani",
+      "osmRelations": [
+        "r6599412"
+      ],
+      "islands": 1
+    },
+    {
+      "id": "seenu",
+      "name": "Seenu",
+      "osmRelations": [
+        "r6599413"
+      ],
+      "islands": 20
+    },
+    {
+      "id": "vaavu",
+      "name": "Vaavu",
+      "osmRelations": [
+        "r6600315"
+      ],
+      "islands": 18
+    }
+  ],
+  "cloud": {
+    "sources": [
+      "w671807028 Thiladhunmathi",
+      "w671807029 Faadhippolhu Atoll",
+      "w671807030 Southern Maalhosmadulhu Atoll",
+      "w671807031 Northern Maalhosmadulu Atoll",
+      "w671807032 Maamakunudhoo-Atoll",
+      "w671807036 Ihavandhippolhu Atoll",
+      "w671807044 North Malé Atoll",
+      "w671807056 South Malé Atoll",
+      "w671807065 Huvadhu Atoll",
+      "w671807083 Addu Atoll",
+      "w671807090 Mulaku Atoll",
+      "w671807109 Vattaru Atoll",
+      "w671807115 Felidhu Atoll",
+      "w671807122 Ari Atoll",
+      "w671807123 Rashdoo Atoll",
+      "w671807124 Goidhoo",
+      "w671807125 ގާފަރު Gaafaru",
+      "w671807126 Faafu Atoll",
+      "w671807127 Dhaalu Atoll",
+      "w671807128 Laamu Atoll",
+      "w671807129 Thaa Atoll",
+      "r7114135 Kaashidhoo"
+    ],
+    "notUsed": [
+      "r12137583 Fari Islands: not tagged natural=atoll|reef"
+    ],
+    "islandsOutside": [
+      "w19879570",
+      "w19879732",
+      "w19882144",
+      "w223971265"
+    ]
+  },
+  "excluded": [
+    {
+      "id": "r6615241",
+      "name": "Hulhulé",
+      "areaM2": 8222491,
+      "rule": "hand",
+      "reason": "Reclaimed: OSM draws the airport island Hulhulé and Hulhumalé as one coastline. Hulhumalé was reclaimed from the lagoon from 1997, and Hulhulé was extended by reclamation for the runway"
+    },
+    {
+      "id": "r12026165",
+      "name": null,
+      "areaM2": 164458,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "r21599329",
+      "name": "Rahkairifinolhu",
+      "areaM2": 43213,
+      "rule": "tag",
+      "reason": "tagged natural=sand: a sandbank or reef, not an island"
+    },
+    {
+      "id": "w19879245",
+      "name": null,
+      "areaM2": 73445,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879256",
+      "name": null,
+      "areaM2": 62187,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879261",
+      "name": null,
+      "areaM2": 203353,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879266",
+      "name": null,
+      "areaM2": 85161,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879268",
+      "name": null,
+      "areaM2": 641603,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879302",
+      "name": null,
+      "areaM2": 13627,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879315",
+      "name": null,
+      "areaM2": 3949,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879316",
+      "name": null,
+      "areaM2": 385011,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879345",
+      "name": null,
+      "areaM2": 1091,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879349",
+      "name": null,
+      "areaM2": 9177,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879359",
+      "name": null,
+      "areaM2": 13563,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879375",
+      "name": null,
+      "areaM2": 132812,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879377",
+      "name": null,
+      "areaM2": 5458,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879378",
+      "name": null,
+      "areaM2": 5057,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879409",
+      "name": null,
+      "areaM2": 23276,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879410",
+      "name": null,
+      "areaM2": 51163,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879419",
+      "name": null,
+      "areaM2": 4078,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879422",
+      "name": null,
+      "areaM2": 3368,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879455",
+      "name": null,
+      "areaM2": 2853,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879459",
+      "name": null,
+      "areaM2": 6064,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879477",
+      "name": null,
+      "areaM2": 10291,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879487",
+      "name": null,
+      "areaM2": 24150,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879526",
+      "name": null,
+      "areaM2": 15529,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879530",
+      "name": null,
+      "areaM2": 118729,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879534",
+      "name": null,
+      "areaM2": 4748,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879538",
+      "name": null,
+      "areaM2": 17750,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879543",
+      "name": null,
+      "areaM2": 3271,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879553",
+      "name": null,
+      "areaM2": 11072,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879554",
+      "name": null,
+      "areaM2": 10393,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879557",
+      "name": null,
+      "areaM2": 246683,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879562",
+      "name": null,
+      "areaM2": 6811,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879576",
+      "name": null,
+      "areaM2": 7097,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879588",
+      "name": null,
+      "areaM2": 15786,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879592",
+      "name": null,
+      "areaM2": 17638,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879594",
+      "name": null,
+      "areaM2": 1321,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879595",
+      "name": null,
+      "areaM2": 16727,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879602",
+      "name": null,
+      "areaM2": 469603,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879609",
+      "name": null,
+      "areaM2": 53756,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879613",
+      "name": null,
+      "areaM2": 10463,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879617",
+      "name": null,
+      "areaM2": 18493,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879618",
+      "name": null,
+      "areaM2": 9558,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879647",
+      "name": "Gaagandufaruhuraa",
+      "areaM2": 365,
+      "rule": "small",
+      "reason": "365 m², under 1,000 m²"
+    },
+    {
+      "id": "w19879649",
+      "name": null,
+      "areaM2": 8540,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879653",
+      "name": null,
+      "areaM2": 146232,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879655",
+      "name": null,
+      "areaM2": 12746,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879683",
+      "name": null,
+      "areaM2": 2329,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879693",
+      "name": null,
+      "areaM2": 26387,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879699",
+      "name": null,
+      "areaM2": 15350,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879710",
+      "name": null,
+      "areaM2": 1633,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879717",
+      "name": null,
+      "areaM2": 19140,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879726",
+      "name": null,
+      "areaM2": 27401,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19879754",
+      "name": null,
+      "areaM2": 18768,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19881894",
+      "name": null,
+      "areaM2": 5258,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19881895",
+      "name": null,
+      "areaM2": 17130,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19881919",
+      "name": null,
+      "areaM2": 58965,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19881920",
+      "name": "Sun Island Jetty",
+      "areaM2": 5544,
+      "rule": "tag",
+      "reason": "tagged man_made=quay: built, not an island"
+    },
+    {
+      "id": "w19881925",
+      "name": null,
+      "areaM2": 3164,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19881937",
+      "name": null,
+      "areaM2": 4415,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19881941",
+      "name": null,
+      "areaM2": 4896,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19881948",
+      "name": null,
+      "areaM2": 351,
+      "rule": "small",
+      "reason": "351 m², under 1,000 m²"
+    },
+    {
+      "id": "w19881953",
+      "name": null,
+      "areaM2": 2317,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19881956",
+      "name": null,
+      "areaM2": 9461,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19881964",
+      "name": null,
+      "areaM2": 10907,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19881968",
+      "name": null,
+      "areaM2": 4485,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19881969",
+      "name": null,
+      "areaM2": 6219,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19881970",
+      "name": null,
+      "areaM2": 11582,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19881995",
+      "name": null,
+      "areaM2": 2448,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19881997",
+      "name": null,
+      "areaM2": 737,
+      "rule": "small",
+      "reason": "737 m², under 1,000 m²"
+    },
+    {
+      "id": "w19882005",
+      "name": null,
+      "areaM2": 4097,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882015",
+      "name": null,
+      "areaM2": 12426,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882026",
+      "name": null,
+      "areaM2": 3274,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882037",
+      "name": null,
+      "areaM2": 9791,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882041",
+      "name": null,
+      "areaM2": 11425,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882046",
+      "name": null,
+      "areaM2": 16352,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882047",
+      "name": null,
+      "areaM2": 4077,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882052",
+      "name": null,
+      "areaM2": 2038,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882053",
+      "name": null,
+      "areaM2": 5164,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882059",
+      "name": null,
+      "areaM2": 525,
+      "rule": "small",
+      "reason": "525 m², under 1,000 m²"
+    },
+    {
+      "id": "w19882068",
+      "name": null,
+      "areaM2": 9791,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882069",
+      "name": null,
+      "areaM2": 14436,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882074",
+      "name": null,
+      "areaM2": 917,
+      "rule": "small",
+      "reason": "917 m², under 1,000 m²"
+    },
+    {
+      "id": "w19882083",
+      "name": null,
+      "areaM2": 29548,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882090",
+      "name": null,
+      "areaM2": 2144,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882102",
+      "name": null,
+      "areaM2": 9806,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882119",
+      "name": null,
+      "areaM2": 706,
+      "rule": "small",
+      "reason": "706 m², under 1,000 m²"
+    },
+    {
+      "id": "w19882120",
+      "name": null,
+      "areaM2": 13837,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882121",
+      "name": null,
+      "areaM2": 6755,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882130",
+      "name": null,
+      "areaM2": 3754,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882131",
+      "name": null,
+      "areaM2": 50308,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882146",
+      "name": null,
+      "areaM2": 1632,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882155",
+      "name": null,
+      "areaM2": 15573,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882156",
+      "name": null,
+      "areaM2": 1426,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882162",
+      "name": null,
+      "areaM2": 29992,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882165",
+      "name": null,
+      "areaM2": 1630,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882167",
+      "name": null,
+      "areaM2": 1726,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882168",
+      "name": null,
+      "areaM2": 3969,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882194",
+      "name": null,
+      "areaM2": 4887,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882197",
+      "name": null,
+      "areaM2": 9477,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882745",
+      "name": null,
+      "areaM2": 2269,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882746",
+      "name": null,
+      "areaM2": 3144,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882747",
+      "name": null,
+      "areaM2": 19367,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882750",
+      "name": null,
+      "areaM2": 2446,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882755",
+      "name": null,
+      "areaM2": 10805,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882801",
+      "name": null,
+      "areaM2": 2317,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882807",
+      "name": null,
+      "areaM2": 13558,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882809",
+      "name": null,
+      "areaM2": 5058,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882831",
+      "name": null,
+      "areaM2": 3828,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882843",
+      "name": null,
+      "areaM2": 816,
+      "rule": "small",
+      "reason": "816 m², under 1,000 m²"
+    },
+    {
+      "id": "w19882850",
+      "name": null,
+      "areaM2": 13153,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882870",
+      "name": null,
+      "areaM2": 5102,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882888",
+      "name": null,
+      "areaM2": 8053,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882897",
+      "name": null,
+      "areaM2": 7177,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882898",
+      "name": null,
+      "areaM2": 6730,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882899",
+      "name": null,
+      "areaM2": 811,
+      "rule": "small",
+      "reason": "811 m², under 1,000 m²"
+    },
+    {
+      "id": "w19882902",
+      "name": null,
+      "areaM2": 4894,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882922",
+      "name": null,
+      "areaM2": 1029,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882927",
+      "name": null,
+      "areaM2": 2857,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882939",
+      "name": null,
+      "areaM2": 12844,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882959",
+      "name": null,
+      "areaM2": 2549,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882983",
+      "name": null,
+      "areaM2": 3944,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882991",
+      "name": null,
+      "areaM2": 2653,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19882994",
+      "name": null,
+      "areaM2": 1631,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19883003",
+      "name": null,
+      "areaM2": 4078,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19883012",
+      "name": null,
+      "areaM2": 12234,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19883014",
+      "name": null,
+      "areaM2": 4895,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19883021",
+      "name": null,
+      "areaM2": 9997,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19883022",
+      "name": null,
+      "areaM2": 4895,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19883027",
+      "name": null,
+      "areaM2": 11922,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19883034",
+      "name": null,
+      "areaM2": 582,
+      "rule": "small",
+      "reason": "582 m², under 1,000 m²"
+    },
+    {
+      "id": "w19883036",
+      "name": null,
+      "areaM2": 4288,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19883056",
+      "name": null,
+      "areaM2": 8973,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19883078",
+      "name": null,
+      "areaM2": 1939,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19883091",
+      "name": null,
+      "areaM2": 1631,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19883094",
+      "name": null,
+      "areaM2": 5320,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19883097",
+      "name": null,
+      "areaM2": 6116,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19883117",
+      "name": null,
+      "areaM2": 36114,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19883147",
+      "name": null,
+      "areaM2": 32945,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19883149",
+      "name": null,
+      "areaM2": 3271,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19883151",
+      "name": null,
+      "areaM2": 515,
+      "rule": "small",
+      "reason": "515 m², under 1,000 m²"
+    },
+    {
+      "id": "w19883153",
+      "name": null,
+      "areaM2": 102241,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19883169",
+      "name": null,
+      "areaM2": 76004,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19883173",
+      "name": null,
+      "areaM2": 13151,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932232",
+      "name": null,
+      "areaM2": 13420,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932233",
+      "name": null,
+      "areaM2": 23729,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932234",
+      "name": null,
+      "areaM2": 345155,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932239",
+      "name": null,
+      "areaM2": 45371,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932241",
+      "name": null,
+      "areaM2": 29095,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932242",
+      "name": null,
+      "areaM2": 112907,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932251",
+      "name": null,
+      "areaM2": 22427,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932254",
+      "name": null,
+      "areaM2": 159742,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932255",
+      "name": null,
+      "areaM2": 76208,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932258",
+      "name": null,
+      "areaM2": 22740,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932262",
+      "name": null,
+      "areaM2": 43342,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932265",
+      "name": null,
+      "areaM2": 90055,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932267",
+      "name": null,
+      "areaM2": 37053,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932272",
+      "name": null,
+      "areaM2": 45555,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932274",
+      "name": null,
+      "areaM2": 58745,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932276",
+      "name": null,
+      "areaM2": 512844,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932278",
+      "name": null,
+      "areaM2": 21850,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932279",
+      "name": null,
+      "areaM2": 58020,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932280",
+      "name": null,
+      "areaM2": 69520,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932289",
+      "name": null,
+      "areaM2": 384316,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932291",
+      "name": null,
+      "areaM2": 2631,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932292",
+      "name": null,
+      "areaM2": 5713,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932294",
+      "name": null,
+      "areaM2": 299791,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932296",
+      "name": null,
+      "areaM2": 196234,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932298",
+      "name": null,
+      "areaM2": 9997,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932300",
+      "name": null,
+      "areaM2": 373854,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932301",
+      "name": null,
+      "areaM2": 2397,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932312",
+      "name": null,
+      "areaM2": 46041,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932316",
+      "name": null,
+      "areaM2": 57524,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932335",
+      "name": null,
+      "areaM2": 1044,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932339",
+      "name": null,
+      "areaM2": 1970,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932340",
+      "name": null,
+      "areaM2": 33649,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932342",
+      "name": null,
+      "areaM2": 73762,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932344",
+      "name": null,
+      "areaM2": 154549,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932345",
+      "name": null,
+      "areaM2": 10997,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932349",
+      "name": null,
+      "areaM2": 10172,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932352",
+      "name": null,
+      "areaM2": 12138,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932353",
+      "name": null,
+      "areaM2": 22718,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932355",
+      "name": null,
+      "areaM2": 12414,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932358",
+      "name": null,
+      "areaM2": 75990,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932359",
+      "name": null,
+      "areaM2": 23358,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932360",
+      "name": null,
+      "areaM2": 9688,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932364",
+      "name": null,
+      "areaM2": 8357,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932365",
+      "name": null,
+      "areaM2": 95776,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932367",
+      "name": null,
+      "areaM2": 36465,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932368",
+      "name": null,
+      "areaM2": 77318,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932371",
+      "name": null,
+      "areaM2": 50435,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932374",
+      "name": null,
+      "areaM2": 18704,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932375",
+      "name": null,
+      "areaM2": 82624,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932377",
+      "name": null,
+      "areaM2": 174053,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932381",
+      "name": null,
+      "areaM2": 8264,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932382",
+      "name": null,
+      "areaM2": 57998,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932384",
+      "name": null,
+      "areaM2": 38623,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932386",
+      "name": null,
+      "areaM2": 85757,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932388",
+      "name": null,
+      "areaM2": 8159,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932389",
+      "name": null,
+      "areaM2": 17239,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932393",
+      "name": null,
+      "areaM2": 60825,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932396",
+      "name": null,
+      "areaM2": 220095,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932401",
+      "name": null,
+      "areaM2": 18511,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932406",
+      "name": null,
+      "areaM2": 21821,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932416",
+      "name": null,
+      "areaM2": 61141,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932419",
+      "name": null,
+      "areaM2": 6018,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932424",
+      "name": null,
+      "areaM2": 55394,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932435",
+      "name": null,
+      "areaM2": 2448,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932439",
+      "name": null,
+      "areaM2": 22863,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932442",
+      "name": null,
+      "areaM2": 8199,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932444",
+      "name": null,
+      "areaM2": 62404,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932447",
+      "name": null,
+      "areaM2": 4079,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932453",
+      "name": null,
+      "areaM2": 36928,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932457",
+      "name": null,
+      "areaM2": 26381,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932458",
+      "name": null,
+      "areaM2": 47700,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932463",
+      "name": null,
+      "areaM2": 8355,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932465",
+      "name": null,
+      "areaM2": 29486,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932469",
+      "name": null,
+      "areaM2": 7339,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932474",
+      "name": null,
+      "areaM2": 127518,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932477",
+      "name": null,
+      "areaM2": 32722,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932478",
+      "name": null,
+      "areaM2": 107732,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932481",
+      "name": null,
+      "areaM2": 34278,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932482",
+      "name": null,
+      "areaM2": 17028,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932484",
+      "name": null,
+      "areaM2": 3906,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932488",
+      "name": null,
+      "areaM2": 25337,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932489",
+      "name": null,
+      "areaM2": 31068,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932492",
+      "name": null,
+      "areaM2": 28677,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932496",
+      "name": null,
+      "areaM2": 163976,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932502",
+      "name": null,
+      "areaM2": 36427,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932507",
+      "name": null,
+      "areaM2": 47060,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932516",
+      "name": null,
+      "areaM2": 113044,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932517",
+      "name": null,
+      "areaM2": 68738,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932520",
+      "name": null,
+      "areaM2": 30545,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932527",
+      "name": null,
+      "areaM2": 131641,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932528",
+      "name": null,
+      "areaM2": 232435,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932531",
+      "name": null,
+      "areaM2": 3511,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932536",
+      "name": null,
+      "areaM2": 2673,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932537",
+      "name": null,
+      "areaM2": 13057,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932539",
+      "name": null,
+      "areaM2": 17439,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932542",
+      "name": null,
+      "areaM2": 77074,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932544",
+      "name": null,
+      "areaM2": 47945,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932546",
+      "name": null,
+      "areaM2": 13146,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932549",
+      "name": null,
+      "areaM2": 85261,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932555",
+      "name": null,
+      "areaM2": 178771,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w19932556",
+      "name": null,
+      "areaM2": 6118,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w129558016",
+      "name": null,
+      "areaM2": 4870,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w133847488",
+      "name": null,
+      "areaM2": 4828,
+      "rule": "tag",
+      "reason": "tagged man_made=breakwater: built, not an island"
+    },
+    {
+      "id": "w133847489",
+      "name": null,
+      "areaM2": 1788,
+      "rule": "tag",
+      "reason": "tagged man_made=breakwater: built, not an island"
+    },
+    {
+      "id": "w137843425",
+      "name": null,
+      "areaM2": 71807,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w150750957",
+      "name": null,
+      "areaM2": 822,
+      "rule": "small",
+      "reason": "822 m², under 1,000 m²"
+    },
+    {
+      "id": "w150920004",
+      "name": null,
+      "areaM2": 122723,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w151366274",
+      "name": null,
+      "areaM2": 501,
+      "rule": "small",
+      "reason": "501 m², under 1,000 m²"
+    },
+    {
+      "id": "w151419644",
+      "name": null,
+      "areaM2": 12476,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w151596207",
+      "name": null,
+      "areaM2": 1055,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w159400963",
+      "name": null,
+      "areaM2": 8945,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w159534834",
+      "name": null,
+      "areaM2": 835,
+      "rule": "small",
+      "reason": "835 m², under 1,000 m²"
+    },
+    {
+      "id": "w176864620",
+      "name": null,
+      "areaM2": 1207,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w176864621",
+      "name": null,
+      "areaM2": 922,
+      "rule": "small",
+      "reason": "922 m², under 1,000 m²"
+    },
+    {
+      "id": "w210861942",
+      "name": null,
+      "areaM2": 415,
+      "rule": "small",
+      "reason": "415 m², under 1,000 m²"
+    },
+    {
+      "id": "w210861943",
+      "name": null,
+      "areaM2": 527,
+      "rule": "small",
+      "reason": "527 m², under 1,000 m²"
+    },
+    {
+      "id": "w257640081",
+      "name": null,
+      "areaM2": 735,
+      "rule": "small",
+      "reason": "735 m², under 1,000 m²"
+    },
+    {
+      "id": "w262518472",
+      "name": null,
+      "areaM2": 19187,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w277952661",
+      "name": null,
+      "areaM2": 1467,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w306542594",
+      "name": null,
+      "areaM2": 4118,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w315870161",
+      "name": null,
+      "areaM2": 23248,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w315870162",
+      "name": null,
+      "areaM2": 12183,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w315870163",
+      "name": null,
+      "areaM2": 2113,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w315870164",
+      "name": null,
+      "areaM2": 3441,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w315870165",
+      "name": null,
+      "areaM2": 47291,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w315870167",
+      "name": null,
+      "areaM2": 3288,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w315870168",
+      "name": null,
+      "areaM2": 42055,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w315870451",
+      "name": null,
+      "areaM2": 82453,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w315870452",
+      "name": null,
+      "areaM2": 64179,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w315871576",
+      "name": null,
+      "areaM2": 1009,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w315871580",
+      "name": null,
+      "areaM2": 14327,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w327589167",
+      "name": null,
+      "areaM2": 3606,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w327589168",
+      "name": null,
+      "areaM2": 3570,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w379132720",
+      "name": null,
+      "areaM2": 1119,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w387363692",
+      "name": null,
+      "areaM2": 8609,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w387363693",
+      "name": null,
+      "areaM2": 1824,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w387363694",
+      "name": null,
+      "areaM2": 7974,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w387363695",
+      "name": null,
+      "areaM2": 10280,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w387363696",
+      "name": null,
+      "areaM2": 22572,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w387363697",
+      "name": null,
+      "areaM2": 17463,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w387363698",
+      "name": null,
+      "areaM2": 31159,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w387363699",
+      "name": null,
+      "areaM2": 54693,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w387363700",
+      "name": null,
+      "areaM2": 68768,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w387363701",
+      "name": null,
+      "areaM2": 44113,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w387363702",
+      "name": null,
+      "areaM2": 65558,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w387363703",
+      "name": null,
+      "areaM2": 55885,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w387363704",
+      "name": null,
+      "areaM2": 72310,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w387363705",
+      "name": null,
+      "areaM2": 119220,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w387363706",
+      "name": null,
+      "areaM2": 107660,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w387363707",
+      "name": null,
+      "areaM2": 134794,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w387363708",
+      "name": null,
+      "areaM2": 1736,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w387363709",
+      "name": null,
+      "areaM2": 2056,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w387363710",
+      "name": null,
+      "areaM2": 7984,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w387363711",
+      "name": null,
+      "areaM2": 4227,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w387363712",
+      "name": null,
+      "areaM2": 8421,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w387363713",
+      "name": null,
+      "areaM2": 1519,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w387363714",
+      "name": null,
+      "areaM2": 3987,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w387363715",
+      "name": null,
+      "areaM2": 1452,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w387363716",
+      "name": null,
+      "areaM2": 4732,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w387367585",
+      "name": null,
+      "areaM2": 5374,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w387367586",
+      "name": null,
+      "areaM2": 8923,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w387367587",
+      "name": null,
+      "areaM2": 9467,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w398903990",
+      "name": null,
+      "areaM2": 587166,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w398903993",
+      "name": null,
+      "areaM2": 157805,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w398904013",
+      "name": null,
+      "areaM2": 3419,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w398904889",
+      "name": null,
+      "areaM2": 4464,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w398981441",
+      "name": null,
+      "areaM2": 5110,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w398981446",
+      "name": null,
+      "areaM2": 4664,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w399093016",
+      "name": null,
+      "areaM2": 472,
+      "rule": "small",
+      "reason": "472 m², under 1,000 m²"
+    },
+    {
+      "id": "w399093025",
+      "name": null,
+      "areaM2": 470,
+      "rule": "small",
+      "reason": "470 m², under 1,000 m²"
+    },
+    {
+      "id": "w424995805",
+      "name": null,
+      "areaM2": 512,
+      "rule": "small",
+      "reason": "512 m², under 1,000 m²"
+    },
+    {
+      "id": "w464608644",
+      "name": null,
+      "areaM2": 1840,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w482292407",
+      "name": null,
+      "areaM2": 5630,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w482510889",
+      "name": null,
+      "areaM2": 2159328,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w483063045",
+      "name": null,
+      "areaM2": 372,
+      "rule": "small",
+      "reason": "372 m², under 1,000 m²"
+    },
+    {
+      "id": "w602707711",
+      "name": null,
+      "areaM2": 415,
+      "rule": "small",
+      "reason": "415 m², under 1,000 m²"
+    },
+    {
+      "id": "w602707712",
+      "name": null,
+      "areaM2": 419,
+      "rule": "small",
+      "reason": "419 m², under 1,000 m²"
+    },
+    {
+      "id": "w602707713",
+      "name": null,
+      "areaM2": 431,
+      "rule": "small",
+      "reason": "431 m², under 1,000 m²"
+    },
+    {
+      "id": "w602707714",
+      "name": null,
+      "areaM2": 399,
+      "rule": "small",
+      "reason": "399 m², under 1,000 m²"
+    },
+    {
+      "id": "w602707715",
+      "name": null,
+      "areaM2": 275,
+      "rule": "small",
+      "reason": "275 m², under 1,000 m²"
+    },
+    {
+      "id": "w602730308",
+      "name": "Thilafushi",
+      "areaM2": 2388885,
+      "rule": "hand",
+      "reason": "Artificial: built from 1992 on the Thilafalhu lagoon as the capital's landfill"
+    },
+    {
+      "id": "w602734638",
+      "name": null,
+      "areaM2": 21283,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w674103652",
+      "name": null,
+      "areaM2": 296489,
+      "rule": "tag",
+      "reason": "tagged man_made=islet: built, not an island"
+    },
+    {
+      "id": "w692913348",
+      "name": null,
+      "areaM2": 976,
+      "rule": "small",
+      "reason": "976 m², under 1,000 m²"
+    },
+    {
+      "id": "w693469837",
+      "name": "The Marina at Crossroads Maldives",
+      "areaM2": 136248,
+      "rule": "hand",
+      "reason": "Reclaimed: the CROSSROADS resort islands were built on the Emboodhoo lagoon"
+    },
+    {
+      "id": "w744271306",
+      "name": null,
+      "areaM2": 228,
+      "rule": "small",
+      "reason": "228 m², under 1,000 m²"
+    },
+    {
+      "id": "w744271514",
+      "name": null,
+      "areaM2": 121,
+      "rule": "small",
+      "reason": "121 m², under 1,000 m²"
+    },
+    {
+      "id": "w747194146",
+      "name": null,
+      "areaM2": 22410,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w747491683",
+      "name": "Hard Rock Hotel Maldives",
+      "areaM2": 79622,
+      "rule": "hand",
+      "reason": "Reclaimed: one of the CROSSROADS islands on the Emboodhoo lagoon"
+    },
+    {
+      "id": "w749988689",
+      "name": null,
+      "areaM2": 3268,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w750353774",
+      "name": null,
+      "areaM2": 269,
+      "rule": "small",
+      "reason": "269 m², under 1,000 m²"
+    },
+    {
+      "id": "w750498912",
+      "name": null,
+      "areaM2": 1153,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w777838452",
+      "name": null,
+      "areaM2": 4982,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w892321987",
+      "name": null,
+      "areaM2": 2081,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w892321988",
+      "name": null,
+      "areaM2": 2670,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w892463095",
+      "name": null,
+      "areaM2": 74627,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w899266398",
+      "name": null,
+      "areaM2": 1606,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w899266399",
+      "name": null,
+      "areaM2": 280639,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w901003947",
+      "name": "SAii Lagoon Maldives, Curio Collection by Hilton",
+      "areaM2": 64501,
+      "rule": "hand",
+      "reason": "Reclaimed: one of the CROSSROADS islands on the Emboodhoo lagoon"
+    },
+    {
+      "id": "w901023839",
+      "name": null,
+      "areaM2": 164725,
+      "rule": "hand",
+      "reason": "Land being made: tagged landuse=construction, in the Emboodhoo lagoon beside the CROSSROADS islands"
+    },
+    {
+      "id": "w901023840",
+      "name": null,
+      "areaM2": 80608,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w901023841",
+      "name": null,
+      "areaM2": 44821,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w901023842",
+      "name": null,
+      "areaM2": 36419,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w901023843",
+      "name": null,
+      "areaM2": 61283,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w901809044",
+      "name": null,
+      "areaM2": 867,
+      "rule": "tag",
+      "reason": "tagged landcover=sand: a sandbank or reef, not an island"
+    },
+    {
+      "id": "w901809045",
+      "name": null,
+      "areaM2": 4738,
+      "rule": "tag",
+      "reason": "tagged landcover=sand: a sandbank or reef, not an island"
+    },
+    {
+      "id": "w901809046",
+      "name": null,
+      "areaM2": 2939,
+      "rule": "tag",
+      "reason": "tagged landcover=sand: a sandbank or reef, not an island"
+    },
+    {
+      "id": "w903629298",
+      "name": null,
+      "areaM2": 64473,
+      "rule": "hand",
+      "reason": "Reclaimed: the fourth CROSSROADS island on the Emboodhoo lagoon"
+    },
+    {
+      "id": "w917223996",
+      "name": null,
+      "areaM2": 9574,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w917223997",
+      "name": null,
+      "areaM2": 2282,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w917619457",
+      "name": null,
+      "areaM2": 1426,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w923321175",
+      "name": null,
+      "areaM2": 404,
+      "rule": "small",
+      "reason": "404 m², under 1,000 m²"
+    },
+    {
+      "id": "w941023861",
+      "name": null,
+      "areaM2": 66496,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1037310512",
+      "name": null,
+      "areaM2": 535,
+      "rule": "small",
+      "reason": "535 m², under 1,000 m²"
+    },
+    {
+      "id": "w1037310513",
+      "name": null,
+      "areaM2": 357,
+      "rule": "small",
+      "reason": "357 m², under 1,000 m²"
+    },
+    {
+      "id": "w1066352058",
+      "name": null,
+      "areaM2": 1742,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1066378656",
+      "name": null,
+      "areaM2": 71919,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1067643669",
+      "name": "Gulhifalhu",
+      "areaM2": 2100560,
+      "rule": "hand",
+      "reason": "Reclaimed: land made on the Gulhifalhu lagoon (falhu = lagoon) for the new port"
+    },
+    {
+      "id": "w1069295744",
+      "name": null,
+      "areaM2": 23847,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1101517054",
+      "name": null,
+      "areaM2": 1367,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1107680802",
+      "name": null,
+      "areaM2": 2290,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1153858906",
+      "name": null,
+      "areaM2": 2032,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1154123850",
+      "name": null,
+      "areaM2": 7637,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1154123851",
+      "name": null,
+      "areaM2": 7311,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1280234758",
+      "name": null,
+      "areaM2": 284,
+      "rule": "small",
+      "reason": "284 m², under 1,000 m²"
+    },
+    {
+      "id": "w1301697249",
+      "name": "Kodhipparu Falhu",
+      "areaM2": 203140,
+      "rule": "hand",
+      "reason": "Reclaimed: a lagoon (falhu) made into land"
+    },
+    {
+      "id": "w1312724130",
+      "name": null,
+      "areaM2": 141160,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1312727552",
+      "name": null,
+      "areaM2": 70150,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1312943329",
+      "name": null,
+      "areaM2": 398899,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1312944602",
+      "name": null,
+      "areaM2": 31773,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1312945059",
+      "name": null,
+      "areaM2": 199663,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1312945180",
+      "name": null,
+      "areaM2": 114784,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1312945373",
+      "name": null,
+      "areaM2": 115252,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1312945745",
+      "name": null,
+      "areaM2": 97870,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1312946272",
+      "name": null,
+      "areaM2": 6148,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1312946812",
+      "name": null,
+      "areaM2": 114896,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1312950111",
+      "name": null,
+      "areaM2": 19777,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1312950238",
+      "name": null,
+      "areaM2": 25046,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1312962768",
+      "name": null,
+      "areaM2": 22250,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1312963288",
+      "name": null,
+      "areaM2": 66179,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1312963500",
+      "name": null,
+      "areaM2": 11463,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1312964524",
+      "name": null,
+      "areaM2": 113086,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1312965135",
+      "name": null,
+      "areaM2": 74642,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1312965569",
+      "name": null,
+      "areaM2": 66342,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1312965659",
+      "name": null,
+      "areaM2": 57970,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1312966228",
+      "name": null,
+      "areaM2": 28595,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1312966697",
+      "name": null,
+      "areaM2": 64756,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1312968133",
+      "name": null,
+      "areaM2": 97990,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1312968873",
+      "name": null,
+      "areaM2": 45341,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1312969487",
+      "name": null,
+      "areaM2": 139652,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1317654033",
+      "name": null,
+      "areaM2": 3363,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1317928813",
+      "name": null,
+      "areaM2": 4239,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1324298508",
+      "name": null,
+      "areaM2": 9786,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1327249492",
+      "name": "Giraavaru Falhu",
+      "areaM2": 1497201,
+      "rule": "hand",
+      "reason": "Reclaimed: a lagoon (falhu) made into land"
+    },
+    {
+      "id": "w1329850644",
+      "name": null,
+      "areaM2": 537,
+      "rule": "small",
+      "reason": "537 m², under 1,000 m²"
+    },
+    {
+      "id": "w1329850645",
+      "name": null,
+      "areaM2": 2717,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1329850646",
+      "name": null,
+      "areaM2": 34808,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1329850647",
+      "name": null,
+      "areaM2": 53958,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1329850648",
+      "name": null,
+      "areaM2": 142108,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1329850649",
+      "name": null,
+      "areaM2": 55579,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1329850650",
+      "name": null,
+      "areaM2": 31769,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1329850651",
+      "name": null,
+      "areaM2": 5587,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1329859164",
+      "name": null,
+      "areaM2": 121261,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1329859165",
+      "name": null,
+      "areaM2": 99059,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1329880417",
+      "name": null,
+      "areaM2": 44406,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1329880418",
+      "name": null,
+      "areaM2": 4256,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1329880419",
+      "name": null,
+      "areaM2": 4719,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1329880420",
+      "name": null,
+      "areaM2": 4331,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1329880421",
+      "name": null,
+      "areaM2": 4215,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1329880422",
+      "name": null,
+      "areaM2": 1753,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1329880423",
+      "name": null,
+      "areaM2": 2419,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1329880864",
+      "name": null,
+      "areaM2": 1607,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1329882990",
+      "name": null,
+      "areaM2": 14682,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1329882991",
+      "name": null,
+      "areaM2": 6297,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1329882992",
+      "name": null,
+      "areaM2": 543082,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1329882993",
+      "name": null,
+      "areaM2": 7719,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1329882994",
+      "name": null,
+      "areaM2": 27512,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1329882995",
+      "name": null,
+      "areaM2": 6285,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1329882996",
+      "name": null,
+      "areaM2": 21158,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1329882997",
+      "name": null,
+      "areaM2": 752907,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1329882998",
+      "name": null,
+      "areaM2": 91414,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1329882999",
+      "name": null,
+      "areaM2": 2225697,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1329883000",
+      "name": "Ras Male",
+      "areaM2": 1155358,
+      "rule": "hand",
+      "reason": "Reclaimed: the Ras Malé project on the Fushidhiggaru lagoon"
+    },
+    {
+      "id": "w1329886747",
+      "name": null,
+      "areaM2": 8797,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1329886748",
+      "name": null,
+      "areaM2": 3748,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1409168450",
+      "name": null,
+      "areaM2": 11324,
+      "rule": "tag",
+      "reason": "tagged man_made=quay: built, not an island"
+    },
+    {
+      "id": "w1451660765",
+      "name": null,
+      "areaM2": 6174,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1466413384",
+      "name": null,
+      "areaM2": 3030,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1507762184",
+      "name": "Ras Male",
+      "areaM2": 1947121,
+      "rule": "hand",
+      "reason": "Reclaimed: the Ras Malé project on the Fushidhiggaru lagoon (a second ring of it)"
+    },
+    {
+      "id": "w1510472712",
+      "name": null,
+      "areaM2": 52027,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1526418296",
+      "name": null,
+      "areaM2": 12814,
+      "rule": "tag",
+      "reason": "tagged man_made=quay: built, not an island"
+    },
+    {
+      "id": "w1526419145",
+      "name": null,
+      "areaM2": 6856,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1530862675",
+      "name": null,
+      "areaM2": 45513,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1530863633",
+      "name": null,
+      "areaM2": 1577458,
+      "rule": "bare",
+      "reason": "no name, no mapped vegetation and no buildings"
+    },
+    {
+      "id": "w1557881828",
+      "name": null,
+      "areaM2": 10,
+      "rule": "small",
+      "reason": "10 m², under 1,000 m²"
+    },
+    {
+      "id": "w1557881829",
+      "name": null,
+      "areaM2": 27,
+      "rule": "small",
+      "reason": "27 m², under 1,000 m²"
+    },
+    {
+      "id": "w1557881830",
+      "name": null,
+      "areaM2": 385,
+      "rule": "small",
+      "reason": "385 m², under 1,000 m²"
+    }
+  ],
+  "review": {
+    "why": "Kept by filter v1, and worth the owner's eye at AC136: OSM cannot say whether these are sandbanks or reclaimed land",
+    "keptOnNameAlone": [
+      {
+        "id": "w19879243",
+        "name": "ބޮޑުގާހުރާ",
+        "areaM2": 5305
+      },
+      {
+        "id": "w19879249",
+        "name": "Vakkaru",
+        "areaM2": 148947
+      },
+      {
+        "id": "w19879262",
+        "name": "Inguraidhoo",
+        "areaM2": 462802
+      },
+      {
+        "id": "w19879274",
+        "name": "Vavvaru",
+        "areaM2": 60863
+      },
+      {
+        "id": "w19879276",
+        "name": "Bodu",
+        "areaM2": 96376
+      },
+      {
+        "id": "w19879287",
+        "name": "Raiyruhhuraa",
+        "areaM2": 22434
+      },
+      {
+        "id": "w19879295",
+        "name": "Nelifunadhoo",
+        "areaM2": 12640
+      },
+      {
+        "id": "w19879298",
+        "name": "ފެހިގިލި",
+        "areaM2": 5798
+      },
+      {
+        "id": "w19879303",
+        "name": "Boduhuraa",
+        "areaM2": 5040
+      },
+      {
+        "id": "w19879306",
+        "name": "Faridhoo",
+        "areaM2": 273241
+      },
+      {
+        "id": "w19879325",
+        "name": "Ookolhufinolhu",
+        "areaM2": 109609
+      },
+      {
+        "id": "w19879329",
+        "name": "Maabinhuraa",
+        "areaM2": 412037
+      },
+      {
+        "id": "w19879333",
+        "name": "Meedhaahuraa",
+        "areaM2": 25434
+      },
+      {
+        "id": "w19879338",
+        "name": "Kuredhivaru",
+        "areaM2": 102602
+      },
+      {
+        "id": "w19879351",
+        "name": "Kurendhoo",
+        "areaM2": 225566
+      },
+      {
+        "id": "w19879355",
+        "name": "Dhonakulhi",
+        "areaM2": 321143
+      },
+      {
+        "id": "w19879404",
+        "name": "މާކޯ",
+        "areaM2": 242616
+      },
+      {
+        "id": "w19879405",
+        "name": "Selhlhifushi",
+        "areaM2": 827390
+      },
+      {
+        "id": "w19879407",
+        "name": "Foddhoo",
+        "areaM2": 263679
+      },
+      {
+        "id": "w19879413",
+        "name": "Olhuvelifushi",
+        "areaM2": 279275
+      },
+      {
+        "id": "w19879420",
+        "name": "Maakandoodhoo",
+        "areaM2": 895104
+      },
+      {
+        "id": "w19879421",
+        "name": "Randheli",
+        "areaM2": 95332
+      },
+      {
+        "id": "w19879427",
+        "name": "Komandoo",
+        "areaM2": 109331
+      },
+      {
+        "id": "w19879440",
+        "name": "Bodutaru Island",
+        "areaM2": 34848
+      },
+      {
+        "id": "w19879456",
+        "name": "Lhohi",
+        "areaM2": 101462
+      },
+      {
+        "id": "w19879467",
+        "name": "ވިހަފަރުފިނޮޅު",
+        "areaM2": 1262
+      },
+      {
+        "id": "w19879480",
+        "name": "Berinmadhoo",
+        "areaM2": 156079
+      },
+      {
+        "id": "w19879489",
+        "name": "Dhigufaruhuraa",
+        "areaM2": 6729
+      },
+      {
+        "id": "w19879497",
+        "name": "ދެރުއްފިނޮޅު",
+        "areaM2": 56690
+      },
+      {
+        "id": "w19879499",
+        "name": "Kunburudhoo",
+        "areaM2": 497247
+      },
+      {
+        "id": "w19879507",
+        "name": "Mayyaafushi",
+        "areaM2": 73632
+      },
+      {
+        "id": "w19879542",
+        "name": "Voavah",
+        "areaM2": 29536
+      },
+      {
+        "id": "w19879555",
+        "name": "Lhossalafushi",
+        "areaM2": 304512
+      },
+      {
+        "id": "w19879559",
+        "name": "Aligaa",
+        "areaM2": 21923
+      },
+      {
+        "id": "w19879584",
+        "name": "Medhafushi",
+        "areaM2": 15015
+      },
+      {
+        "id": "w19879593",
+        "name": "ފާދޫހުރާގަނޑު",
+        "areaM2": 6581
+      },
+      {
+        "id": "w19879605",
+        "name": "Fainuaadhamhuraa",
+        "areaM2": 622722
+      },
+      {
+        "id": "w19879610",
+        "name": "Varihuraa",
+        "areaM2": 21620
+      },
+      {
+        "id": "w19879621",
+        "name": "Muthaafushi",
+        "areaM2": 56207
+      },
+      {
+        "id": "w19879624",
+        "name": "Faadhoo",
+        "areaM2": 130543
+      },
+      {
+        "id": "w19879626",
+        "name": "Maafinolhu",
+        "areaM2": 159562
+      },
+      {
+        "id": "w19879633",
+        "name": "Feevah",
+        "areaM2": 916238
+      },
+      {
+        "id": "w19879651",
+        "name": "ބޮޑުފިނޮޅު",
+        "areaM2": 1041
+      },
+      {
+        "id": "w19879660",
+        "name": "Boifushi",
+        "areaM2": 8800
+      },
+      {
+        "id": "w19879662",
+        "name": "Farukolhu",
+        "areaM2": 733135
+      },
+      {
+        "id": "w19879669",
+        "name": "Vattaru",
+        "areaM2": 434412
+      },
+      {
+        "id": "w19879670",
+        "name": "Hirubadhoo",
+        "areaM2": 132329
+      },
+      {
+        "id": "w19879676",
+        "name": "Fasgandufaru",
+        "areaM2": 9465
+      },
+      {
+        "id": "w19879691",
+        "name": "Horubadhoo",
+        "areaM2": 162642
+      },
+      {
+        "id": "w19879698",
+        "name": "Kudalhaimendhoo",
+        "areaM2": 145794
+      },
+      {
+        "id": "w19879700",
+        "name": "Kandholhudhoo",
+        "areaM2": 115290
+      },
+      {
+        "id": "w19879708",
+        "name": "Alidhuffarufinolhu",
+        "areaM2": 20369
+      },
+      {
+        "id": "w19879713",
+        "name": "Bathalaa",
+        "areaM2": 40545
+      },
+      {
+        "id": "w19879738",
+        "name": "Madhiriguraidhoo",
+        "areaM2": 252743
+      },
+      {
+        "id": "w19879745",
+        "name": "Dhoogandufinolhu",
+        "areaM2": 5852
+      },
+      {
+        "id": "w19879755",
+        "name": "Innahura",
+        "areaM2": 108853
+      },
+      {
+        "id": "w19881911",
+        "name": "Rasfari",
+        "areaM2": 18632
+      },
+      {
+        "id": "w19881918",
+        "name": "Bileddhoo",
+        "areaM2": 297230
+      },
+      {
+        "id": "w19881929",
+        "name": "Dhinnolhu Finolhu",
+        "areaM2": 12462
+      },
+      {
+        "id": "w19881931",
+        "name": "Naladhu",
+        "areaM2": 30925
+      },
+      {
+        "id": "w19881946",
+        "name": "Makunudu Island",
+        "areaM2": 32967
+      },
+      {
+        "id": "w19881962",
+        "name": "Himandhoo",
+        "areaM2": 167409
+      },
+      {
+        "id": "w19881976",
+        "name": "Lankanfinolhu",
+        "areaM2": 58624
+      },
+      {
+        "id": "w19881977",
+        "name": "Jinnathugau",
+        "areaM2": 25892
+      },
+      {
+        "id": "w19881981",
+        "name": "Spa Island",
+        "areaM2": 5408
+      },
+      {
+        "id": "w19881991",
+        "name": "Mandhoo",
+        "areaM2": 390775
+      },
+      {
+        "id": "w19881992",
+        "name": "Gasfinolhu",
+        "areaM2": 74814
+      },
+      {
+        "id": "w19881996",
+        "name": "Mirihi",
+        "areaM2": 18156
+      },
+      {
+        "id": "w19882014",
+        "name": "Oligandufinolhu",
+        "areaM2": 6730
+      },
+      {
+        "id": "w19882029",
+        "name": "Lonubo",
+        "areaM2": 8348
+      },
+      {
+        "id": "w19882030",
+        "name": "Villinglivaru",
+        "areaM2": 22341
+      },
+      {
+        "id": "w19882048",
+        "name": "Maduvvaree",
+        "areaM2": 142873
+      },
+      {
+        "id": "w19882051",
+        "name": "Nakachcchaafushi",
+        "areaM2": 42561
+      },
+      {
+        "id": "w19882071",
+        "name": "Raabandhihuraa",
+        "areaM2": 12753
+      },
+      {
+        "id": "w19882073",
+        "name": "sandbank",
+        "areaM2": 6392
+      },
+      {
+        "id": "w19882081",
+        "name": "Madivaruhuraa",
+        "areaM2": 12944
+      },
+      {
+        "id": "w19882092",
+        "name": "Dhiguvarufinolhu",
+        "areaM2": 6486
+      },
+      {
+        "id": "w19882108",
+        "name": "Innafushi",
+        "areaM2": 35062
+      },
+      {
+        "id": "w19882134",
+        "name": "Ehrruh-haa",
+        "areaM2": 4371
+      },
+      {
+        "id": "w19882152",
+        "name": "Villingilimathidhahuraa",
+        "areaM2": 178680
+      },
+      {
+        "id": "w19882160",
+        "name": "Madifushi",
+        "areaM2": 201763
+      },
+      {
+        "id": "w19882170",
+        "name": "Ruhhurihuraa",
+        "areaM2": 6714
+      },
+      {
+        "id": "w19882172",
+        "name": "Heenfaru",
+        "areaM2": 18740
+      },
+      {
+        "id": "w19882174",
+        "name": "Machchafushi",
+        "areaM2": 41049
+      },
+      {
+        "id": "w19882175",
+        "name": "Enbulufushi",
+        "areaM2": 17702
+      },
+      {
+        "id": "w19882183",
+        "name": "Kalhuhandhihuraa",
+        "areaM2": 13858
+      },
+      {
+        "id": "w19882185",
+        "name": "Feeali",
+        "areaM2": 180000
+      },
+      {
+        "id": "w19882756",
+        "name": "Rinbudhoo",
+        "areaM2": 176634
+      },
+      {
+        "id": "w19882759",
+        "name": "Hiriyanfushi",
+        "areaM2": 82704
+      },
+      {
+        "id": "w19882764",
+        "name": "Bandidhoo",
+        "areaM2": 238788
+      },
+      {
+        "id": "w19882780",
+        "name": "Ruththibirah",
+        "areaM2": 84235
+      },
+      {
+        "id": "w19882811",
+        "name": "Gaadhiffushi",
+        "areaM2": 136152
+      },
+      {
+        "id": "w19882817",
+        "name": "Gaadhiffushi",
+        "areaM2": 9598
+      },
+      {
+        "id": "w19882833",
+        "name": "Kudakibidhoo",
+        "areaM2": 13161
+      },
+      {
+        "id": "w19882839",
+        "name": "Maadheli",
+        "areaM2": 227162
+      },
+      {
+        "id": "w19882857",
+        "name": "Fonagaadhoo",
+        "areaM2": 89480
+      },
+      {
+        "id": "w19882880",
+        "name": "Maausfushi",
+        "areaM2": 103179
+      },
+      {
+        "id": "w19882884",
+        "name": "Faandhoo",
+        "areaM2": 64724
+      },
+      {
+        "id": "w19882886",
+        "name": "Maahuraa",
+        "areaM2": 107827
+      },
+      {
+        "id": "w19882903",
+        "name": "Dhiththudi",
+        "areaM2": 99817
+      },
+      {
+        "id": "w19882915",
+        "name": "Kuradhigandu",
+        "areaM2": 18154
+      },
+      {
+        "id": "w19882943",
+        "name": "Gongaleehuraa",
+        "areaM2": 5391
+      },
+      {
+        "id": "w19882946",
+        "name": "Seedheehuraa",
+        "areaM2": 15534
+      },
+      {
+        "id": "w19882971",
+        "name": "Dhanbidhoo",
+        "areaM2": 563156
+      },
+      {
+        "id": "w19883007",
+        "name": "Mahufuri",
+        "areaM2": 95365
+      },
+      {
+        "id": "w19883016",
+        "name": "Dhekunuboduveli",
+        "areaM2": 78130
+      },
+      {
+        "id": "w19883024",
+        "name": "Gasveli",
+        "areaM2": 5248
+      },
+      {
+        "id": "w19883073",
+        "name": "Bodufinolhu",
+        "areaM2": 8471
+      },
+      {
+        "id": "w19883076",
+        "name": "Guraidhoo",
+        "areaM2": 322862
+      },
+      {
+        "id": "w19883085",
+        "name": "Omadhoo",
+        "areaM2": 359988
+      },
+      {
+        "id": "w19883089",
+        "name": "Kandoodhoo",
+        "areaM2": 833594
+      },
+      {
+        "id": "w19883092",
+        "name": "Maalefushi",
+        "areaM2": 110380
+      },
+      {
+        "id": "w19883095",
+        "name": "Kudadhoo",
+        "areaM2": 6522
+      },
+      {
+        "id": "w19883140",
+        "name": "Hirilandhoo",
+        "areaM2": 277575
+      },
+      {
+        "id": "w19883150",
+        "name": "Burunee",
+        "areaM2": 359915
+      },
+      {
+        "id": "w19883175",
+        "name": "Olhufushi",
+        "areaM2": 22018
+      },
+      {
+        "id": "w19883178",
+        "name": "Hulhuvehi",
+        "areaM2": 39603
+      },
+      {
+        "id": "w19883181",
+        "name": "Kafidhoo",
+        "areaM2": 26407
+      },
+      {
+        "id": "w19883185",
+        "name": "Maabaidhoo",
+        "areaM2": 529574
+      },
+      {
+        "id": "w19883190",
+        "name": "Mathidhoo",
+        "areaM2": 64302
+      },
+      {
+        "id": "w19883194",
+        "name": "Fenfuraaveli",
+        "areaM2": 51827
+      },
+      {
+        "id": "w19883196",
+        "name": "Seedhihuraaveligandu",
+        "areaM2": 4859
+      },
+      {
+        "id": "w19883216",
+        "name": "Vilufushi",
+        "areaM2": 593497
+      },
+      {
+        "id": "w19932247",
+        "name": "Médhuhuttaa",
+        "areaM2": 30879
+      },
+      {
+        "id": "w19932305",
+        "name": "Maguhdhuvaa",
+        "areaM2": 135119
+      },
+      {
+        "id": "w19932308",
+        "name": "Laihaa",
+        "areaM2": 27116
+      },
+      {
+        "id": "w19932420",
+        "name": "Kolamaafushi",
+        "areaM2": 349730
+      },
+      {
+        "id": "w19932422",
+        "name": "Fares Maathodaa",
+        "areaM2": 446910
+      },
+      {
+        "id": "w19932513",
+        "name": "Dhiyadhoo",
+        "areaM2": 462784
+      },
+      {
+        "id": "w19932545",
+        "name": "Kanduhulhudhoo",
+        "areaM2": 326422
+      },
+      {
+        "id": "w81459760",
+        "name": "Maalhos",
+        "areaM2": 378227
+      },
+      {
+        "id": "w171141739",
+        "name": "Ismehela Hera",
+        "areaM2": 81691
+      },
+      {
+        "id": "w210861947",
+        "name": "Aarahaa",
+        "areaM2": 1853
+      },
+      {
+        "id": "w229737629",
+        "name": "Kolhufushi",
+        "areaM2": 39138
+      },
+      {
+        "id": "w398963589",
+        "name": "Ahivaffushi",
+        "areaM2": 3455
+      },
+      {
+        "id": "w399029147",
+        "name": "Maamunagaufinolhu",
+        "areaM2": 3531
+      },
+      {
+        "id": "w399029153",
+        "name": "Ethigan'du jehihuraa",
+        "areaM2": 18146
+      },
+      {
+        "id": "w441740970",
+        "name": "ފެހިގިލި",
+        "areaM2": 2808
+      },
+      {
+        "id": "w441740971",
+        "name": "ދެހުރާއެއްވިރަށް",
+        "areaM2": 7683
+      },
+      {
+        "id": "w441740978",
+        "name": "Musleygihuraa",
+        "areaM2": 6948
+      },
+      {
+        "id": "w441740979",
+        "name": "Dream Island",
+        "areaM2": 16350
+      },
+      {
+        "id": "w441740983",
+        "name": "Medhadhihuraa",
+        "areaM2": 12415
+      },
+      {
+        "id": "w441740987",
+        "name": "Gaavelifaru",
+        "areaM2": 33782
+      },
+      {
+        "id": "w441740990",
+        "name": "Hinnavaru",
+        "areaM2": 535950
+      },
+      {
+        "id": "w478261407",
+        "name": "Cheval Blanc Spa",
+        "areaM2": 15302
+      },
+      {
+        "id": "w478773228",
+        "name": "Cheval Blanc Randheli Private Island",
+        "areaM2": 12080
+      },
+      {
+        "id": "w482811500",
+        "name": "Dhururehaa",
+        "areaM2": 100575
+      },
+      {
+        "id": "w483093186",
+        "name": "Ekasdhoo",
+        "areaM2": 924706
+      },
+      {
+        "id": "w483721185",
+        "name": "Thunduhuraa",
+        "areaM2": 3317
+      },
+      {
+        "id": "w744474366",
+        "name": "Amingiri Resort",
+        "areaM2": 118120
+      },
+      {
+        "id": "w892343309",
+        "name": "The Ritz Carlton Maldives Fari Islands",
+        "areaM2": 8172
+      },
+      {
+        "id": "w892462425",
+        "name": "Capella Maldives",
+        "areaM2": 158544
+      },
+      {
+        "id": "w1312944506",
+        "name": "Mantafushi Island",
+        "areaM2": 295841
+      },
+      {
+        "id": "w1566874079",
+        "name": "Mathifaruhuraa",
+        "areaM2": 8896
+      }
+    ],
+    "keptUnnamedOnBuildingsAlone": [
+      {
+        "id": "w19879644",
+        "areaM2": 590987,
+        "buildings": 1
+      },
+      {
+        "id": "w19882020",
+        "areaM2": 7758,
+        "buildings": 12
+      },
+      {
+        "id": "w19882100",
+        "areaM2": 30426,
+        "buildings": 2
+      },
+      {
+        "id": "w19882101",
+        "areaM2": 3667,
+        "buildings": 2
+      },
+      {
+        "id": "w19882198",
+        "areaM2": 29673,
+        "buildings": 13
+      },
+      {
+        "id": "w19882200",
+        "areaM2": 9476,
+        "buildings": 5
+      },
+      {
+        "id": "w19882883",
+        "areaM2": 68589,
+        "buildings": 7
+      },
+      {
+        "id": "w19882950",
+        "areaM2": 4103,
+        "buildings": 1
+      },
+      {
+        "id": "w19932264",
+        "areaM2": 68365,
+        "buildings": 1
+      },
+      {
+        "id": "w19932413",
+        "areaM2": 48801,
+        "buildings": 1
+      },
+      {
+        "id": "w31786900",
+        "areaM2": 1725465,
+        "buildings": 2
+      },
+      {
+        "id": "w142897832",
+        "areaM2": 3561,
+        "buildings": 2
+      },
+      {
+        "id": "w151261631",
+        "areaM2": 2463,
+        "buildings": 3
+      },
+      {
+        "id": "w678479116",
+        "areaM2": 1923,
+        "buildings": 1
+      },
+      {
+        "id": "w716398268",
+        "areaM2": 21383,
+        "buildings": 10
+      },
+      {
+        "id": "w778381695",
+        "areaM2": 63522,
+        "buildings": 11
+      },
+      {
+        "id": "w892346586",
+        "areaM2": 43903,
+        "buildings": 21
+      },
+      {
+        "id": "w892770518",
+        "areaM2": 79141,
+        "buildings": 29
+      },
+      {
+        "id": "w901023837",
+        "areaM2": 32513,
+        "buildings": 5
+      },
+      {
+        "id": "w901023838",
+        "areaM2": 44011,
+        "buildings": 1
+      },
+      {
+        "id": "w917619445",
+        "areaM2": 70312,
+        "buildings": 45
+      },
+      {
+        "id": "w917619446",
+        "areaM2": 9991,
+        "buildings": 8
+      },
+      {
+        "id": "w917619447",
+        "areaM2": 6907,
+        "buildings": 2
+      },
+      {
+        "id": "w917619449",
+        "areaM2": 51036,
+        "buildings": 40
+      },
+      {
+        "id": "w1104753213",
+        "areaM2": 535397,
+        "buildings": 1
+      },
+      {
+        "id": "w1312947388",
+        "areaM2": 380653,
+        "buildings": 7
+      },
+      {
+        "id": "w1408926397",
+        "areaM2": 1604,
+        "buildings": 1
+      },
+      {
+        "id": "w1408926398",
+        "areaM2": 2743,
+        "buildings": 1
+      }
+    ],
+    "keptWithAeroway": [
+      {
+        "id": "w19879264",
+        "name": "Madivaru"
+      },
+      {
+        "id": "w19879285",
+        "name": "Maafaru"
+      },
+      {
+        "id": "w19879286",
+        "name": "Ifuru"
+      },
+      {
+        "id": "w19879369",
+        "name": "Funadhoo"
+      },
+      {
+        "id": "w19879386",
+        "name": "Hoarafushi"
+      },
+      {
+        "id": "w19879614",
+        "name": "Hanimaadhoo"
+      },
+      {
+        "id": "w19879671",
+        "name": "Kulhudhuffushi"
+      },
+      {
+        "id": "w19879730",
+        "name": "Dharavandhoo"
+      },
+      {
+        "id": "w19882771",
+        "name": "Thimarafushi"
+      },
+      {
+        "id": "w19883142",
+        "name": "Kudahuvadhoo"
+      },
+      {
+        "id": "w19883183",
+        "name": "Muli"
+      },
+      {
+        "id": "w19932321",
+        "name": "Maavarulu"
+      },
+      {
+        "id": "w19932532",
+        "name": "Kaadedhdhoo"
+      },
+      {
+        "id": "w20108239",
+        "name": "Kaadedhdhoo"
+      },
+      {
+        "id": "w31786869",
+        "name": "Gan"
+      },
+      {
+        "id": "w223971265",
+        "name": "Fuvahmulah"
+      },
+      {
+        "id": "w274218294",
+        "name": "Kooddoo"
+      },
+      {
+        "id": "w1104753213",
+        "name": null
+      },
+      {
+        "id": "w1319728540",
+        "name": "Maamigili"
+      }
+    ]
+  },
+  "names": [
+    {
+      "id": "r9328389",
+      "name": "Maafushi",
+      "nameEn": null
+    },
+    {
+      "id": "r14391899",
+      "name": "މާލެ",
+      "nameEn": "Malé"
+    },
+    {
+      "id": "r14759254",
+      "name": "Kuramathi Island Resort",
+      "nameEn": null
+    },
+    {
+      "id": "w3990127",
+      "name": "Embudu",
+      "nameEn": null
+    },
+    {
+      "id": "w19879238",
+      "name": "Kanufushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19879239",
+      "name": "ކިހާދޫ",
+      "nameEn": "Kihaadhoo"
+    },
+    {
+      "id": "w19879243",
+      "name": "ބޮޑުގާހުރާ",
+      "nameEn": null
+    },
+    {
+      "id": "w19879247",
+      "name": "Maamaduvvari",
+      "nameEn": null
+    },
+    {
+      "id": "w19879248",
+      "name": "އުނގޫފާރު",
+      "nameEn": "Ungoofaaru"
+    },
+    {
+      "id": "w19879249",
+      "name": "Vakkaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19879252",
+      "name": "މަޑުއްވަރީ",
+      "nameEn": null
+    },
+    {
+      "id": "w19879253",
+      "name": "އިއްނަމާދޫ",
+      "nameEn": "Innamaadhoo"
+    },
+    {
+      "id": "w19879255",
+      "name": "Vaikaramuraidhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879259",
+      "name": "Hirundhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879262",
+      "name": "އިނގުރައިދޫ",
+      "nameEn": "Inguraidhoo"
+    },
+    {
+      "id": "w19879264",
+      "name": "މަޑިވަރު",
+      "nameEn": "Madivaru"
+    },
+    {
+      "id": "w19879267",
+      "name": "Loafaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19879270",
+      "name": "ނޮޅިވަރަމް",
+      "nameEn": "Nolhivaram"
+    },
+    {
+      "id": "w19879272",
+      "name": "Kudafushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19879274",
+      "name": "ވައްވަރު",
+      "nameEn": "Vavvaru"
+    },
+    {
+      "id": "w19879276",
+      "name": "Bodu",
+      "nameEn": null
+    },
+    {
+      "id": "w19879278",
+      "name": "ތަކަންދޫ",
+      "nameEn": "Thakandhoo"
+    },
+    {
+      "id": "w19879280",
+      "name": "Hiboodhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879282",
+      "name": "InterContinental Maldives Resort",
+      "nameEn": null
+    },
+    {
+      "id": "w19879283",
+      "name": "ކަމަދޫ",
+      "nameEn": "Kamadhoo"
+    },
+    {
+      "id": "w19879285",
+      "name": "މާފަރު",
+      "nameEn": "Maafaru"
+    },
+    {
+      "id": "w19879286",
+      "name": "Ifuru",
+      "nameEn": null
+    },
+    {
+      "id": "w19879287",
+      "name": "ރަތްރުއްހުރާ",
+      "nameEn": "Raiyruhhuraa"
+    },
+    {
+      "id": "w19879288",
+      "name": "Maarikilu",
+      "nameEn": null
+    },
+    {
+      "id": "w19879291",
+      "name": "Kadinmahuraa",
+      "nameEn": null
+    },
+    {
+      "id": "w19879292",
+      "name": "Maanenfushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19879294",
+      "name": "ދިއްދޫ",
+      "nameEn": "Dhidhdhoo"
+    },
+    {
+      "id": "w19879295",
+      "name": "Nelifunadhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879298",
+      "name": "ފެހިގިލި",
+      "nameEn": null
+    },
+    {
+      "id": "w19879300",
+      "name": "Ugulufinolhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19879301",
+      "name": "Mudhdhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879303",
+      "name": "Boduhuraa",
+      "nameEn": null
+    },
+    {
+      "id": "w19879306",
+      "name": "Faridhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879308",
+      "name": "ހޮޅުދޫ",
+      "nameEn": "Holhudhoo"
+    },
+    {
+      "id": "w19879310",
+      "name": "Govvaafushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19879311",
+      "name": "Ufuligiri",
+      "nameEn": null
+    },
+    {
+      "id": "w19879312",
+      "name": "Kanifushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19879320",
+      "name": "ވެލިދޫ",
+      "nameEn": "Velidhoo"
+    },
+    {
+      "id": "w19879323",
+      "name": "ފެލިވަރު",
+      "nameEn": "Felivaru"
+    },
+    {
+      "id": "w19879325",
+      "name": "Ookolhufinolhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19879327",
+      "name": "މާކުރަތު",
+      "nameEn": "Maakurathu"
+    },
+    {
+      "id": "w19879328",
+      "name": "ކިނޮޅަސް",
+      "nameEn": "Kinolhas"
+    },
+    {
+      "id": "w19879329",
+      "name": "މާބިންހުރާ",
+      "nameEn": "Maabinhuraa"
+    },
+    {
+      "id": "w19879333",
+      "name": "މީދާހުރާ",
+      "nameEn": "Meedhaahuraa"
+    },
+    {
+      "id": "w19879334",
+      "name": "Keyodhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879335",
+      "name": "Dhigali",
+      "nameEn": null
+    },
+    {
+      "id": "w19879338",
+      "name": "Kuredhivaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19879339",
+      "name": "މަގޫދޫ",
+      "nameEn": "Magoodhoo"
+    },
+    {
+      "id": "w19879340",
+      "name": "Huvahandhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879343",
+      "name": "Hathifushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19879344",
+      "name": "ނޭކުރެންދޫ",
+      "nameEn": "Neykurendhoo"
+    },
+    {
+      "id": "w19879346",
+      "name": "މާޅޮސް",
+      "nameEn": "Maalhos"
+    },
+    {
+      "id": "w19879348",
+      "name": "ނަރުދޫ",
+      "nameEn": "Narudhoo"
+    },
+    {
+      "id": "w19879350",
+      "name": "Kanufusheegaathufinolhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19879351",
+      "name": "ކުރެންދޫ",
+      "nameEn": "Kurendhoo"
+    },
+    {
+      "id": "w19879353",
+      "name": "ވޭވަށް",
+      "nameEn": "Veyvah"
+    },
+    {
+      "id": "w19879354",
+      "name": "Vagaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19879355",
+      "name": "Dhonakulhi",
+      "nameEn": null
+    },
+    {
+      "id": "w19879358",
+      "name": "Medhufinolhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19879360",
+      "name": "Medhufaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19879361",
+      "name": "ޅައިމަގު",
+      "nameEn": "Lhaimagu"
+    },
+    {
+      "id": "w19879363",
+      "name": "Hulhumeedhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879364",
+      "name": "JOALI Maldives",
+      "nameEn": null
+    },
+    {
+      "id": "w19879365",
+      "name": "މަކުނުދޫ",
+      "nameEn": "Makunudhoo"
+    },
+    {
+      "id": "w19879366",
+      "name": "Matheerah",
+      "nameEn": null
+    },
+    {
+      "id": "w19879367",
+      "name": "Kan'doogan'du",
+      "nameEn": null
+    },
+    {
+      "id": "w19879369",
+      "name": "ފުނަދޫ",
+      "nameEn": "Funadhoo"
+    },
+    {
+      "id": "w19879371",
+      "name": "ކުރިނބީ",
+      "nameEn": "Kurinbi"
+    },
+    {
+      "id": "w19879373",
+      "name": "Kihaadhuffaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19879379",
+      "name": null,
+      "nameEn": "Hirinaidhoo"
+    },
+    {
+      "id": "w19879383",
+      "name": "އަނގޮޅިތީމު",
+      "nameEn": "Angolhitheemu"
+    },
+    {
+      "id": "w19879386",
+      "name": "ހޯރަފުށި",
+      "nameEn": "Hoarafushi"
+    },
+    {
+      "id": "w19879388",
+      "name": "ރަސްމާދޫ",
+      "nameEn": "Rasmaadhoo"
+    },
+    {
+      "id": "w19879389",
+      "name": "މަޑުއްވަރި",
+      "nameEn": "Maduvvaree"
+    },
+    {
+      "id": "w19879391",
+      "name": "Arilundhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879395",
+      "name": "Madulu",
+      "nameEn": null
+    },
+    {
+      "id": "w19879396",
+      "name": "Gemendhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879397",
+      "name": "Kothaifaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19879401",
+      "name": "Maamin'gili",
+      "nameEn": null
+    },
+    {
+      "id": "w19879402",
+      "name": "މާއުނގޫދޫ",
+      "nameEn": "Maaungoodhoo"
+    },
+    {
+      "id": "w19879404",
+      "name": "މާކޯ",
+      "nameEn": null
+    },
+    {
+      "id": "w19879405",
+      "name": "Selhlhifushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19879406",
+      "name": "ވަށަފަރު",
+      "nameEn": "Vashafaru"
+    },
+    {
+      "id": "w19879407",
+      "name": "ފޮއްދޫ",
+      "nameEn": "Foddhoo"
+    },
+    {
+      "id": "w19879408",
+      "name": "Kunfunadhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879411",
+      "name": "Kukulhudhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879412",
+      "name": "Hondaafushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19879413",
+      "name": "އޮޅުވެލިފުށި",
+      "nameEn": "Olhuvelifushi"
+    },
+    {
+      "id": "w19879414",
+      "name": "Fenfushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19879415",
+      "name": "އުތީމު",
+      "nameEn": "Utheemu"
+    },
+    {
+      "id": "w19879420",
+      "name": "Maakandoodhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879421",
+      "name": "Randheli",
+      "nameEn": null
+    },
+    {
+      "id": "w19879423",
+      "name": "ވައިކަރަދޫ",
+      "nameEn": "Vaikaradhoo"
+    },
+    {
+      "id": "w19879424",
+      "name": "މިލަދޫ",
+      "nameEn": "Miladhoo"
+    },
+    {
+      "id": "w19879426",
+      "name": "ލަންދޫ",
+      "nameEn": "Landhoo"
+    },
+    {
+      "id": "w19879427",
+      "name": "ކޮމަންޑޫ",
+      "nameEn": "Komandoo"
+    },
+    {
+      "id": "w19879428",
+      "name": "Gaamathikulhudhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879431",
+      "name": "ދޮންފަނު",
+      "nameEn": "Dhonfanu"
+    },
+    {
+      "id": "w19879433",
+      "name": "ގޮއިދޫ",
+      "nameEn": "Goidhoo"
+    },
+    {
+      "id": "w19879434",
+      "name": "ފޯކައިދޫ",
+      "nameEn": "Foakaidhoo"
+    },
+    {
+      "id": "w19879435",
+      "name": "Velifinolhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19879436",
+      "name": "މުރައިދޫ",
+      "nameEn": "Muraidhoo"
+    },
+    {
+      "id": "w19879440",
+      "name": "Bodutaru Island",
+      "nameEn": "Bodutaru Island"
+    },
+    {
+      "id": "w19879442",
+      "name": "Huruvalhi",
+      "nameEn": null
+    },
+    {
+      "id": "w19879443",
+      "name": "މާފިލާފުށި",
+      "nameEn": "Maafilaafushi"
+    },
+    {
+      "id": "w19879445",
+      "name": "Maakurandhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879447",
+      "name": "Aidhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879449",
+      "name": "މަރޮށި",
+      "nameEn": "Maroshi"
+    },
+    {
+      "id": "w19879454",
+      "name": "Gaaun'dhoodhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879456",
+      "name": "ޅޮހި",
+      "nameEn": "Lhohi"
+    },
+    {
+      "id": "w19879457",
+      "name": "Hanifaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19879461",
+      "name": "Kudakurathu",
+      "nameEn": null
+    },
+    {
+      "id": "w19879462",
+      "name": "ނޫމަރާ",
+      "nameEn": "Noomaraa"
+    },
+    {
+      "id": "w19879463",
+      "name": "ހިތާދޫ",
+      "nameEn": "Hithaadhoo"
+    },
+    {
+      "id": "w19879464",
+      "name": "އޭދަފުށި",
+      "nameEn": "Eydhafushi"
+    },
+    {
+      "id": "w19879467",
+      "name": "ވިހަފަރުފިނޮޅު",
+      "nameEn": null
+    },
+    {
+      "id": "w19879468",
+      "name": null,
+      "nameEn": "Naagoashi"
+    },
+    {
+      "id": "w19879473",
+      "name": "ކުޑަފަރީ",
+      "nameEn": "Kudafari"
+    },
+    {
+      "id": "w19879474",
+      "name": "ކެނދިކުޅުދޫ",
+      "nameEn": "Kendhikulhudhoo"
+    },
+    {
+      "id": "w19879480",
+      "name": "Berinmadhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879481",
+      "name": "Migoodhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879482",
+      "name": "Kudafinolhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19879484",
+      "name": "Hunadu",
+      "nameEn": null
+    },
+    {
+      "id": "w19879485",
+      "name": "Kandoodhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879486",
+      "name": "Funadhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879489",
+      "name": "Dhigufaruhuraa",
+      "nameEn": null
+    },
+    {
+      "id": "w19879491",
+      "name": "ޅޮހި",
+      "nameEn": "Lhohi"
+    },
+    {
+      "id": "w19879492",
+      "name": "Iru Fushi Maldives",
+      "nameEn": null
+    },
+    {
+      "id": "w19879495",
+      "name": "Meedhupparu",
+      "nameEn": null
+    },
+    {
+      "id": "w19879496",
+      "name": "Dheburidheythereyvaadhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879497",
+      "name": "ދެރުއްފިނޮޅު",
+      "nameEn": null
+    },
+    {
+      "id": "w19879499",
+      "name": "Kunburudhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879500",
+      "name": "ކެންދޫ",
+      "nameEn": "Kendhoo"
+    },
+    {
+      "id": "w19879501",
+      "name": "Mendhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879506",
+      "name": "ފިނޭ",
+      "nameEn": "Finey"
+    },
+    {
+      "id": "w19879507",
+      "name": "މޭއްޔަފުށިމޭއްޔަފުށި",
+      "nameEn": "Mayyaafushi"
+    },
+    {
+      "id": "w19879510",
+      "name": "Dhigurah",
+      "nameEn": null
+    },
+    {
+      "id": "w19879512",
+      "name": "Fushifaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19879514",
+      "name": "Mulidhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879515",
+      "name": "Beenaafushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19879516",
+      "name": "Kuda-funafaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19879517",
+      "name": "Ungulu",
+      "nameEn": null
+    },
+    {
+      "id": "w19879518",
+      "name": "Innafinolhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19879519",
+      "name": "ފިއްލަދޫ",
+      "nameEn": "Filladhoo"
+    },
+    {
+      "id": "w19879522",
+      "name": "Ufulandhoo",
+      "nameEn": "Ufulandhoo"
+    },
+    {
+      "id": "w19879524",
+      "name": "Lun'dhufushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19879527",
+      "name": "Neyo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879531",
+      "name": "Uligan",
+      "nameEn": null
+    },
+    {
+      "id": "w19879536",
+      "name": "ކަނޑިތީމު",
+      "nameEn": "Kanditheemu"
+    },
+    {
+      "id": "w19879540",
+      "name": "Keylakunu",
+      "nameEn": null
+    },
+    {
+      "id": "w19879541",
+      "name": "Hulhudhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879542",
+      "name": "Voavah",
+      "nameEn": null
+    },
+    {
+      "id": "w19879544",
+      "name": "މިލަންދޫ",
+      "nameEn": "Milandhoo"
+    },
+    {
+      "id": "w19879545",
+      "name": "Manafur",
+      "nameEn": "Manafaru"
+    },
+    {
+      "id": "w19879546",
+      "name": "Undoodhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879548",
+      "name": "Lun'boakandhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879551",
+      "name": "މަނަދޫ",
+      "nameEn": "Manadhoo"
+    },
+    {
+      "id": "w19879555",
+      "name": "ޅޮއްސަލަފުށި",
+      "nameEn": "Lhossalafushi"
+    },
+    {
+      "id": "w19879556",
+      "name": "ހެނބަދޫ",
+      "nameEn": "Henbadhoo"
+    },
+    {
+      "id": "w19879559",
+      "name": "އަލިގާ",
+      "nameEn": "Aligaa"
+    },
+    {
+      "id": "w19879561",
+      "name": "ބިލެތްފަހި",
+      "nameEn": "Bileffahi"
+    },
+    {
+      "id": "w19879563",
+      "name": "Kotafuri",
+      "nameEn": null
+    },
+    {
+      "id": "w19879564",
+      "name": "Kanbaalifaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19879565",
+      "name": "Bodufen maaen'budhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879567",
+      "name": "Hirimaradhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879572",
+      "name": "ކުޑަރިކިލު",
+      "nameEn": "Kudarikilu"
+    },
+    {
+      "id": "w19879573",
+      "name": "Mahafai",
+      "nameEn": null
+    },
+    {
+      "id": "w19879575",
+      "name": "Maaddoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879577",
+      "name": "Naavaidhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879578",
+      "name": "ތިލަމާފުށި",
+      "nameEn": "Thilamaafushi"
+    },
+    {
+      "id": "w19879579",
+      "name": "Komandoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879580",
+      "name": "ފައިނު",
+      "nameEn": "Fainu"
+    },
+    {
+      "id": "w19879582",
+      "name": "Faarufushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19879583",
+      "name": "Goiymaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19879584",
+      "name": "މެދަފުށި",
+      "nameEn": "Medhafushi"
+    },
+    {
+      "id": "w19879586",
+      "name": "Fushivelavaru",
+      "nameEn": "Velaa Private Island"
+    },
+    {
+      "id": "w19879587",
+      "name": "Didhdhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879589",
+      "name": "Neyo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879593",
+      "name": "ފާދޫހުރާގަނޑު",
+      "nameEn": null
+    },
+    {
+      "id": "w19879596",
+      "name": "Orivaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19879598",
+      "name": "Firun'baidhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879599",
+      "name": "Filaidhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879604",
+      "name": "Kuredhdhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879605",
+      "name": "ހުދުފުށި",
+      "nameEn": "Fainuaadhamhuraa"
+    },
+    {
+      "id": "w19879606",
+      "name": "Kattalafushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19879607",
+      "name": "Hulhudhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879610",
+      "name": "ވަރިހުރާ",
+      "nameEn": "Varihuraa"
+    },
+    {
+      "id": "w19879611",
+      "name": "Medhukuburudhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879612",
+      "name": "މާޅެންދޫ",
+      "nameEn": "Maalhendhoo"
+    },
+    {
+      "id": "w19879614",
+      "name": "ހަނިމާދޫ",
+      "nameEn": "Hanimaadhoo"
+    },
+    {
+      "id": "w19879619",
+      "name": "Madhirivaadhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879621",
+      "name": "Muthaafushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19879622",
+      "name": "Veyvah",
+      "nameEn": null
+    },
+    {
+      "id": "w19879623",
+      "name": "Nibiligaa",
+      "nameEn": null
+    },
+    {
+      "id": "w19879624",
+      "name": "ފާދޫ",
+      "nameEn": "Faadhoo"
+    },
+    {
+      "id": "w19879626",
+      "name": "Maafinolhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19879627",
+      "name": "Dhandhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879629",
+      "name": "Milaidhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879630",
+      "name": "Dhigudhefaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19879633",
+      "name": "ފީވައް",
+      "nameEn": "Feevah"
+    },
+    {
+      "id": "w19879635",
+      "name": "Uthurumaafaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19879636",
+      "name": "Coco Palm Dhuni Kolhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19879639",
+      "name": "Than'burudhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879640",
+      "name": "ދުވާފަރު",
+      "nameEn": "Dhuvaafaru"
+    },
+    {
+      "id": "w19879642",
+      "name": "ނޮޅިވަރަންފަރު",
+      "nameEn": "Nolhivaranfaru"
+    },
+    {
+      "id": "w19879646",
+      "name": "Farumuli",
+      "nameEn": null
+    },
+    {
+      "id": "w19879648",
+      "name": "Kihavah huravalhi",
+      "nameEn": null
+    },
+    {
+      "id": "w19879650",
+      "name": "Aarah",
+      "nameEn": null
+    },
+    {
+      "id": "w19879651",
+      "name": "ބޮޑުފިނޮޅު",
+      "nameEn": null
+    },
+    {
+      "id": "w19879656",
+      "name": "Finolhas",
+      "nameEn": null
+    },
+    {
+      "id": "w19879657",
+      "name": "Kudafen maaen'boodhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879658",
+      "name": "ނައިފަރު",
+      "nameEn": "Naifaru"
+    },
+    {
+      "id": "w19879659",
+      "name": "Vinaneiyfaruhuraa",
+      "nameEn": null
+    },
+    {
+      "id": "w19879660",
+      "name": "Boifushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19879662",
+      "name": "Farukolhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19879663",
+      "name": "Gallandhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879666",
+      "name": "Dhigufaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19879669",
+      "name": "Vattaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19879670",
+      "name": "Hirubadhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879671",
+      "name": "ކުޅުދުއްފުށި",
+      "nameEn": "Kulhudhuffushi"
+    },
+    {
+      "id": "w19879672",
+      "name": "Maavaidhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879673",
+      "name": "Anhenunfushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19879674",
+      "name": "Thiladhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879676",
+      "name": "Fasgandufaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19879677",
+      "name": "ދިއްދޫ",
+      "nameEn": null
+    },
+    {
+      "id": "w19879681",
+      "name": "Keekimini",
+      "nameEn": null
+    },
+    {
+      "id": "w19879682",
+      "name": "Thuraakunu",
+      "nameEn": null
+    },
+    {
+      "id": "w19879684",
+      "name": "Kashidhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879685",
+      "name": "Hirinaidhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879687",
+      "name": "Fasmendhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879688",
+      "name": "Gaakoshinbi",
+      "nameEn": null
+    },
+    {
+      "id": "w19879689",
+      "name": "Fuggiri",
+      "nameEn": null
+    },
+    {
+      "id": "w19879690",
+      "name": "ތުޅާދޫ",
+      "nameEn": "Thulhaadhoo"
+    },
+    {
+      "id": "w19879691",
+      "name": "Horubadhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879695",
+      "name": "Fonimagoodhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879698",
+      "name": "Kudalhaimendhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879700",
+      "name": "ކަނދޮޅުދޫ",
+      "nameEn": "Kandholhudhoo"
+    },
+    {
+      "id": "w19879701",
+      "name": "Umarehfinolhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19879703",
+      "name": null,
+      "nameEn": "Kanamana"
+    },
+    {
+      "id": "w19879704",
+      "name": "ވާދޫ",
+      "nameEn": "Vaadhoo"
+    },
+    {
+      "id": "w19879705",
+      "name": "ފޭދޫ",
+      "nameEn": "Feydhoo"
+    },
+    {
+      "id": "w19879707",
+      "name": "ރަސްގެތީމު",
+      "nameEn": "Rasgetheemu"
+    },
+    {
+      "id": "w19879708",
+      "name": "Alidhuffarufinolhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19879713",
+      "name": "Bathalaa",
+      "nameEn": null
+    },
+    {
+      "id": "w19879714",
+      "name": "Fares",
+      "nameEn": null
+    },
+    {
+      "id": "w19879719",
+      "name": "Vilin'gili",
+      "nameEn": null
+    },
+    {
+      "id": "w19879720",
+      "name": "Kuredu Island",
+      "nameEn": null
+    },
+    {
+      "id": "w19879723",
+      "name": "Miriandhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879724",
+      "name": "Hibalhidoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879725",
+      "name": "Vangaaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19879727",
+      "name": "Landaa Giraavaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19879728",
+      "name": "ހއ. އިހަވަންދޫ",
+      "nameEn": "Ihavandhoo"
+    },
+    {
+      "id": "w19879729",
+      "name": "މާރަންދޫ",
+      "nameEn": "Maarandhoo"
+    },
+    {
+      "id": "w19879730",
+      "name": "ދަރަވަންދޫ",
+      "nameEn": "Dharavandhoo"
+    },
+    {
+      "id": "w19879732",
+      "name": "އަލިފުށި",
+      "nameEn": "Alifushi"
+    },
+    {
+      "id": "w19879733",
+      "name": "Medhafushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19879734",
+      "name": "Dhakandhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879737",
+      "name": "Dhigufaruvinagandu",
+      "nameEn": null
+    },
+    {
+      "id": "w19879738",
+      "name": "Madhiriguraidhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879739",
+      "name": "Theefaridhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879740",
+      "name": "Furaveri",
+      "nameEn": null
+    },
+    {
+      "id": "w19879744",
+      "name": "Kakaaeriyadhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879745",
+      "name": "Dhoogandufinolhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19879748",
+      "name": "Veyofushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19879749",
+      "name": "Nellaidhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19879750",
+      "name": "ހުޅުދުއްފާރު",
+      "nameEn": "Hulhudhuffaaru"
+    },
+    {
+      "id": "w19879751",
+      "name": "Joali being Bodufushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19879752",
+      "name": "މޮޅަދޫ",
+      "nameEn": "Mulhadhoo"
+    },
+    {
+      "id": "w19879755",
+      "name": "އިންނަހުރާ",
+      "nameEn": "Innahura"
+    },
+    {
+      "id": "w19879757",
+      "name": "ބާރަށް",
+      "nameEn": "Baarah"
+    },
+    {
+      "id": "w19881889",
+      "name": "Meedhuffushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19881890",
+      "name": "Dhiggiri",
+      "nameEn": null
+    },
+    {
+      "id": "w19881897",
+      "name": "Rangali Finolhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19881898",
+      "name": "Bulhaaholhi",
+      "nameEn": null
+    },
+    {
+      "id": "w19881900",
+      "name": "ހުރާ",
+      "nameEn": "Huraa"
+    },
+    {
+      "id": "w19881901",
+      "name": "Akirifushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19881902",
+      "name": "Minimasgali",
+      "nameEn": null
+    },
+    {
+      "id": "w19881903",
+      "name": "Holiday Inn Resort Kandooma Maldives",
+      "nameEn": null
+    },
+    {
+      "id": "w19881906",
+      "name": "އޮމަދޫ",
+      "nameEn": "Omadhoo"
+    },
+    {
+      "id": "w19881907",
+      "name": "ދިއްދޫ",
+      "nameEn": "Didhdhoo"
+    },
+    {
+      "id": "w19881911",
+      "name": "Rasfari",
+      "nameEn": null
+    },
+    {
+      "id": "w19881912",
+      "name": "Velidhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19881913",
+      "name": "Madoogali",
+      "nameEn": null
+    },
+    {
+      "id": "w19881914",
+      "name": "Vabbinfaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19881915",
+      "name": "Fihalhohi",
+      "nameEn": null
+    },
+    {
+      "id": "w19881916",
+      "name": "Maagaa",
+      "nameEn": null
+    },
+    {
+      "id": "w19881918",
+      "name": "ބިލެއްދޫ",
+      "nameEn": "Bileddhoo"
+    },
+    {
+      "id": "w19881922",
+      "name": "Bodufinolhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19881923",
+      "name": "ދަނގެތި",
+      "nameEn": "Dhangethi"
+    },
+    {
+      "id": "w19881924",
+      "name": "ބޮޑުފޮޅުދޫ",
+      "nameEn": "Bodufolhudhoo"
+    },
+    {
+      "id": "w19881926",
+      "name": "Cocoa Island",
+      "nameEn": null
+    },
+    {
+      "id": "w19881927",
+      "name": "Olhahali",
+      "nameEn": null
+    },
+    {
+      "id": "w19881928",
+      "name": "Rah Gili Maldives",
+      "nameEn": null
+    },
+    {
+      "id": "w19881929",
+      "name": "Dhinnolhu Finolhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19881931",
+      "name": "Naladhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19881932",
+      "name": "Kudhiboli",
+      "nameEn": null
+    },
+    {
+      "id": "w19881935",
+      "name": "Thulhagiri",
+      "nameEn": null
+    },
+    {
+      "id": "w19881936",
+      "name": "Kudahithi",
+      "nameEn": null
+    },
+    {
+      "id": "w19881938",
+      "name": "Dhiffushi",
+      "nameEn": "Dhiffushi"
+    },
+    {
+      "id": "w19881939",
+      "name": "Maafushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19881942",
+      "name": "Theluveligaa",
+      "nameEn": null
+    },
+    {
+      "id": "w19881943",
+      "name": "Rangali",
+      "nameEn": null
+    },
+    {
+      "id": "w19881944",
+      "name": "Embudhu Finolhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19881945",
+      "name": "Anbaraa",
+      "nameEn": null
+    },
+    {
+      "id": "w19881946",
+      "name": "Makunudu",
+      "nameEn": "Makunudu Island"
+    },
+    {
+      "id": "w19881951",
+      "name": "Mathiveri Finolhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19881954",
+      "name": "Gangehi",
+      "nameEn": null
+    },
+    {
+      "id": "w19881957",
+      "name": "ދިއްފުށި",
+      "nameEn": "Dhiffushi"
+    },
+    {
+      "id": "w19881958",
+      "name": "Tholhifushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19881959",
+      "name": "Kudarah",
+      "nameEn": null
+    },
+    {
+      "id": "w19881961",
+      "name": "އެއްލައިދޫ",
+      "nameEn": "Ellaidhoo"
+    },
+    {
+      "id": "w19881962",
+      "name": "ހިމެންދޫ",
+      "nameEn": "Himandhoo"
+    },
+    {
+      "id": "w19881963",
+      "name": "Buri",
+      "nameEn": null
+    },
+    {
+      "id": "w19881965",
+      "name": "Aarah",
+      "nameEn": null
+    },
+    {
+      "id": "w19881966",
+      "name": "Athuruga",
+      "nameEn": null
+    },
+    {
+      "id": "w19881971",
+      "name": "ރަކީދޫ",
+      "nameEn": "Rakeedhoo"
+    },
+    {
+      "id": "w19881973",
+      "name": "Kudadhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19881975",
+      "name": "ހިއްމަފުށި",
+      "nameEn": "Himmafushi"
+    },
+    {
+      "id": "w19881976",
+      "name": "Lankanfinolhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19881977",
+      "name": "Jinnathugau",
+      "nameEn": null
+    },
+    {
+      "id": "w19881978",
+      "name": "Adaaran Prestige Vadoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19881979",
+      "name": "Maadhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19881980",
+      "name": "Boduhuthi",
+      "nameEn": null
+    },
+    {
+      "id": "w19881981",
+      "name": "Spa Island",
+      "nameEn": null
+    },
+    {
+      "id": "w19881982",
+      "name": "Maayafushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19881984",
+      "name": "ހަންޏާމީދޫ",
+      "nameEn": "Hangnaameedhoo"
+    },
+    {
+      "id": "w19881986",
+      "name": "Kodhipparu",
+      "nameEn": null
+    },
+    {
+      "id": "w19881987",
+      "name": "Veliganduhuraa",
+      "nameEn": null
+    },
+    {
+      "id": "w19881988",
+      "name": "Dighu",
+      "nameEn": null
+    },
+    {
+      "id": "w19881990",
+      "name": "Hembadhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19881991",
+      "name": "Mandhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19881992",
+      "name": "Gasfinolhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19881993",
+      "name": "Vihamanaafushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19881994",
+      "name": "Helengeli Island",
+      "nameEn": null
+    },
+    {
+      "id": "w19881996",
+      "name": "Mirihi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882001",
+      "name": "Kandolhudhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19882002",
+      "name": "ފުލިދޫ",
+      "nameEn": "Fulidhoo"
+    },
+    {
+      "id": "w19882003",
+      "name": "Madivaru Finolhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19882004",
+      "name": "ކާށިދޫ",
+      "nameEn": "Kaashidhoo"
+    },
+    {
+      "id": "w19882007",
+      "name": "Asdhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19882008",
+      "name": "އެތެރެމަޑިވަރު",
+      "nameEn": "Etheremadivaru"
+    },
+    {
+      "id": "w19882009",
+      "name": "ދޫނިދޫ",
+      "nameEn": "Dhoonidhoo"
+    },
+    {
+      "id": "w19882010",
+      "name": "ރަތްމަންދޫ",
+      "nameEn": "Raimmandhoo"
+    },
+    {
+      "id": "w19882014",
+      "name": "Oligandufinolhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19882018",
+      "name": "Villivaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19882019",
+      "name": "މަގޫދޫ",
+      "nameEn": "Magoodhoo"
+    },
+    {
+      "id": "w19882022",
+      "name": "ގާފަރު",
+      "nameEn": "Gaafaru"
+    },
+    {
+      "id": "w19882023",
+      "name": "Enboodhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19882024",
+      "name": "Kandu Oiy Giri",
+      "nameEn": null
+    },
+    {
+      "id": "w19882025",
+      "name": "Girifushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882027",
+      "name": "Meeru Island Resort",
+      "nameEn": null
+    },
+    {
+      "id": "w19882029",
+      "name": "Lonubo",
+      "nameEn": null
+    },
+    {
+      "id": "w19882030",
+      "name": "Villinglivaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19882032",
+      "name": "Ziyaraifushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882034",
+      "name": "Thumbafushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882038",
+      "name": "Hukurudhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19882039",
+      "name": "Bolifushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882042",
+      "name": "Bodukaashihuraa",
+      "nameEn": null
+    },
+    {
+      "id": "w19882043",
+      "name": "Lhosfushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882044",
+      "name": "Maniya Fushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882048",
+      "name": "މަޑުއްވަރީ",
+      "nameEn": "Maduvvaree"
+    },
+    {
+      "id": "w19882049",
+      "name": "Bathala",
+      "nameEn": null
+    },
+    {
+      "id": "w19882051",
+      "name": "Nakachcchaafushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882054",
+      "name": "Ukulhas Fushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882055",
+      "name": "Madivaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19882058",
+      "name": "ގުރައިދޫ",
+      "nameEn": "Guraidhoo"
+    },
+    {
+      "id": "w19882060",
+      "name": "Ihuru",
+      "nameEn": null
+    },
+    {
+      "id": "w19882061",
+      "name": "Alikoirah",
+      "nameEn": null
+    },
+    {
+      "id": "w19882064",
+      "name": "Dhigurah",
+      "nameEn": null
+    },
+    {
+      "id": "w19882065",
+      "name": "Vakarufalhi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882070",
+      "name": "Rahddhigaa",
+      "nameEn": null
+    },
+    {
+      "id": "w19882071",
+      "name": "Raabandhihuraa",
+      "nameEn": null
+    },
+    {
+      "id": "w19882072",
+      "name": "Maafushivaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19882073",
+      "name": "sandbank",
+      "nameEn": null
+    },
+    {
+      "id": "w19882077",
+      "name": "Thudufushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882079",
+      "name": "Fenfushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882080",
+      "name": "Kanuhuraa",
+      "nameEn": null
+    },
+    {
+      "id": "w19882081",
+      "name": "Madivaruhuraa",
+      "nameEn": null
+    },
+    {
+      "id": "w19882086",
+      "name": "އުކުޅަސް",
+      "nameEn": "Ukulhas"
+    },
+    {
+      "id": "w19882087",
+      "name": "Makunueri",
+      "nameEn": null
+    },
+    {
+      "id": "w19882092",
+      "name": "Dhiguvarufinolhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19882093",
+      "name": "Vashugiri",
+      "nameEn": null
+    },
+    {
+      "id": "w19882094",
+      "name": "Foththeyobodufushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882095",
+      "name": "Halaveli",
+      "nameEn": null
+    },
+    {
+      "id": "w19882098",
+      "name": "ތިނަދޫ",
+      "nameEn": "Thinadhoo"
+    },
+    {
+      "id": "w19882099",
+      "name": "މަތިވެރި",
+      "nameEn": "Mathiveri"
+    },
+    {
+      "id": "w19882104",
+      "name": "Haru Haru",
+      "nameEn": null
+    },
+    {
+      "id": "w19882106",
+      "name": "Ranfinolhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19882107",
+      "name": "Vabboahuraa",
+      "nameEn": null
+    },
+    {
+      "id": "w19882108",
+      "name": "Innafushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882109",
+      "name": "ފެލިދޫ",
+      "nameEn": "Felidhoo"
+    },
+    {
+      "id": "w19882110",
+      "name": "ދަރަނބޫދޫ",
+      "nameEn": "Dharanboodhoo"
+    },
+    {
+      "id": "w19882113",
+      "name": "Aarah",
+      "nameEn": null
+    },
+    {
+      "id": "w19882115",
+      "name": "Kuda Bandos",
+      "nameEn": null
+    },
+    {
+      "id": "w19882116",
+      "name": "Gaathu Fushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882118",
+      "name": "Reethi Rah",
+      "nameEn": null
+    },
+    {
+      "id": "w19882126",
+      "name": "Hurasdhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19882132",
+      "name": "Moofushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882134",
+      "name": "Ehrruh-haa",
+      "nameEn": null
+    },
+    {
+      "id": "w19882136",
+      "name": "ކުނބުރުދޫ",
+      "nameEn": "Kunburudhoo"
+    },
+    {
+      "id": "w19882137",
+      "name": "ނިލަންދޫ",
+      "nameEn": "Nilandhoo"
+    },
+    {
+      "id": "w19882138",
+      "name": "Madivaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19882139",
+      "name": "Bushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882140",
+      "name": "Alimatha",
+      "nameEn": null
+    },
+    {
+      "id": "w19882143",
+      "name": "Furanafushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882144",
+      "name": "ތޮއްޑޫ",
+      "nameEn": "Thoddoo"
+    },
+    {
+      "id": "w19882147",
+      "name": "Kanifinolhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19882148",
+      "name": "Giraavaru Falhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19882150",
+      "name": "Velifaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19882151",
+      "name": "Innafushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882152",
+      "name": "Villingilimathidhahuraa",
+      "nameEn": null
+    },
+    {
+      "id": "w19882153",
+      "name": "Huruelhi Island",
+      "nameEn": null
+    },
+    {
+      "id": "w19882154",
+      "name": "Kagi Maldives Spa Island",
+      "nameEn": null
+    },
+    {
+      "id": "w19882157",
+      "name": "ފެންފުށި",
+      "nameEn": "Fenfushi"
+    },
+    {
+      "id": "w19882160",
+      "name": "Madifushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882164",
+      "name": "Nika Island",
+      "nameEn": null
+    },
+    {
+      "id": "w19882166",
+      "name": "Lankanfushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882169",
+      "name": "Vaagali",
+      "nameEn": null
+    },
+    {
+      "id": "w19882170",
+      "name": "Ruhhurihuraa",
+      "nameEn": null
+    },
+    {
+      "id": "w19882171",
+      "name": "Kuda Huraa",
+      "nameEn": null
+    },
+    {
+      "id": "w19882172",
+      "name": "Heenfaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19882174",
+      "name": "Machchafushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882175",
+      "name": "Enbulufushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882178",
+      "name": "Didhoofinolhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19882180",
+      "name": "Ariadhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19882181",
+      "name": "ރަސްދޫ",
+      "nameEn": "Rasdhoo"
+    },
+    {
+      "id": "w19882183",
+      "name": "Kalhuhandhihuraa",
+      "nameEn": null
+    },
+    {
+      "id": "w19882184",
+      "name": "Thanburudhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19882185",
+      "name": "ފީއަލި",
+      "nameEn": "Feeali"
+    },
+    {
+      "id": "w19882189",
+      "name": "Feydoofinolu",
+      "nameEn": null
+    },
+    {
+      "id": "w19882190",
+      "name": "Vilimale'",
+      "nameEn": null
+    },
+    {
+      "id": "w19882191",
+      "name": "Medhufinolhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19882192",
+      "name": "ތުލުސްދޫ",
+      "nameEn": "Thulusdhoo"
+    },
+    {
+      "id": "w19882193",
+      "name": "Angaga Island Resort",
+      "nameEn": null
+    },
+    {
+      "id": "w19882195",
+      "name": "ކެޔޮދޫ",
+      "nameEn": "Keyodhoo"
+    },
+    {
+      "id": "w19882196",
+      "name": "Vilamendhoo Island Resort & Spa",
+      "nameEn": null
+    },
+    {
+      "id": "w19882199",
+      "name": "Velassaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19882748",
+      "name": "Naibukaloabodufushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882754",
+      "name": "Dhoores",
+      "nameEn": null
+    },
+    {
+      "id": "w19882756",
+      "name": "ރިނބުދޫ",
+      "nameEn": "Rinbudhoo"
+    },
+    {
+      "id": "w19882758",
+      "name": "Aloofushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882759",
+      "name": "Hiriyanfushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882760",
+      "name": "Kanneiyfaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19882761",
+      "name": "Holhurahaa",
+      "nameEn": null
+    },
+    {
+      "id": "w19882764",
+      "name": "ބަނޑިދޫ",
+      "nameEn": "Bandidhoo"
+    },
+    {
+      "id": "w19882766",
+      "name": "Baglioni Resort Maldives",
+      "nameEn": null
+    },
+    {
+      "id": "w19882771",
+      "name": "ތިމަރަފުށި",
+      "nameEn": "Thimarafushi"
+    },
+    {
+      "id": "w19882773",
+      "name": "މީދޫ",
+      "nameEn": "Meedhoo"
+    },
+    {
+      "id": "w19882779",
+      "name": "Gaathurehaa",
+      "nameEn": null
+    },
+    {
+      "id": "w19882780",
+      "name": "Ruththibirah",
+      "nameEn": null
+    },
+    {
+      "id": "w19882782",
+      "name": "ހުޅުދެލި",
+      "nameEn": "Hulhudheli"
+    },
+    {
+      "id": "w19882790",
+      "name": "އިސްދޫ",
+      "nameEn": "Isdhoo"
+    },
+    {
+      "id": "w19882802",
+      "name": "Valla",
+      "nameEn": null
+    },
+    {
+      "id": "w19882804",
+      "name": "Hulhiyanfushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882811",
+      "name": "ގާދިއްފުށި",
+      "nameEn": "Gaadhiffushi"
+    },
+    {
+      "id": "w19882816",
+      "name": "Elaa",
+      "nameEn": null
+    },
+    {
+      "id": "w19882817",
+      "name": "Gaadhiffushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882819",
+      "name": "Faés",
+      "nameEn": null
+    },
+    {
+      "id": "w19882822",
+      "name": "Mandoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19882823",
+      "name": "Athahedha",
+      "nameEn": null
+    },
+    {
+      "id": "w19882824",
+      "name": "Vadinolhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19882832",
+      "name": "Bokaifushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882833",
+      "name": "Kudakibidhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19882835",
+      "name": "މުލައް",
+      "nameEn": "Mulah"
+    },
+    {
+      "id": "w19882836",
+      "name": "Munyafushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882839",
+      "name": "Maadheli",
+      "nameEn": null
+    },
+    {
+      "id": "w19882842",
+      "name": "Fenboahuraa",
+      "nameEn": null
+    },
+    {
+      "id": "w19882845",
+      "name": "ކަޅައިދޫ",
+      "nameEn": "Kalaidhoo"
+    },
+    {
+      "id": "w19882848",
+      "name": "ގަން",
+      "nameEn": "Gan"
+    },
+    {
+      "id": "w19882853",
+      "name": "Guraidhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19882854",
+      "name": "Suaroge",
+      "nameEn": null
+    },
+    {
+      "id": "w19882857",
+      "name": "Fonagaadhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19882864",
+      "name": "Gaadhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19882866",
+      "name": "Usfushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882867",
+      "name": "Haiythoshi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882869",
+      "name": "Kalhuhuraa",
+      "nameEn": null
+    },
+    {
+      "id": "w19882871",
+      "name": "Hotel Riu Atoll",
+      "nameEn": null
+    },
+    {
+      "id": "w19882874",
+      "name": "Kiraidhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19882877",
+      "name": "Dhebaidhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19882878",
+      "name": "Vommuli",
+      "nameEn": null
+    },
+    {
+      "id": "w19882880",
+      "name": "Maausfushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882882",
+      "name": "Hulhimendhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19882884",
+      "name": "Faandhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19882886",
+      "name": "Maahuraa",
+      "nameEn": null
+    },
+    {
+      "id": "w19882891",
+      "name": "Vaanee",
+      "nameEn": "Vaanee"
+    },
+    {
+      "id": "w19882893",
+      "name": "Vallalhohi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882895",
+      "name": "Kandima Maldives",
+      "nameEn": null
+    },
+    {
+      "id": "w19882903",
+      "name": "Dhiththudi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882905",
+      "name": "ކިނބިދޫ",
+      "nameEn": "Kinbidhoo"
+    },
+    {
+      "id": "w19882907",
+      "name": "Hotel Riu Palace Maldivas",
+      "nameEn": null
+    },
+    {
+      "id": "w19882909",
+      "name": "Minimasgali",
+      "nameEn": null
+    },
+    {
+      "id": "w19882910",
+      "name": "Lhohi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882911",
+      "name": "Kurali",
+      "nameEn": null
+    },
+    {
+      "id": "w19882914",
+      "name": "Thilabolhufushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882915",
+      "name": "Kuradhigandu",
+      "nameEn": null
+    },
+    {
+      "id": "w19882916",
+      "name": "Burrahaa",
+      "nameEn": null
+    },
+    {
+      "id": "w19882918",
+      "name": "Thinhuraa",
+      "nameEn": null
+    },
+    {
+      "id": "w19882919",
+      "name": "Hikandhirahaa",
+      "nameEn": null
+    },
+    {
+      "id": "w19882920",
+      "name": "ކޮޅުފުށި",
+      "nameEn": "Kolhufushi"
+    },
+    {
+      "id": "w19882926",
+      "name": "Dhekunuvinagandu",
+      "nameEn": null
+    },
+    {
+      "id": "w19882929",
+      "name": "ކުނަހަންދޫ",
+      "nameEn": "Kunahandhoo"
+    },
+    {
+      "id": "w19882933",
+      "name": "Medhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19882941",
+      "name": "Naraka",
+      "nameEn": null
+    },
+    {
+      "id": "w19882943",
+      "name": "Gongaleehuraa",
+      "nameEn": null
+    },
+    {
+      "id": "w19882946",
+      "name": "Seedheehuraa",
+      "nameEn": null
+    },
+    {
+      "id": "w19882951",
+      "name": "ވޭވައް",
+      "nameEn": "Veyvah"
+    },
+    {
+      "id": "w19882955",
+      "name": "Uvadhevifushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882958",
+      "name": "Boduhuraa",
+      "nameEn": null
+    },
+    {
+      "id": "w19882961",
+      "name": "މާމެންދޫ",
+      "nameEn": "Maamendhoo"
+    },
+    {
+      "id": "w19882965",
+      "name": "Fushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882969",
+      "name": "Medhufushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882970",
+      "name": "Kani",
+      "nameEn": null
+    },
+    {
+      "id": "w19882971",
+      "name": "ދަނބިދޫ",
+      "nameEn": "Dhanbidhoo"
+    },
+    {
+      "id": "w19882973",
+      "name": "Thuvaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19882975",
+      "name": "Berasdhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19882977",
+      "name": "Kudafushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19882979",
+      "name": "ނާލާފުށި",
+      "nameEn": "Naalaafushi"
+    },
+    {
+      "id": "w19882996",
+      "name": "Kandaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19882999",
+      "name": "Olhutholhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19883007",
+      "name": "Mahufuri",
+      "nameEn": null
+    },
+    {
+      "id": "w19883008",
+      "name": "ވޭމަންޑޫ",
+      "nameEn": "Veymandoo"
+    },
+    {
+      "id": "w19883010",
+      "name": "Kolafushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19883011",
+      "name": "Maalhaveli",
+      "nameEn": null
+    },
+    {
+      "id": "w19883016",
+      "name": "Dhekunuboduveli",
+      "nameEn": null
+    },
+    {
+      "id": "w19883024",
+      "name": "Gasveli",
+      "nameEn": null
+    },
+    {
+      "id": "w19883039",
+      "name": "Kakaahuraa",
+      "nameEn": null
+    },
+    {
+      "id": "w19883043",
+      "name": "Lhavaddoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19883045",
+      "name": "Olhuveli",
+      "nameEn": null
+    },
+    {
+      "id": "w19883047",
+      "name": "Fonidhaani",
+      "nameEn": null
+    },
+    {
+      "id": "w19883049",
+      "name": "Kalhudheyfushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19883054",
+      "name": "Rihaamaafushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19883058",
+      "name": "Hedha",
+      "nameEn": null
+    },
+    {
+      "id": "w19883061",
+      "name": "ވަންދޫ",
+      "nameEn": "Vandhoo"
+    },
+    {
+      "id": "w19883064",
+      "name": "Fenfushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19883070",
+      "name": "މާވަށް",
+      "nameEn": "Maavah"
+    },
+    {
+      "id": "w19883073",
+      "name": "Bodufinolhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19883075",
+      "name": "Hathifushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19883076",
+      "name": "ގުރައިދޫ",
+      "nameEn": "Guraidhoo"
+    },
+    {
+      "id": "w19883080",
+      "name": "Fonaddoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19883082",
+      "name": "Hakuraahuraa",
+      "nameEn": null
+    },
+    {
+      "id": "w19883085",
+      "name": "އޮމަދޫ",
+      "nameEn": "Omadhoo"
+    },
+    {
+      "id": "w19883089",
+      "name": "ކަނޑޫދޫ",
+      "nameEn": "Kandoodhoo"
+    },
+    {
+      "id": "w19883092",
+      "name": "Maalefushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19883095",
+      "name": "Kudadhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19883101",
+      "name": "Fenmeerufushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19883103",
+      "name": "Fushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19883105",
+      "name": "Kakolhas",
+      "nameEn": null
+    },
+    {
+      "id": "w19883110",
+      "name": "Bodurehaa",
+      "nameEn": null
+    },
+    {
+      "id": "w19883119",
+      "name": "Kaaddoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19883123",
+      "name": "Kudakaaddoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19883124",
+      "name": "Mahakanfushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19883133",
+      "name": "Olhudhiyafushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19883140",
+      "name": "ހިރިލަންދޫ",
+      "nameEn": "Hirilandhoo"
+    },
+    {
+      "id": "w19883142",
+      "name": "ކުޑަހުވަދޫ",
+      "nameEn": "Kudahuvadhoo"
+    },
+    {
+      "id": "w19883145",
+      "name": "Gaalee",
+      "nameEn": null
+    },
+    {
+      "id": "w19883148",
+      "name": "Kurandhuvaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19883150",
+      "name": "ބުރުނީ",
+      "nameEn": "Burunee"
+    },
+    {
+      "id": "w19883154",
+      "name": "Ekuruffushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19883157",
+      "name": "Gasfinolhu",
+      "nameEn": null
+    },
+    {
+      "id": "w19883161",
+      "name": "ހިތަދޫ",
+      "nameEn": "Hithadhoo"
+    },
+    {
+      "id": "w19883164",
+      "name": "Velavaru",
+      "nameEn": null
+    },
+    {
+      "id": "w19883168",
+      "name": "Medhuvinagandu",
+      "nameEn": null
+    },
+    {
+      "id": "w19883171",
+      "name": "Weligandu",
+      "nameEn": null
+    },
+    {
+      "id": "w19883175",
+      "name": "Olhufushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19883178",
+      "name": "Hulhuvehi",
+      "nameEn": null
+    },
+    {
+      "id": "w19883179",
+      "name": "Fahala",
+      "nameEn": null
+    },
+    {
+      "id": "w19883181",
+      "name": "Kafidhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19883183",
+      "name": "މުލި",
+      "nameEn": "Muli"
+    },
+    {
+      "id": "w19883185",
+      "name": "މާބައިދޫ",
+      "nameEn": "Maabaidhoo"
+    },
+    {
+      "id": "w19883186",
+      "name": "ދިޔަމިގިލި",
+      "nameEn": "Dhiyamigili"
+    },
+    {
+      "id": "w19883190",
+      "name": "Mathidhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19883191",
+      "name": "Hanhushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19883193",
+      "name": "މަޑިފުށި",
+      "nameEn": "Madifushi"
+    },
+    {
+      "id": "w19883194",
+      "name": "Fenfuraaveli",
+      "nameEn": null
+    },
+    {
+      "id": "w19883196",
+      "name": "Seedhihuraaveligandu",
+      "nameEn": null
+    },
+    {
+      "id": "w19883199",
+      "name": "Uddhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19883206",
+      "name": "Hikandhilohi",
+      "nameEn": null
+    },
+    {
+      "id": "w19883209",
+      "name": "Maagulhi",
+      "nameEn": null
+    },
+    {
+      "id": "w19883211",
+      "name": "Dhonhanfushi",
+      "nameEn": null
+    },
+    {
+      "id": "w19883216",
+      "name": "ވިލުފުށި",
+      "nameEn": "Vilufushi"
+    },
+    {
+      "id": "w19883219",
+      "name": "Olhugiri",
+      "nameEn": null
+    },
+    {
+      "id": "w19932236",
+      "name": "ނަޑެއްލާ",
+      "nameEn": "Nadellaa"
+    },
+    {
+      "id": "w19932247",
+      "name": "Médhuhuttaa",
+      "nameEn": null
+    },
+    {
+      "id": "w19932249",
+      "name": "ފިޔޯރީ",
+      "nameEn": "Fiyoaree"
+    },
+    {
+      "id": "w19932270",
+      "name": "Maamutaa",
+      "nameEn": null
+    },
+    {
+      "id": "w19932281",
+      "name": "Gan",
+      "nameEn": null
+    },
+    {
+      "id": "w19932283",
+      "name": "ހޯނޑެއްދޫ",
+      "nameEn": "Hoandedhdhoo"
+    },
+    {
+      "id": "w19932287",
+      "name": "ގެމަނަފުށި",
+      "nameEn": "Gemanafushi"
+    },
+    {
+      "id": "w19932290",
+      "name": "Hulhimendhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19932305",
+      "name": "Maguhdhuvaa",
+      "nameEn": null
+    },
+    {
+      "id": "w19932308",
+      "name": "Laihaa",
+      "nameEn": null
+    },
+    {
+      "id": "w19932321",
+      "name": "Maavarulu",
+      "nameEn": null
+    },
+    {
+      "id": "w19932326",
+      "name": "The Residence Maldives at Dhigurah",
+      "nameEn": null
+    },
+    {
+      "id": "w19932350",
+      "name": "Kunata",
+      "nameEn": null
+    },
+    {
+      "id": "w19932356",
+      "name": "ރަތަފަންދޫ",
+      "nameEn": "Rathafandhoo"
+    },
+    {
+      "id": "w19932361",
+      "name": "Maagodirehaa",
+      "nameEn": null
+    },
+    {
+      "id": "w19932369",
+      "name": "ދެއްވަދޫ",
+      "nameEn": "Dhevvadhoo"
+    },
+    {
+      "id": "w19932412",
+      "name": "Falhumaafush",
+      "nameEn": null
+    },
+    {
+      "id": "w19932414",
+      "name": "ނިލަންދޫ",
+      "nameEn": "Nilandhoo"
+    },
+    {
+      "id": "w19932420",
+      "name": "ކޮލަމާފުށި",
+      "nameEn": "Kolamaafushi"
+    },
+    {
+      "id": "w19932422",
+      "name": "ފަރެސްމާތޮޑާ",
+      "nameEn": "Fares Maathodaa"
+    },
+    {
+      "id": "w19932429",
+      "name": "Maarandhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19932432",
+      "name": "ގައްދޫ",
+      "nameEn": "Gadhdhoo"
+    },
+    {
+      "id": "w19932437",
+      "name": "Mahaddhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19932454",
+      "name": "Amari Havodda Maldives",
+      "nameEn": null
+    },
+    {
+      "id": "w19932472",
+      "name": "Funamadua",
+      "nameEn": null
+    },
+    {
+      "id": "w19932486",
+      "name": "Kudhehulhahddu",
+      "nameEn": null
+    },
+    {
+      "id": "w19932499",
+      "name": "Kaafénaa",
+      "nameEn": null
+    },
+    {
+      "id": "w19932506",
+      "name": "Faruhulhudhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19932513",
+      "name": "Dhiyadhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19932525",
+      "name": "ކޮނޑޭ",
+      "nameEn": "Kondey"
+    },
+    {
+      "id": "w19932529",
+      "name": "Rahadhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19932532",
+      "name": "Kaadedhdhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19932541",
+      "name": "Menthandhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w19932545",
+      "name": "ކަނޑުހުޅުދޫ",
+      "nameEn": "Kanduhulhudhoo"
+    },
+    {
+      "id": "w19932554",
+      "name": "މަޑަވެލި",
+      "nameEn": "Madaveli"
+    },
+    {
+      "id": "w19932560",
+      "name": "ވިލިނގިލި",
+      "nameEn": "Villingili"
+    },
+    {
+      "id": "w19932562",
+      "name": "Kudherataa",
+      "nameEn": null
+    },
+    {
+      "id": "w19932566",
+      "name": "Havoddaa",
+      "nameEn": null
+    },
+    {
+      "id": "w20108239",
+      "name": "ކައްދޫ އެއަރޕޯޓް",
+      "nameEn": "Kaadedhdhoo"
+    },
+    {
+      "id": "w28011957",
+      "name": "Kanuhuraa",
+      "nameEn": null
+    },
+    {
+      "id": "w31786869",
+      "name": "ގަން",
+      "nameEn": "Gan"
+    },
+    {
+      "id": "w31786925",
+      "name": "ހިތަދޫ",
+      "nameEn": "Hithadhoo"
+    },
+    {
+      "id": "w31786936",
+      "name": "Villingili",
+      "nameEn": null
+    },
+    {
+      "id": "w45853512",
+      "name": "Sandbank",
+      "nameEn": null
+    },
+    {
+      "id": "w49020124",
+      "name": "Rannalhi",
+      "nameEn": null
+    },
+    {
+      "id": "w51834340",
+      "name": "Fari Islands",
+      "nameEn": null
+    },
+    {
+      "id": "w81459760",
+      "name": "މާޅޮސް",
+      "nameEn": "Maalhos"
+    },
+    {
+      "id": "w82311861",
+      "name": "Biyadhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w108498573",
+      "name": "Mulikado",
+      "nameEn": null
+    },
+    {
+      "id": "w115591830",
+      "name": "Nalaguraidhoo",
+      "nameEn": "Sun Island"
+    },
+    {
+      "id": "w116704220",
+      "name": "Baros",
+      "nameEn": null
+    },
+    {
+      "id": "w122946807",
+      "name": "ކުމުންދޫ",
+      "nameEn": "Kumundhoo"
+    },
+    {
+      "id": "w137185225",
+      "name": "ފެރިދޫ",
+      "nameEn": "Feridhoo"
+    },
+    {
+      "id": "w145235579",
+      "name": "މީދޫ",
+      "nameEn": "Meedhoo"
+    },
+    {
+      "id": "w150456706",
+      "name": "Savaaheli",
+      "nameEn": null
+    },
+    {
+      "id": "w150621883",
+      "name": "Thunburi",
+      "nameEn": null
+    },
+    {
+      "id": "w150621884",
+      "name": "Hulhiyandhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w150750958",
+      "name": "މަހިބަދޫ",
+      "nameEn": "Mahibadhoo"
+    },
+    {
+      "id": "w150793976",
+      "name": "Lily Beach Resort & Spa",
+      "nameEn": null
+    },
+    {
+      "id": "w150919986",
+      "name": "Dheerondi",
+      "nameEn": null
+    },
+    {
+      "id": "w150919991",
+      "name": "Kudamaahera",
+      "nameEn": null
+    },
+    {
+      "id": "w150919997",
+      "name": "Maahera",
+      "nameEn": null
+    },
+    {
+      "id": "w151261633",
+      "name": "Huraagandu",
+      "nameEn": null
+    },
+    {
+      "id": "w151520487",
+      "name": "Fathikedehera gan’du",
+      "nameEn": null
+    },
+    {
+      "id": "w152023075",
+      "name": "Hermit Crab Island",
+      "nameEn": null
+    },
+    {
+      "id": "w159544640",
+      "name": "ވާދޫ",
+      "nameEn": "Vaadhoo"
+    },
+    {
+      "id": "w171141666",
+      "name": "ތިނަދޫ",
+      "nameEn": "Thinadhoo"
+    },
+    {
+      "id": "w171141710",
+      "name": "Hulhumeedhoo",
+      "nameEn": "Hulhumeedhoo"
+    },
+    {
+      "id": "w171141739",
+      "name": "Ismehela Hera",
+      "nameEn": null
+    },
+    {
+      "id": "w171141750",
+      "name": "Hikihera",
+      "nameEn": null
+    },
+    {
+      "id": "w171141754",
+      "name": "Herathera",
+      "nameEn": null
+    },
+    {
+      "id": "w176651325",
+      "name": "ފެހެންދޫ",
+      "nameEn": "Fehendhoo"
+    },
+    {
+      "id": "w176651328",
+      "name": "ފުޅަދޫ",
+      "nameEn": "Fulhadhoo"
+    },
+    {
+      "id": "w176651337",
+      "name": "ގޮއިދޫ",
+      "nameEn": "Goidhoo"
+    },
+    {
+      "id": "w180478177",
+      "name": "Veligandu",
+      "nameEn": null
+    },
+    {
+      "id": "w190323824",
+      "name": "Filitheyo",
+      "nameEn": null
+    },
+    {
+      "id": "w210861931",
+      "name": "Maaveshi",
+      "nameEn": null
+    },
+    {
+      "id": "w210861934",
+      "name": "Maakaulhuveli",
+      "nameEn": null
+    },
+    {
+      "id": "w210861935",
+      "name": "Bodufenrahaa",
+      "nameEn": null
+    },
+    {
+      "id": "w210861936",
+      "name": "Bodumaabulhali",
+      "nameEn": null
+    },
+    {
+      "id": "w210861945",
+      "name": "Enberahaa",
+      "nameEn": null
+    },
+    {
+      "id": "w210861946",
+      "name": "Bileitheyrahaa",
+      "nameEn": null
+    },
+    {
+      "id": "w210861947",
+      "name": "Aarahaa",
+      "nameEn": null
+    },
+    {
+      "id": "w223971265",
+      "name": "ފުވައްމުލައް",
+      "nameEn": "Fuvahmulah"
+    },
+    {
+      "id": "w229737629",
+      "name": "Kolhufushi",
+      "nameEn": null
+    },
+    {
+      "id": "w230677139",
+      "name": "Geskalhuhera",
+      "nameEn": null
+    },
+    {
+      "id": "w234993294",
+      "name": "Bandos",
+      "nameEn": null
+    },
+    {
+      "id": "w249673003",
+      "name": "B.Kudadhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w274218294",
+      "name": "ކޫއްޑޫ އެއަރޕޯޓް",
+      "nameEn": "Kooddoo"
+    },
+    {
+      "id": "w276956323",
+      "name": "Dream Island",
+      "nameEn": null
+    },
+    {
+      "id": "w283121819",
+      "name": "ފޮނަދޫ",
+      "nameEn": "Fonadhoo"
+    },
+    {
+      "id": "w302137566",
+      "name": "ފުނަދޫ",
+      "nameEn": "Funadhoo"
+    },
+    {
+      "id": "w306538688",
+      "name": "ދިއްގަރު",
+      "nameEn": "Dhiggaru"
+    },
+    {
+      "id": "w312084926",
+      "name": "Lankanfinolhu",
+      "nameEn": null
+    },
+    {
+      "id": "w315866968",
+      "name": "Haadhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w315866971",
+      "name": "Dhinmana",
+      "nameEn": null
+    },
+    {
+      "id": "w315866972",
+      "name": "Kannigilla",
+      "nameEn": null
+    },
+    {
+      "id": "w318417231",
+      "name": "Kudafares",
+      "nameEn": null
+    },
+    {
+      "id": "w368010066",
+      "name": "Hadahaa Island",
+      "nameEn": "Han'dahaa"
+    },
+    {
+      "id": "w368011102",
+      "name": "Kandahalagala",
+      "nameEn": null
+    },
+    {
+      "id": "w382002846",
+      "name": "ގުޅި",
+      "nameEn": "Gulhi"
+    },
+    {
+      "id": "w386350138",
+      "name": "Hiyafushi",
+      "nameEn": null
+    },
+    {
+      "id": "w388502775",
+      "name": "ދާންދޫ",
+      "nameEn": "Dhaandhoo"
+    },
+    {
+      "id": "w389904773",
+      "name": "Mushimasgali",
+      "nameEn": null
+    },
+    {
+      "id": "w398963562",
+      "name": "Hulhudhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w398963589",
+      "name": "Ahivaffushi",
+      "nameEn": null
+    },
+    {
+      "id": "w399029147",
+      "name": "Maamunagaufinolhu",
+      "nameEn": null
+    },
+    {
+      "id": "w399029153",
+      "name": "Ethigan'du jehihuraa",
+      "nameEn": null
+    },
+    {
+      "id": "w441740970",
+      "name": "ފެހިގިލި",
+      "nameEn": null
+    },
+    {
+      "id": "w441740971",
+      "name": "ދެހުރާއެއްވިރަށް",
+      "nameEn": null
+    },
+    {
+      "id": "w441740978",
+      "name": "މަސްލެއްގިހުރާ",
+      "nameEn": "Musleygihuraa"
+    },
+    {
+      "id": "w441740979",
+      "name": "ވެލިގަނޑު",
+      "nameEn": "Dream Island"
+    },
+    {
+      "id": "w441740981",
+      "name": "Kudadhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w441740983",
+      "name": "މެދާދިހުރާ",
+      "nameEn": "Medhadhihuraa"
+    },
+    {
+      "id": "w441740986",
+      "name": "Huruvalhi",
+      "nameEn": null
+    },
+    {
+      "id": "w441740987",
+      "name": "ގާއެރިފަޅު",
+      "nameEn": "Gaavelifaru"
+    },
+    {
+      "id": "w441740990",
+      "name": "ހިންނަވަރު",
+      "nameEn": "Hinnavaru"
+    },
+    {
+      "id": "w446492342",
+      "name": "Alidhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w446654458",
+      "name": "Hulhidhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w478206064",
+      "name": "Medhudheli",
+      "nameEn": null
+    },
+    {
+      "id": "w478206176",
+      "name": "Fahudheli",
+      "nameEn": null
+    },
+    {
+      "id": "w478261407",
+      "name": "Cheval Blanc Spa",
+      "nameEn": null
+    },
+    {
+      "id": "w478773228",
+      "name": "Cheval Blanc Randheli Private Island",
+      "nameEn": null
+    },
+    {
+      "id": "w482811500",
+      "name": "Dhururehaa",
+      "nameEn": null
+    },
+    {
+      "id": "w483093186",
+      "name": "Ekasdhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w483481808",
+      "name": "Himithi",
+      "nameEn": null
+    },
+    {
+      "id": "w483721185",
+      "name": "Thunduhuraa",
+      "nameEn": null
+    },
+    {
+      "id": "w485114123",
+      "name": "ކެލާ",
+      "nameEn": "Kelaa"
+    },
+    {
+      "id": "w549367377",
+      "name": "Fesdhoo",
+      "nameEn": null
+    },
+    {
+      "id": "w602745205",
+      "name": "މާއެނބޫދޫ",
+      "nameEn": "Maaenboodhoo"
+    },
+    {
+      "id": "w615236743",
+      "name": "Hudhuranfushi",
+      "nameEn": null
+    },
+    {
+      "id": "w744474366",
+      "name": "Amingiri Resort",
+      "nameEn": null
+    },
+    {
+      "id": "w892318079",
+      "name": "Fari Campus",
+      "nameEn": null
+    },
+    {
+      "id": "w892343309",
+      "name": "The Ritz Carlton Maldives Fari Islands",
+      "nameEn": null
+    },
+    {
+      "id": "w892462425",
+      "name": "Capella Maldives",
+      "nameEn": null
+    },
+    {
+      "id": "w917619448",
+      "name": "Ithaafushi",
+      "nameEn": "Waldorf Astoria Maldives Ithaafushi"
+    },
+    {
+      "id": "w918488870",
+      "name": "Ithaafushi. The private island by a Waldorf Astoria",
+      "nameEn": null
+    },
+    {
+      "id": "w966316409",
+      "name": "Kottefaru",
+      "nameEn": null
+    },
+    {
+      "id": "w976103999",
+      "name": "މާމެންދޫ",
+      "nameEn": "Maamendhoo"
+    },
+    {
+      "id": "w997685164",
+      "name": "TUI Blue Romance Island",
+      "nameEn": null
+    },
+    {
+      "id": "w1061975009",
+      "name": "OBLU SELECT LOBIGILI",
+      "nameEn": null
+    },
+    {
+      "id": "w1061977111",
+      "name": "OBLU XPERIENCE AILAFUSHI",
+      "nameEn": null
+    },
+    {
+      "id": "w1312944506",
+      "name": "Mantafushi Island",
+      "nameEn": null
+    },
+    {
+      "id": "w1319728540",
+      "name": "Maamigili",
+      "nameEn": null
+    },
+    {
+      "id": "w1421713938",
+      "name": "Raafushi",
+      "nameEn": null
+    },
+    {
+      "id": "w1566874079",
+      "name": "Mathifaruhuraa",
+      "nameEn": null
+    }
+  ],
+  "knownIds": [
+    "r9328389",
+    "r14391899",
+    "r14759254",
+    "w3990127",
+    "w19879236",
+    "w19879238",
+    "w19879239",
+    "w19879241",
+    "w19879243",
+    "w19879244",
+    "w19879247",
+    "w19879248",
+    "w19879249",
+    "w19879252",
+    "w19879253",
+    "w19879255",
+    "w19879259",
+    "w19879262",
+    "w19879264",
+    "w19879267",
+    "w19879270",
+    "w19879272",
+    "w19879274",
+    "w19879276",
+    "w19879278",
+    "w19879280",
+    "w19879281",
+    "w19879282",
+    "w19879283",
+    "w19879285",
+    "w19879286",
+    "w19879287",
+    "w19879288",
+    "w19879289",
+    "w19879290",
+    "w19879291",
+    "w19879292",
+    "w19879294",
+    "w19879295",
+    "w19879298",
+    "w19879300",
+    "w19879301",
+    "w19879303",
+    "w19879306",
+    "w19879307",
+    "w19879308",
+    "w19879310",
+    "w19879311",
+    "w19879312",
+    "w19879318",
+    "w19879319",
+    "w19879320",
+    "w19879323",
+    "w19879325",
+    "w19879327",
+    "w19879328",
+    "w19879329",
+    "w19879331",
+    "w19879333",
+    "w19879334",
+    "w19879335",
+    "w19879336",
+    "w19879338",
+    "w19879339",
+    "w19879340",
+    "w19879341",
+    "w19879343",
+    "w19879344",
+    "w19879346",
+    "w19879348",
+    "w19879350",
+    "w19879351",
+    "w19879353",
+    "w19879354",
+    "w19879355",
+    "w19879358",
+    "w19879360",
+    "w19879361",
+    "w19879363",
+    "w19879364",
+    "w19879365",
+    "w19879366",
+    "w19879367",
+    "w19879369",
+    "w19879371",
+    "w19879373",
+    "w19879379",
+    "w19879383",
+    "w19879386",
+    "w19879388",
+    "w19879389",
+    "w19879390",
+    "w19879391",
+    "w19879392",
+    "w19879393",
+    "w19879395",
+    "w19879396",
+    "w19879397",
+    "w19879401",
+    "w19879402",
+    "w19879403",
+    "w19879404",
+    "w19879405",
+    "w19879406",
+    "w19879407",
+    "w19879408",
+    "w19879411",
+    "w19879412",
+    "w19879413",
+    "w19879414",
+    "w19879415",
+    "w19879416",
+    "w19879417",
+    "w19879420",
+    "w19879421",
+    "w19879423",
+    "w19879424",
+    "w19879426",
+    "w19879427",
+    "w19879428",
+    "w19879430",
+    "w19879431",
+    "w19879433",
+    "w19879434",
+    "w19879435",
+    "w19879436",
+    "w19879437",
+    "w19879439",
+    "w19879440",
+    "w19879442",
+    "w19879443",
+    "w19879444",
+    "w19879445",
+    "w19879447",
+    "w19879449",
+    "w19879454",
+    "w19879456",
+    "w19879457",
+    "w19879458",
+    "w19879461",
+    "w19879462",
+    "w19879463",
+    "w19879464",
+    "w19879467",
+    "w19879468",
+    "w19879473",
+    "w19879474",
+    "w19879476",
+    "w19879478",
+    "w19879480",
+    "w19879481",
+    "w19879482",
+    "w19879484",
+    "w19879485",
+    "w19879486",
+    "w19879489",
+    "w19879491",
+    "w19879492",
+    "w19879493",
+    "w19879495",
+    "w19879496",
+    "w19879497",
+    "w19879499",
+    "w19879500",
+    "w19879501",
+    "w19879502",
+    "w19879506",
+    "w19879507",
+    "w19879510",
+    "w19879512",
+    "w19879514",
+    "w19879515",
+    "w19879516",
+    "w19879517",
+    "w19879518",
+    "w19879519",
+    "w19879522",
+    "w19879524",
+    "w19879527",
+    "w19879529",
+    "w19879531",
+    "w19879536",
+    "w19879540",
+    "w19879541",
+    "w19879542",
+    "w19879544",
+    "w19879545",
+    "w19879546",
+    "w19879548",
+    "w19879550",
+    "w19879551",
+    "w19879555",
+    "w19879556",
+    "w19879558",
+    "w19879559",
+    "w19879560",
+    "w19879561",
+    "w19879563",
+    "w19879564",
+    "w19879565",
+    "w19879567",
+    "w19879570",
+    "w19879572",
+    "w19879573",
+    "w19879574",
+    "w19879575",
+    "w19879577",
+    "w19879578",
+    "w19879579",
+    "w19879580",
+    "w19879582",
+    "w19879583",
+    "w19879584",
+    "w19879585",
+    "w19879586",
+    "w19879587",
+    "w19879589",
+    "w19879590",
+    "w19879593",
+    "w19879596",
+    "w19879597",
+    "w19879598",
+    "w19879599",
+    "w19879600",
+    "w19879601",
+    "w19879603",
+    "w19879604",
+    "w19879605",
+    "w19879606",
+    "w19879607",
+    "w19879608",
+    "w19879610",
+    "w19879611",
+    "w19879612",
+    "w19879614",
+    "w19879619",
+    "w19879620",
+    "w19879621",
+    "w19879622",
+    "w19879623",
+    "w19879624",
+    "w19879626",
+    "w19879627",
+    "w19879629",
+    "w19879630",
+    "w19879631",
+    "w19879633",
+    "w19879635",
+    "w19879636",
+    "w19879639",
+    "w19879640",
+    "w19879641",
+    "w19879642",
+    "w19879644",
+    "w19879646",
+    "w19879648",
+    "w19879650",
+    "w19879651",
+    "w19879656",
+    "w19879657",
+    "w19879658",
+    "w19879659",
+    "w19879660",
+    "w19879662",
+    "w19879663",
+    "w19879666",
+    "w19879669",
+    "w19879670",
+    "w19879671",
+    "w19879672",
+    "w19879673",
+    "w19879674",
+    "w19879676",
+    "w19879677",
+    "w19879680",
+    "w19879681",
+    "w19879682",
+    "w19879684",
+    "w19879685",
+    "w19879687",
+    "w19879688",
+    "w19879689",
+    "w19879690",
+    "w19879691",
+    "w19879692",
+    "w19879695",
+    "w19879698",
+    "w19879700",
+    "w19879701",
+    "w19879703",
+    "w19879704",
+    "w19879705",
+    "w19879706",
+    "w19879707",
+    "w19879708",
+    "w19879709",
+    "w19879713",
+    "w19879714",
+    "w19879716",
+    "w19879719",
+    "w19879720",
+    "w19879722",
+    "w19879723",
+    "w19879724",
+    "w19879725",
+    "w19879727",
+    "w19879728",
+    "w19879729",
+    "w19879730",
+    "w19879732",
+    "w19879733",
+    "w19879734",
+    "w19879737",
+    "w19879738",
+    "w19879739",
+    "w19879740",
+    "w19879741",
+    "w19879744",
+    "w19879745",
+    "w19879747",
+    "w19879748",
+    "w19879749",
+    "w19879750",
+    "w19879751",
+    "w19879752",
+    "w19879755",
+    "w19879757",
+    "w19881889",
+    "w19881890",
+    "w19881897",
+    "w19881898",
+    "w19881900",
+    "w19881901",
+    "w19881902",
+    "w19881903",
+    "w19881904",
+    "w19881906",
+    "w19881907",
+    "w19881911",
+    "w19881912",
+    "w19881913",
+    "w19881914",
+    "w19881915",
+    "w19881916",
+    "w19881918",
+    "w19881922",
+    "w19881923",
+    "w19881924",
+    "w19881926",
+    "w19881927",
+    "w19881928",
+    "w19881929",
+    "w19881931",
+    "w19881932",
+    "w19881935",
+    "w19881936",
+    "w19881938",
+    "w19881939",
+    "w19881942",
+    "w19881943",
+    "w19881944",
+    "w19881945",
+    "w19881946",
+    "w19881951",
+    "w19881954",
+    "w19881957",
+    "w19881958",
+    "w19881959",
+    "w19881961",
+    "w19881962",
+    "w19881963",
+    "w19881965",
+    "w19881966",
+    "w19881967",
+    "w19881971",
+    "w19881973",
+    "w19881975",
+    "w19881976",
+    "w19881977",
+    "w19881978",
+    "w19881979",
+    "w19881980",
+    "w19881981",
+    "w19881982",
+    "w19881984",
+    "w19881986",
+    "w19881987",
+    "w19881988",
+    "w19881990",
+    "w19881991",
+    "w19881992",
+    "w19881993",
+    "w19881994",
+    "w19881996",
+    "w19882001",
+    "w19882002",
+    "w19882003",
+    "w19882004",
+    "w19882006",
+    "w19882007",
+    "w19882008",
+    "w19882009",
+    "w19882010",
+    "w19882014",
+    "w19882018",
+    "w19882019",
+    "w19882020",
+    "w19882022",
+    "w19882023",
+    "w19882024",
+    "w19882025",
+    "w19882027",
+    "w19882029",
+    "w19882030",
+    "w19882031",
+    "w19882032",
+    "w19882034",
+    "w19882038",
+    "w19882039",
+    "w19882042",
+    "w19882043",
+    "w19882044",
+    "w19882048",
+    "w19882049",
+    "w19882051",
+    "w19882054",
+    "w19882055",
+    "w19882058",
+    "w19882060",
+    "w19882061",
+    "w19882064",
+    "w19882065",
+    "w19882070",
+    "w19882071",
+    "w19882072",
+    "w19882073",
+    "w19882076",
+    "w19882077",
+    "w19882079",
+    "w19882080",
+    "w19882081",
+    "w19882086",
+    "w19882087",
+    "w19882092",
+    "w19882093",
+    "w19882094",
+    "w19882095",
+    "w19882098",
+    "w19882099",
+    "w19882100",
+    "w19882101",
+    "w19882104",
+    "w19882106",
+    "w19882107",
+    "w19882108",
+    "w19882109",
+    "w19882110",
+    "w19882113",
+    "w19882114",
+    "w19882115",
+    "w19882116",
+    "w19882118",
+    "w19882126",
+    "w19882132",
+    "w19882134",
+    "w19882136",
+    "w19882137",
+    "w19882138",
+    "w19882139",
+    "w19882140",
+    "w19882143",
+    "w19882144",
+    "w19882147",
+    "w19882148",
+    "w19882150",
+    "w19882151",
+    "w19882152",
+    "w19882153",
+    "w19882154",
+    "w19882157",
+    "w19882160",
+    "w19882164",
+    "w19882166",
+    "w19882169",
+    "w19882170",
+    "w19882171",
+    "w19882172",
+    "w19882174",
+    "w19882175",
+    "w19882178",
+    "w19882180",
+    "w19882181",
+    "w19882183",
+    "w19882184",
+    "w19882185",
+    "w19882189",
+    "w19882190",
+    "w19882191",
+    "w19882192",
+    "w19882193",
+    "w19882195",
+    "w19882196",
+    "w19882198",
+    "w19882199",
+    "w19882200",
+    "w19882748",
+    "w19882754",
+    "w19882756",
+    "w19882758",
+    "w19882759",
+    "w19882760",
+    "w19882761",
+    "w19882764",
+    "w19882766",
+    "w19882771",
+    "w19882773",
+    "w19882775",
+    "w19882779",
+    "w19882780",
+    "w19882782",
+    "w19882790",
+    "w19882793",
+    "w19882800",
+    "w19882802",
+    "w19882804",
+    "w19882811",
+    "w19882816",
+    "w19882817",
+    "w19882819",
+    "w19882822",
+    "w19882823",
+    "w19882824",
+    "w19882832",
+    "w19882833",
+    "w19882835",
+    "w19882836",
+    "w19882839",
+    "w19882842",
+    "w19882845",
+    "w19882848",
+    "w19882851",
+    "w19882853",
+    "w19882854",
+    "w19882857",
+    "w19882864",
+    "w19882865",
+    "w19882866",
+    "w19882867",
+    "w19882869",
+    "w19882871",
+    "w19882874",
+    "w19882877",
+    "w19882878",
+    "w19882879",
+    "w19882880",
+    "w19882882",
+    "w19882883",
+    "w19882884",
+    "w19882886",
+    "w19882891",
+    "w19882893",
+    "w19882895",
+    "w19882903",
+    "w19882905",
+    "w19882907",
+    "w19882909",
+    "w19882910",
+    "w19882911",
+    "w19882914",
+    "w19882915",
+    "w19882916",
+    "w19882918",
+    "w19882919",
+    "w19882920",
+    "w19882926",
+    "w19882929",
+    "w19882933",
+    "w19882941",
+    "w19882943",
+    "w19882946",
+    "w19882950",
+    "w19882951",
+    "w19882955",
+    "w19882958",
+    "w19882961",
+    "w19882965",
+    "w19882969",
+    "w19882970",
+    "w19882971",
+    "w19882973",
+    "w19882975",
+    "w19882977",
+    "w19882979",
+    "w19882996",
+    "w19882999",
+    "w19883007",
+    "w19883008",
+    "w19883010",
+    "w19883011",
+    "w19883016",
+    "w19883024",
+    "w19883039",
+    "w19883043",
+    "w19883045",
+    "w19883047",
+    "w19883049",
+    "w19883054",
+    "w19883058",
+    "w19883061",
+    "w19883064",
+    "w19883070",
+    "w19883073",
+    "w19883075",
+    "w19883076",
+    "w19883080",
+    "w19883082",
+    "w19883085",
+    "w19883089",
+    "w19883092",
+    "w19883095",
+    "w19883101",
+    "w19883103",
+    "w19883105",
+    "w19883110",
+    "w19883119",
+    "w19883123",
+    "w19883124",
+    "w19883129",
+    "w19883133",
+    "w19883140",
+    "w19883142",
+    "w19883145",
+    "w19883148",
+    "w19883150",
+    "w19883152",
+    "w19883154",
+    "w19883157",
+    "w19883161",
+    "w19883164",
+    "w19883168",
+    "w19883171",
+    "w19883175",
+    "w19883178",
+    "w19883179",
+    "w19883181",
+    "w19883183",
+    "w19883185",
+    "w19883186",
+    "w19883190",
+    "w19883191",
+    "w19883193",
+    "w19883194",
+    "w19883196",
+    "w19883199",
+    "w19883203",
+    "w19883206",
+    "w19883208",
+    "w19883209",
+    "w19883211",
+    "w19883212",
+    "w19883215",
+    "w19883216",
+    "w19883219",
+    "w19932236",
+    "w19932244",
+    "w19932245",
+    "w19932247",
+    "w19932249",
+    "w19932250",
+    "w19932252",
+    "w19932253",
+    "w19932256",
+    "w19932264",
+    "w19932266",
+    "w19932269",
+    "w19932270",
+    "w19932281",
+    "w19932283",
+    "w19932286",
+    "w19932287",
+    "w19932290",
+    "w19932297",
+    "w19932305",
+    "w19932308",
+    "w19932309",
+    "w19932311",
+    "w19932318",
+    "w19932320",
+    "w19932321",
+    "w19932324",
+    "w19932326",
+    "w19932330",
+    "w19932348",
+    "w19932350",
+    "w19932356",
+    "w19932361",
+    "w19932369",
+    "w19932372",
+    "w19932391",
+    "w19932392",
+    "w19932398",
+    "w19932400",
+    "w19932405",
+    "w19932409",
+    "w19932412",
+    "w19932413",
+    "w19932414",
+    "w19932420",
+    "w19932422",
+    "w19932425",
+    "w19932429",
+    "w19932432",
+    "w19932437",
+    "w19932446",
+    "w19932451",
+    "w19932452",
+    "w19932454",
+    "w19932460",
+    "w19932464",
+    "w19932472",
+    "w19932483",
+    "w19932486",
+    "w19932493",
+    "w19932499",
+    "w19932506",
+    "w19932511",
+    "w19932513",
+    "w19932519",
+    "w19932525",
+    "w19932526",
+    "w19932529",
+    "w19932532",
+    "w19932535",
+    "w19932541",
+    "w19932543",
+    "w19932545",
+    "w19932551",
+    "w19932553",
+    "w19932554",
+    "w19932557",
+    "w19932560",
+    "w19932562",
+    "w19932566",
+    "w20108239",
+    "w28011957",
+    "w31786869",
+    "w31786900",
+    "w31786925",
+    "w31786936",
+    "w45853512",
+    "w49020124",
+    "w51834340",
+    "w81459760",
+    "w82311861",
+    "w108498573",
+    "w115591830",
+    "w116704220",
+    "w122946807",
+    "w137185225",
+    "w142247307",
+    "w142897832",
+    "w145235579",
+    "w150384800",
+    "w150456706",
+    "w150456713",
+    "w150621883",
+    "w150621884",
+    "w150750958",
+    "w150793976",
+    "w150919986",
+    "w150919991",
+    "w150919997",
+    "w151090117",
+    "w151261631",
+    "w151261632",
+    "w151261633",
+    "w151520485",
+    "w151520487",
+    "w151520488",
+    "w152023075",
+    "w159544640",
+    "w159704207",
+    "w171141666",
+    "w171141710",
+    "w171141739",
+    "w171141750",
+    "w171141754",
+    "w176651325",
+    "w176651328",
+    "w176651337",
+    "w180478177",
+    "w190323824",
+    "w210861929",
+    "w210861930",
+    "w210861931",
+    "w210861932",
+    "w210861933",
+    "w210861934",
+    "w210861935",
+    "w210861936",
+    "w210861937",
+    "w210861938",
+    "w210861945",
+    "w210861946",
+    "w210861947",
+    "w223971265",
+    "w229693977",
+    "w229737629",
+    "w230677139",
+    "w234993294",
+    "w249673003",
+    "w249673023",
+    "w274218294",
+    "w276956323",
+    "w283121819",
+    "w302137566",
+    "w306538688",
+    "w312084926",
+    "w315866968",
+    "w315866971",
+    "w315866972",
+    "w318417231",
+    "w368010066",
+    "w368011102",
+    "w381167988",
+    "w382002846",
+    "w386350137",
+    "w386350138",
+    "w388502775",
+    "w389904773",
+    "w391121416",
+    "w398963562",
+    "w398963589",
+    "w399029147",
+    "w399029153",
+    "w399093019",
+    "w399093021",
+    "w399093023",
+    "w399666153",
+    "w441740970",
+    "w441740971",
+    "w441740978",
+    "w441740979",
+    "w441740981",
+    "w441740983",
+    "w441740986",
+    "w441740987",
+    "w441740990",
+    "w446492342",
+    "w446654458",
+    "w478206064",
+    "w478206176",
+    "w478261407",
+    "w478773228",
+    "w482309862",
+    "w482510935",
+    "w482811499",
+    "w482811500",
+    "w483093186",
+    "w483481739",
+    "w483481808",
+    "w483721185",
+    "w485114123",
+    "w485179045",
+    "w549367377",
+    "w602745205",
+    "w615236743",
+    "w678479116",
+    "w716398268",
+    "w744474366",
+    "w778381695",
+    "w892318079",
+    "w892343309",
+    "w892346586",
+    "w892462425",
+    "w892770518",
+    "w901023837",
+    "w901023838",
+    "w917619445",
+    "w917619446",
+    "w917619447",
+    "w917619448",
+    "w917619449",
+    "w918488870",
+    "w966316409",
+    "w972176079",
+    "w976103999",
+    "w997685164",
+    "w1061975009",
+    "w1061977111",
+    "w1064813160",
+    "w1064813161",
+    "w1064813162",
+    "w1064813163",
+    "w1064813164",
+    "w1104753213",
+    "w1280132161",
+    "w1312944506",
+    "w1312947388",
+    "w1319728540",
+    "w1331070808",
+    "w1361131044",
+    "w1408926397",
+    "w1408926398",
+    "w1421713938",
+    "w1510472713",
+    "w1510472717",
+    "w1510472718",
+    "w1566874079"
+  ]
+}

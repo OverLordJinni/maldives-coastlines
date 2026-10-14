@@ -1,0 +1,78 @@
+{
+  "why": "D220: reclaimed or artificial land is not an island on the chart. OSM does not tag land as reclaimed (PLAN Risk 20), so these are kept by hand, each with its reason and the evidence it rests on. Only rows the evidence supports are here; doubtful rings are listed for review in chart-manifest.json (`review`), not excluded on a guess. build-chart refuses a row whose id is not a ring in the extract, so the list cannot go stale silently. The owner reviews this list before the first upload with chart data (AC136); until then `reviewed` is null.",
+  "reviewed": null,
+  "excluded": [
+    {
+      "id": "r6615241",
+      "name": "Hulhulé and Hulhumalé",
+      "reason": "Reclaimed: OSM draws the airport island Hulhulé and Hulhumalé as one coastline. Hulhumalé was reclaimed from the lagoon from 1997, and Hulhulé was extended by reclamation for the runway",
+      "source": "OSM: one ring of 822 ha; sand areas inside it carry note=reclaimed land (w1510314224, Sentinel-2, 2026-04). Wikipedia 'Hulhumalé', 'Velana International Airport'"
+    },
+    {
+      "id": "w602730308",
+      "name": "Thilafushi",
+      "reason": "Artificial: built from 1992 on the Thilafalhu lagoon as the capital's landfill",
+      "source": "OSM: coastline way tagged landuse=industrial. Wikipedia 'Thilafushi'"
+    },
+    {
+      "id": "w1067643669",
+      "name": "Gulhifalhu",
+      "reason": "Reclaimed: land made on the Gulhifalhu lagoon (falhu = lagoon) for the new port",
+      "source": "OSM: 210 ha, buildings and no vegetation mapped. Wikipedia 'Gulhifalhu'"
+    },
+    {
+      "id": "w1329883000",
+      "name": "Ras Malé",
+      "reason": "Reclaimed: the Ras Malé project on the Fushidhiggaru lagoon",
+      "source": "OSM: named Ras Male, 115 ha, nothing mapped on it. Maldives government announcements of the Ras Malé reclamation (2022–)"
+    },
+    {
+      "id": "w1507762184",
+      "name": "Ras Malé",
+      "reason": "Reclaimed: the Ras Malé project on the Fushidhiggaru lagoon (a second ring of it)",
+      "source": "OSM: named Ras Male, 195 ha, nothing mapped on it"
+    },
+    {
+      "id": "w1327249492",
+      "name": "Giraavaru Falhu",
+      "reason": "Reclaimed: a lagoon (falhu) made into land",
+      "source": "OSM: named Giraavaru Falhu, 150 ha, nothing mapped on it"
+    },
+    {
+      "id": "w1301697249",
+      "name": "Kodhipparu Falhu",
+      "reason": "Reclaimed: a lagoon (falhu) made into land",
+      "source": "OSM: named Kodhipparu Falhu, 20 ha, nothing mapped on it"
+    },
+    {
+      "id": "w693469837",
+      "name": "The Marina at Crossroads",
+      "reason": "Reclaimed: the CROSSROADS resort islands were built on the Emboodhoo lagoon",
+      "source": "OSM: one of four outer members of place relation r9637303; buildings, no vegetation mapped. Wikipedia 'Crossroads Maldives'"
+    },
+    {
+      "id": "w747491683",
+      "name": "Hard Rock Hotel Maldives",
+      "reason": "Reclaimed: one of the CROSSROADS islands on the Emboodhoo lagoon",
+      "source": "OSM: an outer member of r9637303. Wikipedia 'Crossroads Maldives'"
+    },
+    {
+      "id": "w901003947",
+      "name": "SAii Lagoon Maldives",
+      "reason": "Reclaimed: one of the CROSSROADS islands on the Emboodhoo lagoon",
+      "source": "OSM: an outer member of r9637303. Wikipedia 'Crossroads Maldives'"
+    },
+    {
+      "id": "w903629298",
+      "name": "(unnamed, CROSSROADS)",
+      "reason": "Reclaimed: the fourth CROSSROADS island on the Emboodhoo lagoon",
+      "source": "OSM: an outer member of r9637303, tagged place=islet, buildings and no vegetation mapped"
+    },
+    {
+      "id": "w901023839",
+      "name": "(unnamed)",
+      "reason": "Land being made: tagged landuse=construction, in the Emboodhoo lagoon beside the CROSSROADS islands",
+      "source": "OSM: coastline way tagged landuse=construction, 16.5 ha, at 4.122° N 73.488° E"
+    }
+  ]
+}

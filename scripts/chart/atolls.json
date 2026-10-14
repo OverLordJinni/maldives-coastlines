@@ -1,0 +1,27 @@
+{
+  "why": "D235: landing shows an atoll's present-day name (e.g. 'Haa Dhaalu'). OSM's admin_level=4 relations carry the traditional names in name:en ('South Thiladhunmathi'), so today's names come from this hand table (PLAN Spec issues 12). Each row is keyed by the OSM relation id and pins the name:en it was written against: build-chart refuses to run if the relation's name:en has changed, so a re-used or re-drawn relation cannot silently take another atoll's name. The id written into the chart is the code letters' slug, stable if OSM renumbers a relation. Two relations may share one id: Malé (r6599336), the capital's own administrative unit, is charted as Kaafu, the atoll its islands lie in, because its present-day name 'Malé' is also an island's name, and v1 shows no island's name (AC138, D221). Pending the owner's answer (CH1 report).",
+  "source": "The administrative atolls and their code names under the Decentralization Act 2010 (Act 7/2010) as listed by the Maldives Bureau of Statistics census tables (Census 2022) and Wikipedia 'Administrative divisions of the Maldives'. Written from those references by the feature-builder on 2026-10-14 without fetching them: to be checked by the owner, who reads the names on landing (D235, DP3).",
+  "atolls": {
+    "6599296": { "osmNameEn": "North Thiladhunmathi", "id": "haa-alif", "name": "Haa Alif" },
+    "6599297": { "osmNameEn": "South Thiladhunmathi", "id": "haa-dhaalu", "name": "Haa Dhaalu" },
+    "6599324": { "osmNameEn": "North Miladhunmadulu", "id": "shaviyani", "name": "Shaviyani" },
+    "6599323": { "osmNameEn": "South Miladhunmadulu", "id": "noonu", "name": "Noonu" },
+    "6599331": { "osmNameEn": "North Maalhosmadulu", "id": "raa", "name": "Raa" },
+    "6599335": { "osmNameEn": "South Maalhosmadulu", "id": "baa", "name": "Baa" },
+    "6599328": { "osmNameEn": "Faadhippolhu", "id": "lhaviyani", "name": "Lhaviyani" },
+    "6599423": { "osmNameEn": "Malé Atoll", "id": "kaafu", "name": "Kaafu" },
+    "6599336": { "osmNameEn": "Malé", "id": "kaafu", "name": "Kaafu" },
+    "6599351": { "osmNameEn": "North Ari Atoll", "id": "alif-alif", "name": "Alif Alif" },
+    "6599352": { "osmNameEn": "South Ari Atoll", "id": "alif-dhaal", "name": "Alif Dhaal" },
+    "6600315": { "osmNameEn": "Felidhu Atoll", "id": "vaavu", "name": "Vaavu" },
+    "6599365": { "osmNameEn": "Mulaku Atoll", "id": "meemu", "name": "Meemu" },
+    "6599372": { "osmNameEn": "North Nilandhe Atoll", "id": "faafu", "name": "Faafu" },
+    "6599371": { "osmNameEn": "South Nilandhe Atoll", "id": "dhaalu", "name": "Dhaalu" },
+    "6599381": { "osmNameEn": "Kolhumadulu", "id": "thaa", "name": "Thaa" },
+    "6599390": { "osmNameEn": "Hadhdhunmathi", "id": "laamu", "name": "Laamu" },
+    "6599410": { "osmNameEn": "North Huvadhu Atoll", "id": "gaafu-alif", "name": "Gaafu Alif" },
+    "6599411": { "osmNameEn": "South Huvadhu Atoll", "id": "gaafu-dhaalu", "name": "Gaafu Dhaalu" },
+    "6599412": { "osmNameEn": "Fuvahmulah", "id": "gnaviyani", "name": "Gnaviyani" },
+    "6599413": { "osmNameEn": "Addu Atoll", "id": "seenu", "name": "Seenu" }
+  }
+}
