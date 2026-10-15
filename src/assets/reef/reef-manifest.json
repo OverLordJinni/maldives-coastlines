@@ -1,0 +1,296 @@
+{
+  "why": "The record of the traced reef (R75, AC162, AC163, AC165). Written by scripts/reef/build-reef.ts; tests/scene/reef.test.ts holds reef.json to it. Never imported by the app.",
+  "id": "osm-858582dd.r7124282+S2C_43NBH_20260420_0_L2A.m1",
+  "data": {
+    "file": "src/assets/reef/reef.json",
+    "sha256": "00db6a86fa9dfa6e93dd91b0d01e937fbb0d194cfe6bea38a0972cfb9af2064d",
+    "edgePoints": 35,
+    "crestPoints": 35
+  },
+  "licence": [
+    "Reef relation and coastline: © OpenStreetMap contributors, under the Open Database Licence (ODbL) 1.0, https://opendatacommons.org/licenses/odbl/1-0/",
+    "Edge and crest shapes: Contains modified Copernicus Sentinel data 2026 (Copernicus Sentinel data and service information are free and open, Regulation (EU) No 1159/2013 and the Sentinel data legal notice). Outlines only: no pixel or image is in the repository or the app (D269)."
+  ],
+  "osm": {
+    "extract": {
+      "file": "maldives-latest.osm.pbf",
+      "sha256": "858582dd024b7bf5fc46f6f2118a684f78508992075c5f890ed64a2863ec6ba6",
+      "dir": "projects/kaabafain/assets-raw/osm-2026-10-14"
+    },
+    "relation": 7124282,
+    "tags": {
+      "natural": "reef",
+      "reef": "coral",
+      "type": "multipolygon"
+    },
+    "outerWay": 484029944,
+    "innerWay": 19879672,
+    "outerPoints": 13,
+    "outer": [
+      [
+        73.0591464,
+        6.5178
+      ],
+      [
+        73.0569577,
+        6.5189086
+      ],
+      [
+        73.0537176,
+        6.519271
+      ],
+      [
+        73.0521727,
+        6.5189513
+      ],
+      [
+        73.0492759,
+        6.5178427
+      ],
+      [
+        73.0480957,
+        6.5158387
+      ],
+      [
+        73.0494475,
+        6.5133017
+      ],
+      [
+        73.051765,
+        6.5115749
+      ],
+      [
+        73.0545974,
+        6.51085
+      ],
+      [
+        73.0574083,
+        6.5114469
+      ],
+      [
+        73.0603266,
+        6.5146022
+      ],
+      [
+        73.0603051,
+        6.5162438
+      ],
+      [
+        73.0597901,
+        6.5170326
+      ]
+    ],
+    "innerPoints": 33,
+    "areaM2": {
+      "outer": 923819,
+      "island": 412034,
+      "reef": 511784
+    },
+    "areaMethod": "scripts/chart/geometry.ts areaM2: shoelace in local equirectangular metres at the ring's mean latitude"
+  },
+  "sentinel2": {
+    "scene": "S2C_43NBH_20260420_0_L2A",
+    "product": "S2C_MSIL2A_20260420T052031_N0512_R062_T43NBH_20260420T101911.SAFE",
+    "sensed": "2026-04-20T05:37:12.398000Z",
+    "sceneCloudCover": 0.336275,
+    "stac": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a/items/S2C_43NBH_20260420_0_L2A",
+    "bands": {
+      "B03.tif": "dcb81d1aff4b7dd26d0325c1e7b5c81efd1c99d02f7d83d84b5c506f87f12a1e",
+      "B08.tif": "e0d4071672dc125540fee4cf472b18b1a12399317e7c2f258f05287e36d7db7e"
+    },
+    "item": "8cb134494b11d4b0eebe95aa1ddd72f3ed3729cdcd1c14a020a11538c3049025",
+    "dir": "projects/kaabafain/assets-raw/sentinel2-2026-04-20 (PROVENANCE.md)",
+    "utmZone": 43,
+    "window": {
+      "x0": 8402,
+      "y0": 7862,
+      "size": 160,
+      "pixelM": 10
+    }
+  },
+  "method": {
+    "version": 1,
+    "code": "scripts/reef/trace.ts (the method and why), scripts/reef/tiff.ts, scripts/reef/utm.ts, scripts/reef/transform.ts",
+    "reflectance": "DN / 10,000 (Element84 has removed the L2A offset: earthsearch:boa_offset_applied)",
+    "land": "B08 > B03 (NDWI < 0)",
+    "openSea": {
+      "framePx": 8,
+      "median": 0.0173,
+      "robustSigma": 0.00119
+    },
+    "edge": {
+      "rule": "open sea median + 6 robust sigma, in B03 reflectance",
+      "threshold": 0.02442
+    },
+    "crest": {
+      "rule": "Otsu (256 bins) on ln(smoothed B03) over the water inside the edge",
+      "threshold": 0.08503
+    },
+    "smoothing": "B03 reflectance blurred by a Gaussian of sigma 1 px before both contours; land set after",
+    "contour": "marching squares at pixel centres, land held above every threshold; the largest loop round the island's centroid",
+    "simplification": "Douglas–Peucker at 5 m true (0.860 scene m), then rounded to 1 cm"
+  },
+  "depth": "Not traced: no open source gives this reef's depth. The game draws a depth profile from the shore on these outlines (kaabafain src/scene/reef.ts; D283, D293), which is game tuning, not data derived from OpenStreetMap or Sentinel-2.",
+  "transform": {
+    "what": "the home island's (src/rules/tuning.ts ISLAND_SOURCE; D182, D186): equirectangular round the coastline's area centroid, north to -z, scaled",
+    "lon0": 73.05400674322956,
+    "lat0": 6.515550846985493,
+    "metresPerDegLon": "111320 × cos(lat0)",
+    "metresPerDegLat": 110574,
+    "scale": 0.17202807062455622
+  },
+  "result": {
+    "reefAreaM2": {
+      "shipped": 524188,
+      "osm": 511784,
+      "offPercent": 2.42,
+      "tolerancePercent": 10
+    },
+    "sceneAreaM2": {
+      "edge": 27706.2,
+      "crest": 18207.1
+    },
+    "bearings": {
+      "count": 72,
+      "from": "the coastline's centroid (the scene's origin), degrees from east towards south",
+      "disagreeOverM": 20,
+      "disagree": [
+        {
+          "deg": 0,
+          "shippedM": 732,
+          "osmM": 698
+        },
+        {
+          "deg": 5,
+          "shippedM": 730,
+          "osmM": 701
+        },
+        {
+          "deg": 15,
+          "shippedM": 691,
+          "osmM": 660
+        },
+        {
+          "deg": 20,
+          "shippedM": 660,
+          "osmM": 634
+        },
+        {
+          "deg": 45,
+          "shippedM": 564,
+          "osmM": 585
+        },
+        {
+          "deg": 50,
+          "shippedM": 554,
+          "osmM": 589
+        },
+        {
+          "deg": 55,
+          "shippedM": 544,
+          "osmM": 567
+        },
+        {
+          "deg": 75,
+          "shippedM": 499,
+          "osmM": 523
+        },
+        {
+          "deg": 80,
+          "shippedM": 492,
+          "osmM": 522
+        },
+        {
+          "deg": 85,
+          "shippedM": 486,
+          "osmM": 517
+        },
+        {
+          "deg": 115,
+          "shippedM": 474,
+          "osmM": 496
+        },
+        {
+          "deg": 120,
+          "shippedM": 472,
+          "osmM": 504
+        },
+        {
+          "deg": 125,
+          "shippedM": 474,
+          "osmM": 501
+        },
+        {
+          "deg": 130,
+          "shippedM": 481,
+          "osmM": 502
+        },
+        {
+          "deg": 155,
+          "shippedM": 541,
+          "osmM": 563
+        },
+        {
+          "deg": 215,
+          "shippedM": 536,
+          "osmM": 511
+        },
+        {
+          "deg": 220,
+          "shippedM": 511,
+          "osmM": 485
+        },
+        {
+          "deg": 225,
+          "shippedM": 491,
+          "osmM": 464
+        },
+        {
+          "deg": 230,
+          "shippedM": 476,
+          "osmM": 448
+        },
+        {
+          "deg": 235,
+          "shippedM": 461,
+          "osmM": 437
+        },
+        {
+          "deg": 240,
+          "shippedM": 450,
+          "osmM": 429
+        },
+        {
+          "deg": 330,
+          "shippedM": 596,
+          "osmM": 572
+        },
+        {
+          "deg": 335,
+          "shippedM": 631,
+          "osmM": 609
+        },
+        {
+          "deg": 340,
+          "shippedM": 671,
+          "osmM": 634
+        },
+        {
+          "deg": 345,
+          "shippedM": 697,
+          "osmM": 657
+        },
+        {
+          "deg": 350,
+          "shippedM": 719,
+          "osmM": 680
+        },
+        {
+          "deg": 355,
+          "shippedM": 729,
+          "osmM": 699
+        }
+      ]
+    }
+  }
+}

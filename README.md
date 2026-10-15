@@ -7,6 +7,13 @@ https://opendatacommons.org/licenses/dbcl/1-0/. You are free to copy, distribute
 as long as you credit OpenStreetMap and its contributors, and if you alter or build upon it you may
 distribute the result only under the same licence. See https://www.openstreetmap.org/copyright.
 
+**Contains modified Copernicus Sentinel data 2026.** The reef round Maavaidhoo (`src/assets/reef/`) is OpenStreetMap
+data whose shape was traced from a Copernicus Sentinel-2 scene. Copernicus Sentinel data are free and open (Commission
+Delegated Regulation (EU) No 1159/2013 and the Sentinel Data Legal Notice,
+https://sentinels.copernicus.eu/documents/247904/690755/Sentinel_Data_Legal_Notice); anything made from these files
+carries the line above as well as the OpenStreetMap credit. No Sentinel-2 image or pixel is in this repository: only the
+outlines traced from one.
+
 It is published here because a game in development ships it inside the app, and the ODbL's share-alike
 asks that a derived database used publicly be offered under the ODbL. This repository holds that
 derived database and the scripts that build it, and nothing else.
@@ -19,6 +26,8 @@ derived database and the scripts that build it, and nothing else.
 | `src/assets/chart/chart-manifest.json` | The record: the source extract and its hashes, the method, the counts, every OSM coastline ring that was left out and why, and island names as OSM has them |
 | `scripts/chart/excluded.json` | The hand-kept list of reclaimed or artificial islands left out, each with its reason and evidence |
 | `scripts/chart/atolls.json` | Today's administrative atoll names, keyed by the OSM relation each was written against |
+| `src/assets/reef/reef.json` | The coral reef round Maavaidhoo (Haa Dhaalu atoll): its edge, where it drops to open water, and its crest, two closed rings in metres of a local frame (see "The reef round Maavaidhoo" below) |
+| `src/assets/reef/reef-manifest.json` | The reef's record: the OpenStreetMap relation and the Sentinel-2 scene it came from, their hashes, the method and its thresholds, the frame, and how far the traced reef is from OpenStreetMap's, bearing by bearing |
 
 **Island names are not in `maldives.bin`.** The manifest carries them as OSM has them.
 
@@ -71,6 +80,47 @@ ring         varint point count (≥ 3), then per point the zig-zag varint delta
 Varints are unsigned LEB128, as in Protocol Buffers; zig-zag maps n to 2n for n ≥ 0 and to −2n − 1
 otherwise.
 
+## The reef round Maavaidhoo (method version 1: id `osm-858582dd.r7124282+S2C_43NBH_20260420_0_L2A.m1`)
+
+**The sources.** OpenStreetMap relation 7124282 (`natural=reef`, `reef=coral`), from the same extract as the chart: its
+outer way 484029944 is the reef as mapped, its inner way 19879672 the island's coastline. OpenStreetMap gives the reef's
+area; its outer way has 13 points and cuts across the reef by up to about 40 m, so the **shape** is traced from
+Sentinel-2 scene `S2C_43NBH_20260420_0_L2A` (Sentinel-2C L2A, sensed 2026-04-20, 0.34 % cloud over the tile; bands B03 and
+B08, from Element84 Earth Search, https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a/items/S2C_43NBH_20260420_0_L2A).
+
+**The method** (`scripts/reef/trace.ts` says why each step):
+1. A 160 × 160 pixel (1.6 km) window round the island, reflectance DN / 10,000. Land is where B08 > B03.
+2. The **edge** is the contour of B03 at the open sea's median plus 6 robust sigma, measured on the window's 8-pixel
+   frame; the **crest** is the contour at Otsu's threshold on ln(B03) over the water inside the edge. Both on B03 blurred
+   by a 1-pixel Gaussian, land held above every threshold, keeping the loop round the island.
+3. The loops are projected, simplified by Douglas–Peucker at 5 m, and rounded to 1 cm in the frame below.
+4. The build refuses if OpenStreetMap's relation changes its members, or if the traced reef's area is more than 10 % from
+   OpenStreetMap's. It is +2.4 % (524,188 m² against 511,784 m², less the island); on every 5° bearing from the island's
+   centre the traced edge is within 50 m of the mapped one, and the manifest lists the 27 of 72 bearings beyond 20 m.
+
+**The frame.** The rings are in metres of a local equirectangular frame round the coastline's area centroid
+(`src/rules/islandSource.ts`: lon0 73.05400674322956, lat0 6.515550846985493), x east and z **south**, multiplied by
+`scale` 0.17202807062455622, the size the game draws the island at:
+
+```
+x =  (lon − lon0) × 111,320 × cos(lat0) × scale
+z = −(lat − lat0) × 110,574 × scale
+```
+
+Divide by `scale` for true metres, or invert for longitude and latitude.
+
+**Not in it:** depth. No open source gives this reef's depth; the game draws its own, and that is game tuning, not data.
+
+**Rebuilding it** needs the extract above and the scene's B03, B08 and `item.json` (about 110 MB; the STAC item above
+lists their URLs), each directory with a `SHA256SUMS`:
+
+```
+npm run reef -- <directory holding maldives-latest.osm.pbf> <directory holding B03.tif, B08.tif, item.json>
+```
+
+With the same inputs it reproduces both files byte for byte, which `tests/scripts/reef/buildReef.test.ts` checks wherever
+the inputs are found (set `REEF_OSM` and `REEF_S2`); elsewhere that test is skipped, which is not a pass.
+
 ## Corrections
 
 If an outline is wrong, the fix belongs in OpenStreetMap itself (https://www.openstreetmap.org), where it
@@ -92,7 +142,8 @@ same extract it reproduces `maldives.bin` byte for byte.
 
 ## Licences
 
-- **The data** (`src/assets/chart/`, `scripts/chart/excluded.json`, `scripts/chart/atolls.json`): ODbL 1.0,
-  © OpenStreetMap contributors, as above.
+- **The data** (`src/assets/chart/`, `src/assets/reef/`, `scripts/chart/excluded.json`, `scripts/chart/atolls.json`):
+  ODbL 1.0, © OpenStreetMap contributors, as above. The reef's shape also contains modified Copernicus Sentinel data
+  2026 (free and open, as above).
 - **The scripts and tests** (`scripts/`, `src/rules/`, `tests/`): MIT, see `LICENSE`.
 
