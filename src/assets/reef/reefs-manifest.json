@@ -1,0 +1,2536 @@
+{
+  "why": "The record of the traced reefs of the islands he can land on (R75 as draft 18.1 extends it, AC162, AC163, AC165; D375, D380, D387, D388). Written by scripts/reef/build-reefs.ts; scripts/check-reefs.ts holds reefs.bin to it. Never imported by the app. The home island's reef is not here: src/assets/reef/reef.json and reef-manifest.json.",
+  "id": "osm-858582dd.s2-ecc71584.m1",
+  "data": {
+    "file": "src/assets/reef/reefs.bin",
+    "sha256": "455aed866b88b5a5717c7f9b41f3c5d00224143e3818fdadd1475eb8d97a77c7",
+    "bytes": 1005,
+    "base64Bytes": 1340,
+    "islands": 3,
+    "points": 354
+  },
+  "budget": {
+    "base64Bytes": 256000,
+    "what": "D390: 256 KB as base64 in the bundle, read as 256,000 bytes"
+  },
+  "licence": [
+    "Reef polygons and coastlines: © OpenStreetMap contributors, under the Open Database Licence (ODbL) 1.0, https://opendatacommons.org/licenses/odbl/1-0/",
+    "Edge and crest shapes: Contains modified Copernicus Sentinel data 2025 and 2026 (Copernicus Sentinel data and service information are free and open, Regulation (EU) No 1159/2013 and the Sentinel data legal notice). Outlines only: no pixel or image is in the repository or the app (D269).",
+    "Kulhudhuffushi's kulhi: Landsat-5 image courtesy of the U.S. Geological Survey (Landsat data are in the public domain). Outlines only: no pixel or image is in the repository or the app."
+  ],
+  "copernicusYears": [
+    "2025",
+    "2026"
+  ],
+  "sources": {
+    "osm": {
+      "extract": {
+        "file": "maldives-latest.osm.pbf",
+        "sha256": "858582dd024b7bf5fc46f6f2118a684f78508992075c5f890ed64a2863ec6ba6",
+        "dir": "projects/kaabafain/assets-raw/osm-2026-10-14"
+      }
+    },
+    "chart": {
+      "file": "src/assets/chart/maldives.bin",
+      "sha256": "897f24e1c1d99af3a25e9acac3b5b4ff167424c151c2e55d47b4a9a702648b53",
+      "chartId": "osm-2026-10-14.f1.t5"
+    },
+    "candidates": {
+      "dir": "projects/kaabafain/assets-raw/sentinel2-scl-candidates-2026-10-20 (PROVENANCE.md)",
+      "sensedFrom": "2025-10-20",
+      "sensedTo": "2026-10-20",
+      "maxTileCloudPercent": 10,
+      "scenes": 54,
+      "sums": "ef11603b9413bb722de9b42e4d5a76cf4e4bbae25e2447f172c7e8825f282abf"
+    }
+  },
+  "method": {
+    "version": 1,
+    "code": "scripts/reef/build-reefs.ts (the steps and why), scripts/reef/build-reef.ts traceScene (the home's trace, one body for every island), scripts/reef/trace.ts (the method and why), scripts/reef/scenes.ts, scripts/reef/osm-reefs.ts, scripts/reef/kulhi.ts, scripts/reef/transform.ts, scripts/reef/tiff.ts, scripts/reef/utm.ts, scripts/reef/encode-reefs.ts",
+    "reflectance": "Sentinel-2 L2A DN / 10,000 (Element84 has removed the L2A offset)",
+    "land": "B08 > B03 (NDWI < 0), held above every threshold",
+    "edge": "the open sea's median + 6 robust sigma in B03 reflectance, on the window's 8-pixel frame",
+    "crest": "Otsu (256 bins) on ln(smoothed B03) over the water inside the edge",
+    "smoothing": "B03 blurred by a Gaussian of sigma 1 px before both contours; land set after",
+    "contour": "marching squares at pixel centres; the largest loop round the island's centroid",
+    "simplification": "Douglas–Peucker at 5 m true in the island's own frame, then quantised once to 1e-5 degrees"
+  },
+  "depth": "Not traced: no open source gives these reefs' depth. The game draws a depth profile from the shore on these outlines, as it does at home (kaabafain src/scene/reef.ts; D283, D293), which is game tuning, not data derived from OpenStreetMap, Sentinel-2 or Landsat.",
+  "review": {
+    "order": [
+      "w19879485",
+      "w122946807",
+      "w19879671"
+    ],
+    "rule": "D389: the owner judges these on a contact sheet on the Mac, the doubtful first (most flags first, then the list's order); AC163's verdict is recorded with the batch",
+    "verdict": {
+      "by": "the owner",
+      "decision": "D392",
+      "date": "2026-10-20",
+      "verdict": "all three traced reefs right",
+      "seenOn": "the contact sheet archive/rf1-2026-10-20/index.html, made at commit 5562e12; not yet on a build"
+    }
+  },
+  "islands": [
+    {
+      "id": "w122946807",
+      "name": "Kumundhoo",
+      "part": "RF1",
+      "atoll": "haa-dhaalu",
+      "kind": "traced",
+      "transform": {
+        "what": "the island's own (PLAN v2.6): equirectangular round the area centroid of its shipped chart outline, north to -z, at the home scale (scripts/reef/transform.ts frameAt)",
+        "lon0": 73.0523563054837,
+        "lat0": 6.5721050837272985,
+        "metresPerDegLon": "111320 × cos(lat0)",
+        "metresPerDegLat": 110574,
+        "scale": 0.17202807062455622
+      },
+      "window": {
+        "rule": "square on the centroid, 340 m beyond the outline's farthest point on either axis, the home island's own 160 px window generalised (scripts/reef/scenes.ts islandWindow)",
+        "sizePx": 314,
+        "pixelM": 10,
+        "x0": 8310,
+        "y0": 7160
+      },
+      "sentinel2": {
+        "scene": "S2C_43NBH_20251111_0_L2A",
+        "product": "S2C_MSIL2A_20251111T052051_N0511_R062_T43NBH_20251111T083011.SAFE",
+        "sensed": "2025-11-11T05:37:23.087000Z",
+        "sceneCloudCover": 2.082339,
+        "stac": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a/items/S2C_43NBH_20251111_0_L2A",
+        "dir": "projects/kaabafain/assets-raw/sentinel2-43NBH-2025-11-11 (PROVENANCE.md)",
+        "bands": {
+          "B03.tif": "0f6568c151cb47d67b168982d473e977d726d56f37cd93a5df57686158f34a1b",
+          "B08.tif": "3a82bc8b59a08ec3979d0a78f1b7b75d9705408217f6c476e83ef490a81e5683"
+        },
+        "item": "e1789e6a57aa9981fabfc5f7c13d5cfdb516c20330bdaf1eb89257e0601116a5",
+        "utmZone": 43
+      },
+      "choice": {
+        "rule": "the least cloud over the window's water by SCL (shadow, cloud, cirrus), cloud flags on land or within 40 m of the coast set aside as bright ground; no-data rules a scene out; ties to the least cloudy tile, then the earlier date (scripts/reef/scenes.ts)",
+        "candidates": {
+          "considered": 32,
+          "fromOtherTiles": 22,
+          "passedOver": [],
+          "scenes": [
+            {
+              "scene": "S2C_43NBH_20251101_0_L2A",
+              "sensed": "2025-11-01",
+              "tileCloudPercent": 1.636467,
+              "pixels": 24649,
+              "unusable": 0,
+              "cloud": 520,
+              "shadow": 108,
+              "cirrus": 0,
+              "setAside": 1590,
+              "score": 628,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NBH_20251106_0_L2A",
+              "sensed": "2025-11-06",
+              "tileCloudPercent": 7.68716,
+              "pixels": 24649,
+              "unusable": 0,
+              "cloud": 0,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 6,
+              "score": 0,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NBH_20251109_0_L2A",
+              "sensed": "2025-11-09",
+              "tileCloudPercent": 4.390519,
+              "pixels": 24649,
+              "unusable": 1322,
+              "cloud": 16,
+              "shadow": 34,
+              "cirrus": 0,
+              "setAside": 624,
+              "score": null,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NBH_20251111_0_L2A",
+              "sensed": "2025-11-11",
+              "tileCloudPercent": 2.082339,
+              "pixels": 24649,
+              "unusable": 0,
+              "cloud": 0,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 58,
+              "score": 0,
+              "chosen": true
+            },
+            {
+              "scene": "S2B_43NBH_20251116_0_L2A",
+              "sensed": "2025-11-16",
+              "tileCloudPercent": 1.324078,
+              "pixels": 24649,
+              "unusable": 0,
+              "cloud": 1703,
+              "shadow": 109,
+              "cirrus": 0,
+              "setAside": 2788,
+              "score": 1812,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NBH_20251121_0_L2A",
+              "sensed": "2025-11-21",
+              "tileCloudPercent": 4.545448,
+              "pixels": 24649,
+              "unusable": 0,
+              "cloud": 402,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 133,
+              "score": 402,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NBH_20251226_0_L2A",
+              "sensed": "2025-12-26",
+              "tileCloudPercent": 1.025313,
+              "pixels": 24649,
+              "unusable": 0,
+              "cloud": 0,
+              "shadow": 42,
+              "cirrus": 0,
+              "setAside": 192,
+              "score": 42,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NBH_20260108_0_L2A",
+              "sensed": "2026-01-08",
+              "tileCloudPercent": 3.025564,
+              "pixels": 24649,
+              "unusable": 3453,
+              "cloud": 244,
+              "shadow": 71,
+              "cirrus": 0,
+              "setAside": 4344,
+              "score": null,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NBH_20260110_0_L2A",
+              "sensed": "2026-01-10",
+              "tileCloudPercent": 4.298435,
+              "pixels": 24649,
+              "unusable": 0,
+              "cloud": 0,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 38,
+              "score": 0,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NBH_20260113_0_L2A",
+              "sensed": "2026-01-13",
+              "tileCloudPercent": 3.613101,
+              "pixels": 24649,
+              "unusable": 5146,
+              "cloud": 157,
+              "shadow": 97,
+              "cirrus": 0,
+              "setAside": 1115,
+              "score": null,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NBH_20260115_0_L2A",
+              "sensed": "2026-01-15",
+              "tileCloudPercent": 6.086185,
+              "pixels": 24649,
+              "unusable": 0,
+              "cloud": 0,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 118,
+              "score": 0,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NBH_20260118_0_L2A",
+              "sensed": "2026-01-18",
+              "tileCloudPercent": 7.954633,
+              "pixels": 24649,
+              "unusable": 2200,
+              "cloud": 5215,
+              "shadow": 290,
+              "cirrus": 0,
+              "setAside": 4732,
+              "score": null,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NBH_20260123_0_L2A",
+              "sensed": "2026-01-23",
+              "tileCloudPercent": 8.920839,
+              "pixels": 24649,
+              "unusable": 1259,
+              "cloud": 3990,
+              "shadow": 225,
+              "cirrus": 471,
+              "setAside": 4546,
+              "score": null,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NBH_20260130_0_L2A",
+              "sensed": "2026-01-30",
+              "tileCloudPercent": 3.87182,
+              "pixels": 24649,
+              "unusable": 0,
+              "cloud": 8,
+              "shadow": 112,
+              "cirrus": 0,
+              "setAside": 1708,
+              "score": 120,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NBH_20260219_0_L2A",
+              "sensed": "2026-02-19",
+              "tileCloudPercent": 2.615169,
+              "pixels": 24649,
+              "unusable": 0,
+              "cloud": 26,
+              "shadow": 56,
+              "cirrus": 0,
+              "setAside": 154,
+              "score": 82,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NBH_20260224_0_L2A",
+              "sensed": "2026-02-24",
+              "tileCloudPercent": 5.689126,
+              "pixels": 24649,
+              "unusable": 0,
+              "cloud": 891,
+              "shadow": 10,
+              "cirrus": 0,
+              "setAside": 1725,
+              "score": 901,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NBH_20260301_0_L2A",
+              "sensed": "2026-03-01",
+              "tileCloudPercent": 2.331791,
+              "pixels": 24649,
+              "unusable": 0,
+              "cloud": 3334,
+              "shadow": 207,
+              "cirrus": 0,
+              "setAside": 3931,
+              "score": 3541,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NBH_20260306_0_L2A",
+              "sensed": "2026-03-06",
+              "tileCloudPercent": 0.735702,
+              "pixels": 24649,
+              "unusable": 0,
+              "cloud": 214,
+              "shadow": 192,
+              "cirrus": 0,
+              "setAside": 2942,
+              "score": 406,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NBH_20260311_0_L2A",
+              "sensed": "2026-03-11",
+              "tileCloudPercent": 0.81125,
+              "pixels": 24649,
+              "unusable": 0,
+              "cloud": 1,
+              "shadow": 56,
+              "cirrus": 0,
+              "setAside": 222,
+              "score": 57,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NBH_20260319_0_L2A",
+              "sensed": "2026-03-19",
+              "tileCloudPercent": 1.894962,
+              "pixels": 24649,
+              "unusable": 6942,
+              "cloud": 5978,
+              "shadow": 31,
+              "cirrus": 0,
+              "setAside": 4988,
+              "score": null,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NBH_20260326_0_L2A",
+              "sensed": "2026-03-26",
+              "tileCloudPercent": 1.649546,
+              "pixels": 24649,
+              "unusable": 0,
+              "cloud": 4,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 68,
+              "score": 4,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NBH_20260405_0_L2A",
+              "sensed": "2026-04-05",
+              "tileCloudPercent": 9.894387,
+              "pixels": 24649,
+              "unusable": 0,
+              "cloud": 0,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 36,
+              "score": 0,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NBH_20260420_0_L2A",
+              "sensed": "2026-04-20",
+              "tileCloudPercent": 0.336275,
+              "pixels": 24649,
+              "unusable": 0,
+              "cloud": 270,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 413,
+              "score": 270,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NBH_20260602_0_L2A",
+              "sensed": "2026-06-02",
+              "tileCloudPercent": 9.410002,
+              "pixels": 24649,
+              "unusable": 6866,
+              "cloud": 9,
+              "shadow": 119,
+              "cirrus": 0,
+              "setAside": 996,
+              "score": null,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NBH_20260707_0_L2A",
+              "sensed": "2026-07-07",
+              "tileCloudPercent": 7.089108,
+              "pixels": 24649,
+              "unusable": 1967,
+              "cloud": 467,
+              "shadow": 195,
+              "cirrus": 0,
+              "setAside": 4417,
+              "score": null,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NBH_20260712_0_L2A",
+              "sensed": "2026-07-12",
+              "tileCloudPercent": 3.918682,
+              "pixels": 24649,
+              "unusable": 9847,
+              "cloud": 367,
+              "shadow": 101,
+              "cirrus": 0,
+              "setAside": 1163,
+              "score": null,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NBH_20260724_0_L2A",
+              "sensed": "2026-07-24",
+              "tileCloudPercent": 0.792917,
+              "pixels": 24649,
+              "unusable": 0,
+              "cloud": 0,
+              "shadow": 106,
+              "cirrus": 0,
+              "setAside": 615,
+              "score": 106,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NBH_20260818_0_L2A",
+              "sensed": "2026-08-18",
+              "tileCloudPercent": 4.643618,
+              "pixels": 24649,
+              "unusable": 0,
+              "cloud": 4567,
+              "shadow": 112,
+              "cirrus": 0,
+              "setAside": 2749,
+              "score": 4679,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NBH_20260902_0_L2A",
+              "sensed": "2026-09-02",
+              "tileCloudPercent": 2.631652,
+              "pixels": 24649,
+              "unusable": 0,
+              "cloud": 37,
+              "shadow": 88,
+              "cirrus": 0,
+              "setAside": 379,
+              "score": 125,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NBH_20260927_0_L2A",
+              "sensed": "2026-09-27",
+              "tileCloudPercent": 8.206948,
+              "pixels": 24649,
+              "unusable": 0,
+              "cloud": 108,
+              "shadow": 8,
+              "cirrus": 0,
+              "setAside": 919,
+              "score": 116,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NBH_20261002_0_L2A",
+              "sensed": "2026-10-02",
+              "tileCloudPercent": 8.667073,
+              "pixels": 24649,
+              "unusable": 0,
+              "cloud": 4161,
+              "shadow": 80,
+              "cirrus": 0,
+              "setAside": 2013,
+              "score": 4241,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NBH_20261007_0_L2A",
+              "sensed": "2026-10-07",
+              "tileCloudPercent": 2.947982,
+              "pixels": 24649,
+              "unusable": 0,
+              "cloud": 0,
+              "shadow": 54,
+              "cirrus": 0,
+              "setAside": 108,
+              "score": 54,
+              "chosen": false
+            }
+          ]
+        }
+      },
+      "osm": {
+        "element": "r7139606",
+        "tags": {
+          "natural": "reef",
+          "reef": "coral",
+          "type": "multipolygon"
+        },
+        "outerWays": [
+          143182911
+        ],
+        "innerWays": [
+          122946807
+        ],
+        "outerPoints": 25,
+        "outer": [
+          [
+            73.0457953,
+            6.5787401
+          ],
+          [
+            73.047298,
+            6.5806636
+          ],
+          [
+            73.0488586,
+            6.582099
+          ],
+          [
+            73.0506504,
+            6.5829316
+          ],
+          [
+            73.0518352,
+            6.5828742
+          ],
+          [
+            73.0538293,
+            6.58141
+          ],
+          [
+            73.0565747,
+            6.5788549
+          ],
+          [
+            73.0577018,
+            6.5771611
+          ],
+          [
+            73.0585976,
+            6.5733428
+          ],
+          [
+            73.0587421,
+            6.5713905
+          ],
+          [
+            73.0583664,
+            6.5691799
+          ],
+          [
+            73.0585109,
+            6.5668832
+          ],
+          [
+            73.0581931,
+            6.5640983
+          ],
+          [
+            73.0574995,
+            6.5616006
+          ],
+          [
+            73.056488,
+            6.5601938
+          ],
+          [
+            73.0555054,
+            6.559476
+          ],
+          [
+            73.0545517,
+            6.5592463
+          ],
+          [
+            73.0536848,
+            6.5593325
+          ],
+          [
+            73.05276,
+            6.5606244
+          ],
+          [
+            73.0509393,
+            6.5627489
+          ],
+          [
+            73.0498701,
+            6.5644715
+          ],
+          [
+            73.0480205,
+            6.5678306
+          ],
+          [
+            73.0456508,
+            6.5723667
+          ],
+          [
+            73.0450439,
+            6.574606
+          ],
+          [
+            73.0450728,
+            6.5767017
+          ]
+        ],
+        "areaM2": {
+          "outer": 2733374,
+          "island": 1888538,
+          "reef": 844836
+        },
+        "areaMethod": "scripts/chart/geometry.ts areaM2 on the outer ring, less the island's charted outline (the same subtraction from the traced edge)",
+        "sharedWith": []
+      },
+      "method": {
+        "openSea": {
+          "framePx": 8,
+          "median": 0.021,
+          "robustSigma": 0.00208
+        },
+        "edge": {
+          "threshold": 0.03345
+        },
+        "crest": {
+          "threshold": 0.09194
+        }
+      },
+      "result": {
+        "points": {
+          "edge": 45,
+          "crest": 77,
+          "marsh": []
+        },
+        "reefAreaM2": {
+          "traced": 936558,
+          "osm": 844836,
+          "offPercent": 10.86,
+          "tolerancePercent": 10,
+          "judged": {
+            "decision": "D392",
+            "date": "2026-10-20",
+            "offPercentSeen": 10.86,
+            "by": "the owner"
+          }
+        },
+        "bearings": {
+          "count": 72,
+          "from": "the island's centroid, degrees from east towards south",
+          "disagreeOverM": 20,
+          "disagree": [
+            {
+              "deg": 20,
+              "tracedM": 743,
+              "osmM": 721
+            },
+            {
+              "deg": 25,
+              "tracedM": 762,
+              "osmM": 736
+            },
+            {
+              "deg": 30,
+              "tracedM": 799,
+              "osmM": 772
+            },
+            {
+              "deg": 35,
+              "tracedM": 850,
+              "osmM": 823
+            },
+            {
+              "deg": 40,
+              "tracedM": 912,
+              "osmM": 888
+            },
+            {
+              "deg": 50,
+              "tracedM": 1048,
+              "osmM": 1022
+            },
+            {
+              "deg": 65,
+              "tracedM": 1275,
+              "osmM": 1307
+            },
+            {
+              "deg": 70,
+              "tracedM": 1347,
+              "osmM": 1380
+            },
+            {
+              "deg": 85,
+              "tracedM": 1404,
+              "osmM": 1380
+            },
+            {
+              "deg": 90,
+              "tracedM": 1318,
+              "osmM": 1217
+            },
+            {
+              "deg": 95,
+              "tracedM": 1205,
+              "osmM": 1109
+            },
+            {
+              "deg": 100,
+              "tracedM": 1093,
+              "osmM": 1018
+            },
+            {
+              "deg": 105,
+              "tracedM": 988,
+              "osmM": 931
+            },
+            {
+              "deg": 110,
+              "tracedM": 903,
+              "osmM": 861
+            },
+            {
+              "deg": 115,
+              "tracedM": 837,
+              "osmM": 803
+            },
+            {
+              "deg": 120,
+              "tracedM": 786,
+              "osmM": 757
+            },
+            {
+              "deg": 125,
+              "tracedM": 748,
+              "osmM": 722
+            },
+            {
+              "deg": 130,
+              "tracedM": 720,
+              "osmM": 695
+            },
+            {
+              "deg": 135,
+              "tracedM": 699,
+              "osmM": 675
+            },
+            {
+              "deg": 140,
+              "tracedM": 684,
+              "osmM": 659
+            },
+            {
+              "deg": 145,
+              "tracedM": 675,
+              "osmM": 649
+            },
+            {
+              "deg": 150,
+              "tracedM": 668,
+              "osmM": 644
+            },
+            {
+              "deg": 160,
+              "tracedM": 671,
+              "osmM": 650
+            },
+            {
+              "deg": 165,
+              "tracedM": 684,
+              "osmM": 660
+            },
+            {
+              "deg": 170,
+              "tracedM": 702,
+              "osmM": 675
+            },
+            {
+              "deg": 210,
+              "tracedM": 953,
+              "osmM": 931
+            },
+            {
+              "deg": 230,
+              "tracedM": 1076,
+              "osmM": 1046
+            },
+            {
+              "deg": 325,
+              "tracedM": 783,
+              "osmM": 757
+            }
+          ]
+        },
+        "brightNearEdge": [],
+        "coastOutsideCrest": 0
+      },
+      "flags": [
+        "OSM's reef differs by more than AC162's 10 %, accepted by the owner (D392, 2026-10-20): the traced reef's area 936558 m² is 10.9 % from OSM's 844836 m² (AC162 allows 10 %)"
+      ]
+    },
+    {
+      "id": "w19879671",
+      "name": "Kulhudhuffushi",
+      "part": "RF1",
+      "atoll": "haa-dhaalu",
+      "kind": "traced",
+      "transform": {
+        "what": "the island's own (PLAN v2.6): equirectangular round the area centroid of its shipped chart outline, north to -z, at the home scale (scripts/reef/transform.ts frameAt)",
+        "lon0": 73.06912303795065,
+        "lat0": 6.623220770026598,
+        "metresPerDegLon": "111320 × cos(lat0)",
+        "metresPerDegLat": 110574,
+        "scale": 0.17202807062455622
+      },
+      "window": {
+        "rule": "square on the centroid, 340 m beyond the outline's farthest point on either axis, the home island's own 160 px window generalised (scripts/reef/scenes.ts islandWindow)",
+        "sizePx": 312,
+        "pixelM": 10,
+        "x0": 8498,
+        "y0": 6596
+      },
+      "sentinel2": {
+        "scene": "S2B_43NBH_20251106_0_L2A",
+        "product": "S2B_MSIL2A_20251106T051919_N0511_R062_T43NBH_20251106T074812.SAFE",
+        "sensed": "2025-11-06T05:37:08.081000Z",
+        "sceneCloudCover": 7.68716,
+        "stac": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a/items/S2B_43NBH_20251106_0_L2A",
+        "dir": "projects/kaabafain/assets-raw/sentinel2-43NBH-2025-11-06 (PROVENANCE.md)",
+        "bands": {
+          "B03.tif": "1122ae48251303ea89ca4580a5417f33ac24c4cc54affa0edf1419cedc9d42af",
+          "B08.tif": "84ef149fbd758726b03fea5eb05279fe535ee4eda03b308faf7d209df920ee15"
+        },
+        "item": "c6cf531d659540d676ab07d0170b10fb812d4c8028ee0a15ebd0cbc776a5bb69",
+        "utmZone": 43
+      },
+      "choice": {
+        "rule": "the least cloud over the window's water by SCL (shadow, cloud, cirrus), cloud flags on land or within 40 m of the coast set aside as bright ground; no-data rules a scene out; ties to the least cloudy tile, then the earlier date (scripts/reef/scenes.ts)",
+        "candidates": {
+          "considered": 32,
+          "fromOtherTiles": 22,
+          "passedOver": [
+            {
+              "scene": "S2C_43NBH_20260110_0_L2A",
+              "why": "the trace cannot read it: the window holds no-data pixels: the island is at the scene's edge"
+            }
+          ],
+          "scenes": [
+            {
+              "scene": "S2C_43NBH_20251101_0_L2A",
+              "sensed": "2025-11-01",
+              "tileCloudPercent": 1.636467,
+              "pixels": 24336,
+              "unusable": 0,
+              "cloud": 652,
+              "shadow": 48,
+              "cirrus": 0,
+              "setAside": 3783,
+              "score": 700,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NBH_20251106_0_L2A",
+              "sensed": "2025-11-06",
+              "tileCloudPercent": 7.68716,
+              "pixels": 24336,
+              "unusable": 0,
+              "cloud": 0,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 1629,
+              "score": 0,
+              "chosen": true
+            },
+            {
+              "scene": "S2B_43NBH_20251109_0_L2A",
+              "sensed": "2025-11-09",
+              "tileCloudPercent": 4.390519,
+              "pixels": 24336,
+              "unusable": 5484,
+              "cloud": 218,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 1117,
+              "score": null,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NBH_20251111_0_L2A",
+              "sensed": "2025-11-11",
+              "tileCloudPercent": 2.082339,
+              "pixels": 24336,
+              "unusable": 0,
+              "cloud": 138,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 732,
+              "score": 138,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NBH_20251116_0_L2A",
+              "sensed": "2025-11-16",
+              "tileCloudPercent": 1.324078,
+              "pixels": 24336,
+              "unusable": 0,
+              "cloud": 397,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 29,
+              "score": 397,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NBH_20251121_0_L2A",
+              "sensed": "2025-11-21",
+              "tileCloudPercent": 4.545448,
+              "pixels": 24336,
+              "unusable": 0,
+              "cloud": 576,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 2271,
+              "score": 576,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NBH_20251226_0_L2A",
+              "sensed": "2025-12-26",
+              "tileCloudPercent": 1.025313,
+              "pixels": 24336,
+              "unusable": 0,
+              "cloud": 0,
+              "shadow": 0,
+              "cirrus": 4,
+              "setAside": 1584,
+              "score": 4,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NBH_20260108_0_L2A",
+              "sensed": "2026-01-08",
+              "tileCloudPercent": 3.025564,
+              "pixels": 24336,
+              "unusable": 7891,
+              "cloud": 365,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 3129,
+              "score": null,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NBH_20260110_0_L2A",
+              "sensed": "2026-01-10",
+              "tileCloudPercent": 4.298435,
+              "pixels": 24336,
+              "unusable": 0,
+              "cloud": 0,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 40,
+              "score": 0,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NBH_20260113_0_L2A",
+              "sensed": "2026-01-13",
+              "tileCloudPercent": 3.613101,
+              "pixels": 24336,
+              "unusable": 9506,
+              "cloud": 4021,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 3890,
+              "score": null,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NBH_20260115_0_L2A",
+              "sensed": "2026-01-15",
+              "tileCloudPercent": 6.086185,
+              "pixels": 24336,
+              "unusable": 0,
+              "cloud": 1121,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 4019,
+              "score": 1121,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NBH_20260118_0_L2A",
+              "sensed": "2026-01-18",
+              "tileCloudPercent": 7.954633,
+              "pixels": 24336,
+              "unusable": 6576,
+              "cloud": 1273,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 1760,
+              "score": null,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NBH_20260123_0_L2A",
+              "sensed": "2026-01-23",
+              "tileCloudPercent": 8.920839,
+              "pixels": 24336,
+              "unusable": 5352,
+              "cloud": 4802,
+              "shadow": 0,
+              "cirrus": 42,
+              "setAside": 6359,
+              "score": null,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NBH_20260130_0_L2A",
+              "sensed": "2026-01-30",
+              "tileCloudPercent": 3.87182,
+              "pixels": 24336,
+              "unusable": 0,
+              "cloud": 590,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 3883,
+              "score": 590,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NBH_20260219_0_L2A",
+              "sensed": "2026-02-19",
+              "tileCloudPercent": 2.615169,
+              "pixels": 24336,
+              "unusable": 0,
+              "cloud": 145,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 48,
+              "score": 145,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NBH_20260224_0_L2A",
+              "sensed": "2026-02-24",
+              "tileCloudPercent": 5.689126,
+              "pixels": 24336,
+              "unusable": 0,
+              "cloud": 3162,
+              "shadow": 21,
+              "cirrus": 0,
+              "setAside": 3339,
+              "score": 3183,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NBH_20260301_0_L2A",
+              "sensed": "2026-03-01",
+              "tileCloudPercent": 2.331791,
+              "pixels": 24336,
+              "unusable": 0,
+              "cloud": 1679,
+              "shadow": 68,
+              "cirrus": 0,
+              "setAside": 4153,
+              "score": 1747,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NBH_20260306_0_L2A",
+              "sensed": "2026-03-06",
+              "tileCloudPercent": 0.735702,
+              "pixels": 24336,
+              "unusable": 0,
+              "cloud": 137,
+              "shadow": 36,
+              "cirrus": 0,
+              "setAside": 2710,
+              "score": 173,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NBH_20260311_0_L2A",
+              "sensed": "2026-03-11",
+              "tileCloudPercent": 0.81125,
+              "pixels": 24336,
+              "unusable": 0,
+              "cloud": 113,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 1977,
+              "score": 113,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NBH_20260319_0_L2A",
+              "sensed": "2026-03-19",
+              "tileCloudPercent": 1.894962,
+              "pixels": 24336,
+              "unusable": 11322,
+              "cloud": 3719,
+              "shadow": 8,
+              "cirrus": 0,
+              "setAside": 2498,
+              "score": null,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NBH_20260326_0_L2A",
+              "sensed": "2026-03-26",
+              "tileCloudPercent": 1.649546,
+              "pixels": 24336,
+              "unusable": 0,
+              "cloud": 12,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 808,
+              "score": 12,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NBH_20260405_0_L2A",
+              "sensed": "2026-04-05",
+              "tileCloudPercent": 9.894387,
+              "pixels": 24336,
+              "unusable": 0,
+              "cloud": 3,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 33,
+              "score": 3,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NBH_20260420_0_L2A",
+              "sensed": "2026-04-20",
+              "tileCloudPercent": 0.336275,
+              "pixels": 24336,
+              "unusable": 0,
+              "cloud": 691,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 2595,
+              "score": 691,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NBH_20260602_0_L2A",
+              "sensed": "2026-06-02",
+              "tileCloudPercent": 9.410002,
+              "pixels": 24336,
+              "unusable": 11184,
+              "cloud": 3341,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 3861,
+              "score": null,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NBH_20260707_0_L2A",
+              "sensed": "2026-07-07",
+              "tileCloudPercent": 7.089108,
+              "pixels": 24336,
+              "unusable": 6321,
+              "cloud": 231,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 2333,
+              "score": null,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NBH_20260712_0_L2A",
+              "sensed": "2026-07-12",
+              "tileCloudPercent": 3.918682,
+              "pixels": 24336,
+              "unusable": 14198,
+              "cloud": 281,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 722,
+              "score": null,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NBH_20260724_0_L2A",
+              "sensed": "2026-07-24",
+              "tileCloudPercent": 0.792917,
+              "pixels": 24336,
+              "unusable": 0,
+              "cloud": 84,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 666,
+              "score": 84,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NBH_20260818_0_L2A",
+              "sensed": "2026-08-18",
+              "tileCloudPercent": 4.643618,
+              "pixels": 24336,
+              "unusable": 0,
+              "cloud": 569,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 2750,
+              "score": 569,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NBH_20260902_0_L2A",
+              "sensed": "2026-09-02",
+              "tileCloudPercent": 2.631652,
+              "pixels": 24336,
+              "unusable": 0,
+              "cloud": 75,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 1883,
+              "score": 75,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NBH_20260927_0_L2A",
+              "sensed": "2026-09-27",
+              "tileCloudPercent": 8.206948,
+              "pixels": 24336,
+              "unusable": 0,
+              "cloud": 129,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 4033,
+              "score": 129,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NBH_20261002_0_L2A",
+              "sensed": "2026-10-02",
+              "tileCloudPercent": 8.667073,
+              "pixels": 24336,
+              "unusable": 0,
+              "cloud": 2709,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 3749,
+              "score": 2709,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NBH_20261007_0_L2A",
+              "sensed": "2026-10-07",
+              "tileCloudPercent": 2.947982,
+              "pixels": 24336,
+              "unusable": 0,
+              "cloud": 2,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 2304,
+              "score": 2,
+              "chosen": false
+            }
+          ]
+        }
+      },
+      "osm": {
+        "element": "r14194661",
+        "tags": {
+          "natural": "reef",
+          "reef": "coral",
+          "type": "multipolygon"
+        },
+        "outerWays": [
+          1064840752
+        ],
+        "innerWays": [
+          19879671
+        ],
+        "outerPoints": 24,
+        "outer": [
+          [
+            73.0701149,
+            6.633115
+          ],
+          [
+            73.0726209,
+            6.6309768
+          ],
+          [
+            73.0758745,
+            6.6277123
+          ],
+          [
+            73.0775013,
+            6.6245538
+          ],
+          [
+            73.0776095,
+            6.6217464
+          ],
+          [
+            73.0769332,
+            6.6179736
+          ],
+          [
+            73.0748707,
+            6.6122415
+          ],
+          [
+            73.0728646,
+            6.6103047
+          ],
+          [
+            73.0702611,
+            6.6097673
+          ],
+          [
+            73.0674322,
+            6.6107973
+          ],
+          [
+            73.0647611,
+            6.6126893
+          ],
+          [
+            73.062924,
+            6.6153427
+          ],
+          [
+            73.062214,
+            6.6182983
+          ],
+          [
+            73.0615716,
+            6.6216457
+          ],
+          [
+            73.0608052,
+            6.6265604
+          ],
+          [
+            73.06067,
+            6.6294599
+          ],
+          [
+            73.0607588,
+            6.630358
+          ],
+          [
+            73.0607149,
+            6.6322788
+          ],
+          [
+            73.0608894,
+            6.6334196
+          ],
+          [
+            73.06155,
+            6.6346319
+          ],
+          [
+            73.0627976,
+            6.6354472
+          ],
+          [
+            73.0637355,
+            6.6356507
+          ],
+          [
+            73.0664066,
+            6.6355164
+          ],
+          [
+            73.069089,
+            6.6339267
+          ]
+        ],
+        "areaM2": {
+          "outer": 3971327,
+          "island": 2529040,
+          "reef": 1442287
+        },
+        "areaMethod": "scripts/chart/geometry.ts areaM2 on the outer ring, less the island's charted outline (the same subtraction from the traced edge)",
+        "sharedWith": []
+      },
+      "method": {
+        "openSea": {
+          "framePx": 8,
+          "median": 0.0159,
+          "robustSigma": 0.00178
+        },
+        "edge": {
+          "threshold": 0.02657
+        },
+        "crest": {
+          "threshold": 0.08701
+        }
+      },
+      "result": {
+        "points": {
+          "edge": 53,
+          "crest": 99,
+          "marsh": [
+            23
+          ]
+        },
+        "reefAreaM2": {
+          "traced": 1497666,
+          "osm": 1442287,
+          "offPercent": 3.84,
+          "tolerancePercent": 10,
+          "judged": null
+        },
+        "bearings": {
+          "count": 72,
+          "from": "the island's centroid, degrees from east towards south",
+          "disagreeOverM": 20,
+          "disagree": [
+            {
+              "deg": 45,
+              "tracedM": 1182,
+              "osmM": 1115
+            },
+            {
+              "deg": 120,
+              "tracedM": 1221,
+              "osmM": 1172
+            },
+            {
+              "deg": 125,
+              "tracedM": 1157,
+              "osmM": 1130
+            },
+            {
+              "deg": 140,
+              "tracedM": 993,
+              "osmM": 972
+            },
+            {
+              "deg": 160,
+              "tracedM": 886,
+              "osmM": 864
+            },
+            {
+              "deg": 245,
+              "tracedM": 1484,
+              "osmM": 1507
+            },
+            {
+              "deg": 340,
+              "tracedM": 920,
+              "osmM": 898
+            },
+            {
+              "deg": 345,
+              "tracedM": 935,
+              "osmM": 912
+            }
+          ]
+        },
+        "brightNearEdge": [],
+        "coastOutsideCrest": 0
+      },
+      "flags": [],
+      "kulhi": {
+        "why": "Kulhudhuffushi's kulhi, the island's wetland, as open marsh before the island's modern works (D362, D380, D388; H50 holds the claim, unchecked until the owner signs it). Traced by scripts/reef/kulhi.ts, which says how and why.",
+        "sentinel2": {
+          "rule": "no Sentinel-2 scene before 2020 holds a pixel over the island's window (re-checked from these files every build); the first Sentinel-2 images of the island are from June 2021, after the airport",
+          "dir": "projects/kaabafain/assets-raw/sentinel2-early-scl-2026-10-20",
+          "scenes": 45,
+          "withSceneClassification": 42,
+          "seeingTheIsland": 0,
+          "sums": "4a2e6e3664591bad75e2484cea4ee436704dcd27942d6d714f01516812f52a0c"
+        },
+        "landsat": {
+          "rule": "the earliest Landsat Collection 2 Level-2 scene (30 m) whose quality band flags no fill in the island's window and under 0.5 % of the island's charted pixels as cloud, dilated cloud, cirrus or shadow",
+          "candidates": {
+            "dir": "projects/kaabafain/assets-raw/landsat-qa-candidates-2026-10-20",
+            "screened": 163,
+            "sums": "21afab2b3811008a7574196d58e79e73c0912d1ff2813b57bc54cd44c0156dae",
+            "earlierThanChosen": [
+              {
+                "scene": "LT05_L2SR_146055_19900223_02_T1",
+                "sensed": "1990-02-23",
+                "flagged": 2356,
+                "fill": 0
+              }
+            ]
+          },
+          "scene": "LT05_L2SR_146055_19970415_02_T1",
+          "sceneId": "LT51460551997105SGI00",
+          "platform": "landsat-5",
+          "sensed": "1997-04-15T04:52:08.026000Z",
+          "sceneCloudCover": 7,
+          "collection": "Collection 2 Level-2, Tier 1",
+          "islandPixelsFlagged": {
+            "flagged": 4,
+            "of": 2795
+          },
+          "stac": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/landsat-c2-l2/items/LT05_L2SR_146055_19970415_02_T1",
+          "dir": "projects/kaabafain/assets-raw/landsat-1997-04-15 (PROVENANCE.md)",
+          "bands": {
+            "LT05_L2SR_146055_19970415_20200910_02_T1_SR_B2.TIF": "0db8c97fbe8047feb395d2821174c7936d7b8a6c56a9def3bb0d3179ede585cf",
+            "LT05_L2SR_146055_19970415_20200910_02_T1_SR_B5.TIF": "ad3105ad3f092dbfbe8b97f937e330bc6f1d3f52f2c5ad55c087202c17caffa1",
+            "LT05_L2SR_146055_19970415_20200910_02_T1_QA_PIXEL.TIF": "2c0efbd4fa8b73743a12ca959dc5cf5208524353118bbce1fbbb62b8eecd8551"
+          },
+          "item": "242b9d938266df19bb980ab6ead3a6b41d25f4b112fa816bb6efb0e354502534"
+        },
+        "method": {
+          "water": "MNDWI = (green − SWIR1) / (green + SWIR1) ≥ 0, TM bands 2 and 5, reflectance DN × 0.0000275 − 0.2",
+          "enclosed": "water a 4-connected flood from the window's border does not reach",
+          "kept": "the largest enclosed region whose centre is inside the charted outline, at least 3 pixels; every other enclosed region listed in dropped",
+          "outline": "marching squares at MNDWI 0, other water held at −1; Douglas–Peucker at 15 m true; quantised to 1e-5 degrees",
+          "window": {
+            "centre": [
+              73.06912303795065,
+              6.623220770026598
+            ],
+            "sizePx": 104,
+            "pixelM": 30,
+            "x0": 4258,
+            "y0": 5670
+          }
+        },
+        "regions": [
+          {
+            "pixels": 240,
+            "pixelAreaM2": 216000,
+            "outlinePoints": 23,
+            "outlineAreaM2": 216151
+          }
+        ],
+        "dropped": [
+          {
+            "pixels": 1,
+            "centre": [
+              73.07041,
+              6.61466
+            ],
+            "why": "other enclosed water inside the island: not the kulhi (D380 names one)"
+          },
+          {
+            "pixels": 4,
+            "centre": [
+              73.07041,
+              6.61378
+            ],
+            "why": "other enclosed water inside the island: not the kulhi (D380 names one)"
+          },
+          {
+            "pixels": 9,
+            "centre": [
+              73.07195,
+              6.61286
+            ],
+            "why": "other enclosed water inside the island: not the kulhi (D380 names one)"
+          }
+        ],
+        "cannotSee": "the marsh's mangrove margin (land at 30 m), the water's extent in another season (1997-04-15 is the end of the dry season), anything under about a pixel, and whether 1997 is the island as it was before 1153 (H50, the owner's to sign)",
+        "outlines": [
+          [
+            [
+              73.0639,
+              6.63308
+            ],
+            [
+              73.06518,
+              6.63341
+            ],
+            [
+              73.066,
+              6.63322
+            ],
+            [
+              73.0679,
+              6.63186
+            ],
+            [
+              73.06834,
+              6.63092
+            ],
+            [
+              73.06926,
+              6.63047
+            ],
+            [
+              73.06994,
+              6.62985
+            ],
+            [
+              73.07005,
+              6.6293
+            ],
+            [
+              73.06873,
+              6.6283
+            ],
+            [
+              73.06821,
+              6.62713
+            ],
+            [
+              73.06792,
+              6.6269
+            ],
+            [
+              73.06656,
+              6.6271
+            ],
+            [
+              73.06565,
+              6.6282
+            ],
+            [
+              73.06579,
+              6.62929
+            ],
+            [
+              73.06688,
+              6.63011
+            ],
+            [
+              73.06744,
+              6.63092
+            ],
+            [
+              73.06737,
+              6.63119
+            ],
+            [
+              73.06438,
+              6.6307
+            ],
+            [
+              73.06408,
+              6.63091
+            ],
+            [
+              73.06502,
+              6.632
+            ],
+            [
+              73.06518,
+              6.63254
+            ],
+            [
+              73.06491,
+              6.63297
+            ],
+            [
+              73.0641,
+              6.63275
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w19879485",
+      "name": "Kandoodhoo",
+      "part": "RF1",
+      "atoll": "noonu",
+      "kind": "traced",
+      "transform": {
+        "what": "the island's own (PLAN v2.6): equirectangular round the area centroid of its shipped chart outline, north to -z, at the home scale (scripts/reef/transform.ts frameAt)",
+        "lon0": 73.32944593092155,
+        "lat0": 5.646400850877866,
+        "metresPerDegLon": "111320 × cos(lat0)",
+        "metresPerDegLat": 110574,
+        "scale": 0.17202807062455622
+      },
+      "window": {
+        "rule": "square on the centroid, 340 m beyond the outline's farthest point on either axis, the home island's own 160 px window generalised (scripts/reef/scenes.ts islandWindow)",
+        "sizePx": 124,
+        "pixelM": 10,
+        "x0": 1435,
+        "y0": 7501
+      },
+      "sentinel2": {
+        "scene": "S2C_43NCG_20260110_0_L2A",
+        "product": "S2C_MSIL2A_20260110T052211_N0511_R062_T43NCG_20260110T082921.SAFE",
+        "sensed": "2026-01-10T05:37:27.988000Z",
+        "sceneCloudCover": 0.416216,
+        "stac": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a/items/S2C_43NCG_20260110_0_L2A",
+        "dir": "projects/kaabafain/assets-raw/sentinel2-43NCG-2026-01-10 (PROVENANCE.md)",
+        "bands": {
+          "B03.tif": "1b26fddaa239aa1ba7e270942f16b589da1dfd49e95d39a2e562a7a753fd9761",
+          "B08.tif": "70f18c9df463ac942bfdd1e2a36dd20870b9bf7cd1b9de5a74aa4701dac32b42"
+        },
+        "item": "2af4f36caf0780395de7e6747e50228df8d572fd10e4cdba375b762eb303341f",
+        "utmZone": 43
+      },
+      "choice": {
+        "rule": "the least cloud over the window's water by SCL (shadow, cloud, cirrus), cloud flags on land or within 40 m of the coast set aside as bright ground; no-data rules a scene out; ties to the least cloudy tile, then the earlier date (scripts/reef/scenes.ts)",
+        "candidates": {
+          "considered": 22,
+          "fromOtherTiles": 32,
+          "passedOver": [],
+          "scenes": [
+            {
+              "scene": "S2C_43NCG_20251101_0_L2A",
+              "sensed": "2025-11-01",
+              "tileCloudPercent": 0.152013,
+              "pixels": 3969,
+              "unusable": 0,
+              "cloud": 0,
+              "shadow": 20,
+              "cirrus": 0,
+              "setAside": 487,
+              "score": 20,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NCG_20251111_0_L2A",
+              "sensed": "2025-11-11",
+              "tileCloudPercent": 5.95856,
+              "pixels": 3969,
+              "unusable": 0,
+              "cloud": 29,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 281,
+              "score": 29,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NCG_20251121_0_L2A",
+              "sensed": "2025-11-21",
+              "tileCloudPercent": 5.9208,
+              "pixels": 3969,
+              "unusable": 0,
+              "cloud": 100,
+              "shadow": 20,
+              "cirrus": 0,
+              "setAside": 246,
+              "score": 120,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NCG_20260110_0_L2A",
+              "sensed": "2026-01-10",
+              "tileCloudPercent": 0.416216,
+              "pixels": 3969,
+              "unusable": 0,
+              "cloud": 0,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 37,
+              "score": 0,
+              "chosen": true
+            },
+            {
+              "scene": "S2B_43NCG_20260115_0_L2A",
+              "sensed": "2026-01-15",
+              "tileCloudPercent": 4.298944,
+              "pixels": 3969,
+              "unusable": 0,
+              "cloud": 0,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 58,
+              "score": 0,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NCG_20260130_0_L2A",
+              "sensed": "2026-01-30",
+              "tileCloudPercent": 4.95501,
+              "pixels": 3969,
+              "unusable": 0,
+              "cloud": 40,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 64,
+              "score": 40,
+              "chosen": false
+            },
+            {
+              "scene": "S2A_43NCG_20260224_0_L2A",
+              "sensed": "2026-02-24",
+              "tileCloudPercent": 2.266089,
+              "pixels": 3969,
+              "unusable": 0,
+              "cloud": 51,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 358,
+              "score": 51,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NCG_20260224_1_L2A",
+              "sensed": "2026-02-24",
+              "tileCloudPercent": 4.282507,
+              "pixels": 3969,
+              "unusable": 0,
+              "cloud": 82,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 106,
+              "score": 82,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NCG_20260301_0_L2A",
+              "sensed": "2026-03-01",
+              "tileCloudPercent": 9.029443,
+              "pixels": 3969,
+              "unusable": 0,
+              "cloud": 0,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 26,
+              "score": 0,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NCG_20260306_0_L2A",
+              "sensed": "2026-03-06",
+              "tileCloudPercent": 2.255716,
+              "pixels": 3969,
+              "unusable": 0,
+              "cloud": 784,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 240,
+              "score": 784,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NCG_20260311_0_L2A",
+              "sensed": "2026-03-11",
+              "tileCloudPercent": 3.802187,
+              "pixels": 3969,
+              "unusable": 0,
+              "cloud": 9,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 443,
+              "score": 9,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NCG_20260316_0_L2A",
+              "sensed": "2026-03-16",
+              "tileCloudPercent": 1.978082,
+              "pixels": 3969,
+              "unusable": 0,
+              "cloud": 0,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 46,
+              "score": 0,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NCG_20260326_0_L2A",
+              "sensed": "2026-03-26",
+              "tileCloudPercent": 6.180743,
+              "pixels": 3969,
+              "unusable": 0,
+              "cloud": 0,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 253,
+              "score": 0,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NCG_20260405_0_L2A",
+              "sensed": "2026-04-05",
+              "tileCloudPercent": 3.094744,
+              "pixels": 3969,
+              "unusable": 0,
+              "cloud": 0,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 18,
+              "score": 0,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NCG_20260420_0_L2A",
+              "sensed": "2026-04-20",
+              "tileCloudPercent": 3.079333,
+              "pixels": 3969,
+              "unusable": 0,
+              "cloud": 0,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 0,
+              "score": 0,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NCG_20260609_0_L2A",
+              "sensed": "2026-06-09",
+              "tileCloudPercent": 9.030806,
+              "pixels": 3969,
+              "unusable": 0,
+              "cloud": 0,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 61,
+              "score": 0,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NCG_20260619_0_L2A",
+              "sensed": "2026-06-19",
+              "tileCloudPercent": 9.477639,
+              "pixels": 3969,
+              "unusable": 0,
+              "cloud": 0,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 109,
+              "score": 0,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NCG_20260719_0_L2A",
+              "sensed": "2026-07-19",
+              "tileCloudPercent": 9.650987,
+              "pixels": 3969,
+              "unusable": 0,
+              "cloud": 0,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 75,
+              "score": 0,
+              "chosen": false
+            },
+            {
+              "scene": "S2B_43NCG_20260724_0_L2A",
+              "sensed": "2026-07-24",
+              "tileCloudPercent": 3.822038,
+              "pixels": 3969,
+              "unusable": 0,
+              "cloud": 5,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 183,
+              "score": 5,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NCG_20260818_0_L2A",
+              "sensed": "2026-08-18",
+              "tileCloudPercent": 8.762825,
+              "pixels": 3969,
+              "unusable": 0,
+              "cloud": 0,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 148,
+              "score": 0,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NCG_20260927_0_L2A",
+              "sensed": "2026-09-27",
+              "tileCloudPercent": 5.810624,
+              "pixels": 3969,
+              "unusable": 0,
+              "cloud": 0,
+              "shadow": 20,
+              "cirrus": 0,
+              "setAside": 545,
+              "score": 20,
+              "chosen": false
+            },
+            {
+              "scene": "S2C_43NCG_20261007_0_L2A",
+              "sensed": "2026-10-07",
+              "tileCloudPercent": 6.928647,
+              "pixels": 3969,
+              "unusable": 0,
+              "cloud": 0,
+              "shadow": 0,
+              "cirrus": 0,
+              "setAside": 6,
+              "score": 0,
+              "chosen": false
+            }
+          ]
+        }
+      },
+      "osm": {
+        "element": "r7124288",
+        "tags": {
+          "natural": "reef",
+          "reef": "coral",
+          "type": "multipolygon"
+        },
+        "outerWays": [
+          484029950
+        ],
+        "innerWays": [
+          19879485
+        ],
+        "outerPoints": 19,
+        "outer": [
+          [
+            73.3322811,
+            5.648033
+          ],
+          [
+            73.3316266,
+            5.6486629
+          ],
+          [
+            73.3305645,
+            5.6491434
+          ],
+          [
+            73.3294272,
+            5.6492929
+          ],
+          [
+            73.3285153,
+            5.6490046
+          ],
+          [
+            73.3273566,
+            5.6481825
+          ],
+          [
+            73.3268523,
+            5.6472643
+          ],
+          [
+            73.3263266,
+            5.6456521
+          ],
+          [
+            73.3264231,
+            5.6446058
+          ],
+          [
+            73.3266163,
+            5.6436982
+          ],
+          [
+            73.3271849,
+            5.6429615
+          ],
+          [
+            73.328129,
+            5.6426946
+          ],
+          [
+            73.3291805,
+            5.6428975
+          ],
+          [
+            73.3308112,
+            5.6433032
+          ],
+          [
+            73.3321202,
+            5.6438157
+          ],
+          [
+            73.3329677,
+            5.6446805
+          ],
+          [
+            73.3332789,
+            5.6455667
+          ],
+          [
+            73.3331823,
+            5.6463995
+          ],
+          [
+            73.3326995,
+            5.6474565
+          ]
+        ],
+        "areaM2": {
+          "outer": 423843,
+          "island": 210505,
+          "reef": 213339
+        },
+        "areaMethod": "scripts/chart/geometry.ts areaM2 on the outer ring, less the island's charted outline (the same subtraction from the traced edge)",
+        "sharedWith": []
+      },
+      "method": {
+        "openSea": {
+          "framePx": 8,
+          "median": 0.0028,
+          "robustSigma": 0.00193
+        },
+        "edge": {
+          "threshold": 0.01436
+        },
+        "crest": {
+          "threshold": 0.0821
+        }
+      },
+      "result": {
+        "points": {
+          "edge": 27,
+          "crest": 30,
+          "marsh": []
+        },
+        "reefAreaM2": {
+          "traced": 335597,
+          "osm": 213339,
+          "offPercent": 57.31,
+          "tolerancePercent": 10,
+          "judged": {
+            "decision": "D392",
+            "date": "2026-10-20",
+            "offPercentSeen": 57.31,
+            "by": "the owner"
+          }
+        },
+        "bearings": {
+          "count": 72,
+          "from": "the island's centroid, degrees from east towards south",
+          "disagreeOverM": 20,
+          "disagree": [
+            {
+              "deg": 0,
+              "tracedM": 489,
+              "osmM": 414
+            },
+            {
+              "deg": 5,
+              "tracedM": 494,
+              "osmM": 420
+            },
+            {
+              "deg": 10,
+              "tracedM": 500,
+              "osmM": 429
+            },
+            {
+              "deg": 15,
+              "tracedM": 510,
+              "osmM": 432
+            },
+            {
+              "deg": 20,
+              "tracedM": 520,
+              "osmM": 431
+            },
+            {
+              "deg": 25,
+              "tracedM": 530,
+              "osmM": 433
+            },
+            {
+              "deg": 30,
+              "tracedM": 535,
+              "osmM": 425
+            },
+            {
+              "deg": 35,
+              "tracedM": 526,
+              "osmM": 417
+            },
+            {
+              "deg": 40,
+              "tracedM": 511,
+              "osmM": 413
+            },
+            {
+              "deg": 45,
+              "tracedM": 492,
+              "osmM": 408
+            },
+            {
+              "deg": 50,
+              "tracedM": 471,
+              "osmM": 395
+            },
+            {
+              "deg": 55,
+              "tracedM": 455,
+              "osmM": 385
+            },
+            {
+              "deg": 60,
+              "tracedM": 444,
+              "osmM": 378
+            },
+            {
+              "deg": 65,
+              "tracedM": 436,
+              "osmM": 375
+            },
+            {
+              "deg": 70,
+              "tracedM": 428,
+              "osmM": 371
+            },
+            {
+              "deg": 75,
+              "tracedM": 423,
+              "osmM": 369
+            },
+            {
+              "deg": 80,
+              "tracedM": 421,
+              "osmM": 370
+            },
+            {
+              "deg": 85,
+              "tracedM": 423,
+              "osmM": 373
+            },
+            {
+              "deg": 90,
+              "tracedM": 428,
+              "osmM": 380
+            },
+            {
+              "deg": 95,
+              "tracedM": 436,
+              "osmM": 390
+            },
+            {
+              "deg": 100,
+              "tracedM": 448,
+              "osmM": 401
+            },
+            {
+              "deg": 105,
+              "tracedM": 461,
+              "osmM": 417
+            },
+            {
+              "deg": 110,
+              "tracedM": 473,
+              "osmM": 435
+            },
+            {
+              "deg": 115,
+              "tracedM": 478,
+              "osmM": 440
+            },
+            {
+              "deg": 120,
+              "tracedM": 484,
+              "osmM": 448
+            },
+            {
+              "deg": 125,
+              "tracedM": 484,
+              "osmM": 451
+            },
+            {
+              "deg": 130,
+              "tracedM": 481,
+              "osmM": 441
+            },
+            {
+              "deg": 135,
+              "tracedM": 475,
+              "osmM": 434
+            },
+            {
+              "deg": 140,
+              "tracedM": 459,
+              "osmM": 418
+            },
+            {
+              "deg": 145,
+              "tracedM": 441,
+              "osmM": 401
+            },
+            {
+              "deg": 150,
+              "tracedM": 428,
+              "osmM": 387
+            },
+            {
+              "deg": 155,
+              "tracedM": 414,
+              "osmM": 374
+            },
+            {
+              "deg": 160,
+              "tracedM": 395,
+              "osmM": 364
+            },
+            {
+              "deg": 165,
+              "tracedM": 380,
+              "osmM": 357
+            },
+            {
+              "deg": 170,
+              "tracedM": 370,
+              "osmM": 343
+            },
+            {
+              "deg": 175,
+              "tracedM": 361,
+              "osmM": 329
+            },
+            {
+              "deg": 180,
+              "tracedM": 352,
+              "osmM": 319
+            },
+            {
+              "deg": 185,
+              "tracedM": 346,
+              "osmM": 311
+            },
+            {
+              "deg": 190,
+              "tracedM": 341,
+              "osmM": 306
+            },
+            {
+              "deg": 195,
+              "tracedM": 335,
+              "osmM": 303
+            },
+            {
+              "deg": 200,
+              "tracedM": 329,
+              "osmM": 301
+            },
+            {
+              "deg": 205,
+              "tracedM": 325,
+              "osmM": 298
+            },
+            {
+              "deg": 210,
+              "tracedM": 324,
+              "osmM": 298
+            },
+            {
+              "deg": 215,
+              "tracedM": 322,
+              "osmM": 299
+            },
+            {
+              "deg": 225,
+              "tracedM": 320,
+              "osmM": 299
+            },
+            {
+              "deg": 230,
+              "tracedM": 321,
+              "osmM": 296
+            },
+            {
+              "deg": 235,
+              "tracedM": 325,
+              "osmM": 295
+            },
+            {
+              "deg": 240,
+              "tracedM": 324,
+              "osmM": 296
+            },
+            {
+              "deg": 245,
+              "tracedM": 326,
+              "osmM": 299
+            },
+            {
+              "deg": 250,
+              "tracedM": 330,
+              "osmM": 305
+            },
+            {
+              "deg": 255,
+              "tracedM": 330,
+              "osmM": 306
+            },
+            {
+              "deg": 260,
+              "tracedM": 333,
+              "osmM": 308
+            },
+            {
+              "deg": 265,
+              "tracedM": 336,
+              "osmM": 313
+            },
+            {
+              "deg": 270,
+              "tracedM": 342,
+              "osmM": 320
+            },
+            {
+              "deg": 275,
+              "tracedM": 348,
+              "osmM": 317
+            },
+            {
+              "deg": 280,
+              "tracedM": 351,
+              "osmM": 317
+            },
+            {
+              "deg": 285,
+              "tracedM": 356,
+              "osmM": 320
+            },
+            {
+              "deg": 290,
+              "tracedM": 365,
+              "osmM": 325
+            },
+            {
+              "deg": 295,
+              "tracedM": 367,
+              "osmM": 327
+            },
+            {
+              "deg": 300,
+              "tracedM": 372,
+              "osmM": 329
+            },
+            {
+              "deg": 305,
+              "tracedM": 381,
+              "osmM": 333
+            },
+            {
+              "deg": 310,
+              "tracedM": 384,
+              "osmM": 340
+            },
+            {
+              "deg": 315,
+              "tracedM": 388,
+              "osmM": 348
+            },
+            {
+              "deg": 320,
+              "tracedM": 395,
+              "osmM": 350
+            },
+            {
+              "deg": 325,
+              "tracedM": 406,
+              "osmM": 354
+            },
+            {
+              "deg": 330,
+              "tracedM": 420,
+              "osmM": 362
+            },
+            {
+              "deg": 335,
+              "tracedM": 429,
+              "osmM": 367
+            },
+            {
+              "deg": 340,
+              "tracedM": 437,
+              "osmM": 375
+            },
+            {
+              "deg": 345,
+              "tracedM": 449,
+              "osmM": 382
+            },
+            {
+              "deg": 350,
+              "tracedM": 465,
+              "osmM": 389
+            },
+            {
+              "deg": 355,
+              "tracedM": 481,
+              "osmM": 399
+            }
+          ]
+        },
+        "brightNearEdge": [],
+        "coastOutsideCrest": 0
+      },
+      "flags": [
+        "a dark open sea: median 0.0028 in B03, under 0.005 (the atmospheric correction may have taken most of the water's light, which lowers the edge's threshold and widens the reef)",
+        "OSM's reef differs by more than AC162's 10 %, accepted by the owner (D392, 2026-10-20): the traced reef's area 335597 m² is 57.3 % from OSM's 213339 m² (AC162 allows 10 %)"
+      ]
+    }
+  ]
+}

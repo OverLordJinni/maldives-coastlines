@@ -30,3 +30,40 @@ export function toScene(lon: number, lat: number): Scene {
 export function toTrue(lon: number, lat: number): Scene {
   return [(lon - ISLAND_SOURCE.lon0) * mx, -(lat - ISLAND_SOURCE.lat0) * mz];
 }
+
+/** Where a frame is centred and how it is scaled: an island's area centroid and the scale the game draws it at. */
+export interface FrameOrigin {
+  readonly lon0: number;
+  readonly lat0: number;
+  readonly scale: number;
+}
+
+/** A frame's projections, each the home's arithmetic with another origin. */
+export interface Frame {
+  readonly origin: FrameOrigin;
+  /** Longitude and latitude to scene metres: x east, z south, scaled. */
+  toScene(lon: number, lat: number): Scene;
+  /** Longitude and latitude to true metres from the origin: x east, z south. */
+  toTrue(lon: number, lat: number): Scene;
+  /** The inverse of `toTrue`. */
+  fromTrue(x: number, z: number): readonly [lon: number, lat: number];
+}
+
+/**
+ * **Each island's own transform** (RF, D375; PLAN v2.6 "The reefs of every island, traced"): the home island's projection
+ * above with another island's area centroid as its origin, at the home scale, so every reef is measured and simplified in
+ * the frame its island will be drawn in. The same expressions in the same order as `toScene` and `toTrue`, so the home's
+ * own origin gives the same numbers to the last bit (tests/scripts/reef/transform.test.ts). Rejected: one frame for every
+ * island (Maavaidhoo's, or UTM's): 110 km from the home at Kandoodhoo, an equirectangular frame centred on another island
+ * is off by kilometres of curvature, and the game places each island round its own centroid.
+ */
+export function frameAt(origin: FrameOrigin): Frame {
+  const fx = METRES_PER_DEG_LON_AT_EQUATOR * Math.cos((origin.lat0 * Math.PI) / 180);
+  const fz = METRES_PER_DEG_LAT;
+  return {
+    origin,
+    toScene: (lon, lat) => [(lon - origin.lon0) * fx * origin.scale, -(lat - origin.lat0) * fz * origin.scale],
+    toTrue: (lon, lat) => [(lon - origin.lon0) * fx, -(lat - origin.lat0) * fz],
+    fromTrue: (x, z) => [origin.lon0 + x / fx, origin.lat0 - z / fz],
+  };
+}

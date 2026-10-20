@@ -81,6 +81,13 @@ export class CouldNotRun extends Error {
 export class Refused extends Error {
   override name = "Refused";
 }
+/**
+ * A refusal about the scene, not the reef: the window holds pixels with no data. RF's many-island build passes such a
+ * scene over for the next clearest (build-reefs.ts); for the home island it is a refusal like any other.
+ */
+export class NoData extends Refused {
+  override name = "NoData";
+}
 
 /** A directory's `SHA256SUMS`, checked against the files it names; the files this build needs must be among them. */
 export function checkedFiles(dir: string, need: readonly string[]): Map<string, { bytes: Uint8Array; sha256: string }> {
@@ -166,41 +173,58 @@ export interface Traced {
   readonly window: { readonly x0: number; readonly y0: number; readonly size: number };
 }
 
-/** Traces the edge and the crest from the two bands (trace.ts's method). Refuses if either is not a loop round the island. */
-export function traceScene(green: Uint8Array, nir: Uint8Array, epsg: number): Traced {
+/**
+ * Traces the edge and the crest from the two bands (trace.ts's method). Refuses if either is not a loop round the island.
+ *
+ * **One function for every island** (RF, D375): the home island by default (its coastline's centroid, the 160 px window
+ * it was traced in), and each other island with its own centroid and a window sized to it (build-reefs.ts). Generalised
+ * here rather than copied into the many-island build, so the method has one body and the home reef's byte-for-byte
+ * rebuild (tests/scripts/reef/buildReef.test.ts) is the regression test of the generalised code itself, as PLAN v2.6
+ * asks. Rejected: a second trace function in build-reefs.ts with the home's test pointed at it; two bodies of one method
+ * is how a fix lands in the copy nobody runs (L6).
+ *
+ * `others` is what else the edge's contour run found: the loops at the edge's threshold that do not enclose the island
+ * (another reef, a boat, a cloud the scene classification missed), in UTM metres, for the review's "bright near the edge"
+ * flag. Reading it changes nothing traced.
+ */
+export function traceScene(green: Uint8Array, nir: Uint8Array, epsg: number, centreLonLat: LonLat = [ISLAND_SOURCE.lon0, ISLAND_SOURCE.lat0], windowPx: number = WINDOW_PX): Traced & { readonly others: readonly (readonly Scene[])[] } {
   if (!(epsg >= 32601 && epsg <= 32660)) throw new Refused(`EPSG ${epsg} is not a northern UTM zone`);
+  if (!(Number.isInteger(windowPx) && windowPx > 2 * FRAME_PX && windowPx % 2 === 0)) throw new Refused(`a window of ${windowPx} px is not an even number of pixels wider than its frame`);
   const zone = epsg - 32600;
   const gi = readTiff(green);
   const ni = readTiff(nir);
   const same = (a: TiffImage, b: TiffImage): boolean => a.originX === b.originX && a.originY === b.originY && a.pixelX === b.pixelX && a.width === b.width;
   if (!same(gi, ni) || gi.pixelX !== 10) throw new Refused("the green and near-infrared bands are not on one 10 m grid");
-  const c = toUtm(ISLAND_SOURCE.lon0, ISLAND_SOURCE.lat0, zone);
-  const x0 = Math.floor((c.x - gi.originX) / gi.pixelX) - WINDOW_PX / 2;
-  const y0 = Math.floor((gi.originY - c.y) / gi.pixelY) - WINDOW_PX / 2;
-  const g = readWindow(green, gi, x0, y0, WINDOW_PX, WINDOW_PX).values;
-  const n = readWindow(nir, ni, x0, y0, WINDOW_PX, WINDOW_PX).values;
-  for (const v of g) if (v === 0) throw new Refused("the window holds no-data pixels: the island is at the scene's edge");
-  const sea = robust(frameValues(Array.from(g, reflectance), WINDOW_PX, WINDOW_PX, FRAME_PX));
+  const c = toUtm(centreLonLat[0], centreLonLat[1], zone);
+  const x0 = Math.floor((c.x - gi.originX) / gi.pixelX) - windowPx / 2;
+  const y0 = Math.floor((gi.originY - c.y) / gi.pixelY) - windowPx / 2;
+  const g = readWindow(green, gi, x0, y0, windowPx, windowPx).values;
+  const n = readWindow(nir, ni, x0, y0, windowPx, windowPx).values;
+  for (const v of g) if (v === 0) throw new NoData("the window holds no-data pixels: the island is at the scene's edge");
+  const sea = robust(frameValues(Array.from(g, reflectance), windowPx, windowPx, FRAME_PX));
   const edgeThreshold = sea.median + EDGE_SIGMAS * sea.sigma;
   // The green band smoothed (trace.ts `blur`), then land (NIR above green) held above every threshold, so the island is
   // always inside the loops. Land is set after the blur: blurred, the beach's brightness would push the crest outwards.
-  const field = blur(Array.from(g, reflectance), WINDOW_PX, WINDOW_PX, BLUR_SIGMA_PX);
+  const field = blur(Array.from(g, reflectance), windowPx, windowPx, BLUR_SIGMA_PX);
   for (let k = 0; k < field.length; k++) if ((n[k] as number) > (g[k] as number)) field[k] = 1;
   const centre: Px = [(c.x - gi.originX) / gi.pixelX - x0, (gi.originY - c.y) / gi.pixelY - y0];
-  const edge = loopAround(contours(field, WINDOW_PX, WINDOW_PX, edgeThreshold), centre);
+  const edgeLoops = contours(field, windowPx, windowPx, edgeThreshold);
+  const edge = loopAround(edgeLoops, centre);
   if (edge === null) throw new Refused("no closed edge round the island at the open-sea threshold");
   const water: number[] = [];
-  for (let y = 0; y < WINDOW_PX; y++)
-    for (let x = 0; x < WINDOW_PX; x++) {
-      const k = y * WINDOW_PX + x;
+  for (let y = 0; y < windowPx; y++)
+    for (let x = 0; x < windowPx; x++) {
+      const k = y * windowPx + x;
       if ((n[k] as number) <= (g[k] as number) && inside([x + 0.5, y + 0.5], edge)) water.push(Math.log(field[k] as number));
     }
   const crestThreshold = Math.exp(otsu(water));
-  const crest = loopAround(contours(field, WINDOW_PX, WINDOW_PX, crestThreshold), centre);
+  const crest = loopAround(contours(field, windowPx, windowPx, crestThreshold), centre);
   if (crest === null) throw new Refused("no closed crest round the island at the flat's threshold");
   // Pixel coordinates are at pixel centres (trace.ts), measured from the window's top-left pixel's corner.
   const utm = (p: Px): Scene => [gi.originX + (x0 + p[0]) * gi.pixelX, gi.originY - (y0 + p[1]) * gi.pixelY];
-  return { edgeUtm: edge.map(utm), crestUtm: crest.map(utm), zone, edgeThreshold, crestThreshold, sea, window: { x0, y0, size: WINDOW_PX } };
+  // The loops outside the island's own: neither the edge itself nor a hole inside it.
+  const others = edgeLoops.filter((l) => l !== edge && !inside(l[0] as Px, edge)).map((l) => l.map(utm));
+  return { edgeUtm: edge.map(utm), crestUtm: crest.map(utm), zone, edgeThreshold, crestThreshold, sea, window: { x0, y0, size: windowPx }, others };
 }
 
 /** Scene metres, rounded to a centimetre: the shipped precision. */

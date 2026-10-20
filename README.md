@@ -27,6 +27,8 @@ derived database and the scripts that build it, and nothing else.
 | `scripts/chart/excluded.json` | The hand-kept list of reclaimed or artificial islands left out, each with its reason and evidence |
 | `scripts/chart/atolls.json` | Today's administrative atoll names, keyed by the OSM relation each was written against |
 | `src/assets/reef/reef.json` | The coral reef round Maavaidhoo (Haa Dhaalu atoll): its edge, where it drops to open water, and its crest, two closed rings in metres of a local frame (see "The reef round Maavaidhoo" below) |
+| `src/assets/reef/reefs.bin` | The reefs of the other islands the game lands on (Kumundhoo, Kulhudhuffushi, Kandoodhoo so far): each one's edge and crest, and Kulhudhuffushi's kulhi, rings in degrees in the binary format `src/rules/reefData.ts` documents (see "The reefs of the islands the game lands on" below) |
+| `src/assets/reef/reefs-manifest.json` | Their record: per island the Sentinel-2 scene and its hashes, why that scene, the frame, the thresholds, OpenStreetMap's reef and how far each is from it; the kulhi's Landsat scene and method |
 | `src/assets/reef/reef-manifest.json` | The reef's record: the OpenStreetMap relation and the Sentinel-2 scene it came from, their hashes, the method and its thresholds, the frame, and how far the traced reef is from OpenStreetMap's, bearing by bearing |
 
 **Island names are not in `maldives.bin`.** The manifest carries them as OSM has them.
@@ -120,6 +122,39 @@ npm run reef -- <directory holding maldives-latest.osm.pbf> <directory holding B
 
 With the same inputs it reproduces both files byte for byte, which `tests/scripts/reef/buildReef.test.ts` checks wherever
 the inputs are found (set `REEF_OSM` and `REEF_S2`); elsewhere that test is skipped, which is not a pass.
+
+## The reefs of the islands the game lands on (id `osm-858582dd.s2-ecc71584.m1`)
+
+The game traces the reef of every island its player can land on, by the method above generalised from one island to many.
+The first three are here: **Kumundhoo and Kulhudhuffushi (Haa Dhaalu) and Kandoodhoo (Noonu)**, in
+`src/assets/reef/reefs.bin` (1,005 bytes, sha256 `455aed866b88b5a5717c7f9b41f3c5d00224143e3818fdadd1475eb8d97a77c7`) with their record,
+`src/assets/reef/reefs-manifest.json`: per island its scene, its frame, its thresholds, OpenStreetMap's reef and how far the
+trace is from it. Two of them are more than 10 % larger than OpenStreetMap's polygon (Kumundhoo +10.9 %, Kandoodhoo +57.3 %;
+round Kandoodhoo OpenStreetMap follows the reef flat's rim rather than its drop-off); the game's owner judged the traces
+right on the imagery and chose them, and each record says so.
+
+- `scripts/reef/build-reefs.ts` (`npm run reefs -- <a directory holding the inputs below>`): per island, its outline from
+  `src/assets/chart/maldives.bin`, a local frame round its area centroid, a square window 340 m beyond its farthest point,
+  the clearest Sentinel-2 L2A scene for that window by the scene classification (cloud over the water counted, bright
+  sand and roofs set aside, a scene with no-data water passed over), the trace above, Douglas–Peucker at 5 m, and
+  OpenStreetMap's smallest `natural=reef` polygon round the island to hold it to (its area within 10 %, every bearing
+  over 20 m apart listed). It refuses, and writes nothing, while any island is more than 10 % from OpenStreetMap.
+- `scripts/reef/kulhi.ts`: Kulhudhuffushi's kulhi (its wetland) as it was before the island's airport, traced from a
+  **Landsat 5 TM scene of 1997-04-15** (USGS Collection 2 Level-2, 30 m): the largest water the island's own land enclosed.
+  No Sentinel-2 image of the island predates June 2021, after the airport.
+- `src/rules/reefData.ts` documents the reefs' binary format (the chart's encoding: rings in 1e-5 degrees as zig-zag
+  delta varints) and decodes it; `scripts/reef/encode-reefs.ts` writes it.
+- `scripts/reef/review-sheet.ts` draws the figure the traces are judged on: each island's scene with its traced edge, its
+  crest and OpenStreetMap's reef. It holds imagery, so it is never written into this repository.
+
+**The inputs**, each directory with a `SHA256SUMS` the build checks first: the OpenStreetMap extract above; the scene
+classification bands and STAC items of the candidate scenes (Element84 Earth Search, `sentinel-2-l2a`); the chosen scenes'
+B03, B08 and SCL; the Landsat quality bands of the kulhi's candidates and the chosen scene's bands 2 and 5 (Microsoft
+Planetary Computer's `landsat-c2-l2`). `scripts/reef/reef-islands.ts` names the directories.
+
+**Credits.** The reefs' shapes contain modified Copernicus Sentinel data 2025 and 2026; the kulhi is from a Landsat-5 image
+courtesy of the U.S. Geological Survey (Landsat data are in the public domain); the polygons they are held to are
+© OpenStreetMap contributors, ODbL 1.0. No pixel of any image is in this repository.
 
 ## Corrections
 

@@ -8,6 +8,7 @@
     "chart": "node scripts/chart/build-chart.ts",
     "check:chart": "node scripts/chart/check-chart.ts",
     "reef": "node scripts/reef/build-reef.ts",
+    "reefs": "node scripts/reef/build-reefs.ts",
     "test": "vitest run"
   },
   "dependencies": { "zod": "4.6.5" },
