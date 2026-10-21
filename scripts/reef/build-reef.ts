@@ -58,6 +58,17 @@ export const FRAME_PX = 8;
 export const BLUR_SIGMA_PX = 1;
 /** The edge's threshold: the open sea's median plus this many robust standard deviations (trace.ts). */
 export const EDGE_SIGMAS = 6;
+/**
+ * The most the open-sea frame may spread (robust sigma, B03 reflectance) and still be open sea (RF2). The method stands on
+ * the frame being open water (trace.ts): one water, a spread of waves and glint. Measured 2026-10-21 on RF2's first scenes:
+ * every frame over open water spread 0.0009–0.0059 (the home 0.0018, RF1's three 0.0018–0.0021), and every frame that
+ * spread more, 0.011–0.058, lay partly on a flat, which put the edge's threshold at 0.11–0.45 in B03, above the reef itself,
+ * so the "reef" traced was a ring of sand. 0.01 sits in that gap. Over it the window is taken as too small (`NotClosed`)
+ * and widened until its frame reaches open water. Rejected: a cap on the frame's median (the brightest good frame, 0.034,
+ * and the darkest bad one, 0.033, overlap: a bright frame can be clear deep water on a hazy day; a mixed one cannot be
+ * one water); a cap on the threshold (that would be the reef's own brightness deciding where its edge is).
+ */
+export const FRAME_SIGMA_MAX = 0.01;
 /** Douglas–Peucker tolerance at true scale, metres: half a pixel. */
 export const TOLERANCE_TRUE_M = 5;
 /** AC162's tolerance (Q71): the traced reef's area within 10 % of OSM's. */
@@ -87,6 +98,14 @@ export class Refused extends Error {
  */
 export class NoData extends Refused {
   override name = "NoData";
+}
+/**
+ * A refusal about the window, not the scene or the reef: the edge or the crest found no closed loop round the island in it,
+ * because the reef runs on to the window's border. RF2's build (build-reefs.ts) widens the window and traces again; for the
+ * home island, whose 160 px window closes, it is a refusal like any other.
+ */
+export class NotClosed extends Refused {
+  override name = "NotClosed";
 }
 
 /** A directory's `SHA256SUMS`, checked against the files it names; the files this build needs must be among them. */
@@ -174,6 +193,37 @@ export interface Traced {
 }
 
 /**
+ * Which pixel centres of a `width × height` grid lie inside `ring`, by trace.ts `inside`'s own even–odd rule, a row at a
+ * time (RF2). The same test per edge and the same arithmetic in the same order, so every pixel's answer is `inside`'s bit
+ * for bit (tests/scripts/reef/traceScene.test.ts compares them, and the home's byte-for-byte rebuild holds it); only the
+ * work changes: `inside` per pixel costs every edge point for every pixel, which on RF2's widest windows (up to 2,000 px,
+ * an edge of thousands of points) is billions of tests. Here each row's crossings are found once.
+ */
+export function insideMask(ring: readonly Px[], width: number, height: number): Uint8Array {
+  const out = new Uint8Array(width * height);
+  const xs: number[] = [];
+  for (let y = 0; y < height; y++) {
+    const py = y + 0.5;
+    xs.length = 0;
+    for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+      const [xi, yi] = ring[i] as Px;
+      const [xj, yj] = ring[j] as Px;
+      if (yi > py !== yj > py) xs.push(((xj - xi) * (py - yi)) / (yj - yi) + xi);
+    }
+    if (xs.length === 0) continue;
+    xs.sort((a, b) => a - b);
+    // A pixel is inside when an odd number of crossings lie strictly to its right (`x < crossing`, as `inside` tests).
+    let k = 0;
+    for (let x = 0; x < width; x++) {
+      const px = x + 0.5;
+      while (k < xs.length && (xs[k] as number) <= px) k++;
+      if ((xs.length - k) % 2 === 1) out[y * width + x] = 1;
+    }
+  }
+  return out;
+}
+
+/**
  * Traces the edge and the crest from the two bands (trace.ts's method). Refuses if either is not a loop round the island.
  *
  * **One function for every island** (RF, D375): the home island by default (its coastline's centroid, the 160 px window
@@ -198,10 +248,20 @@ export function traceScene(green: Uint8Array, nir: Uint8Array, epsg: number, cen
   const c = toUtm(centreLonLat[0], centreLonLat[1], zone);
   const x0 = Math.floor((c.x - gi.originX) / gi.pixelX) - windowPx / 2;
   const y0 = Math.floor((gi.originY - c.y) / gi.pixelY) - windowPx / 2;
+  // A window that runs off the image is a scene that cannot show the island, as a window holding no-data is (RF2: an
+  // island near a tile's edge whose reef needs a wider window than the tile has room for; the neighbouring tile's scene
+  // holds it whole). Refused as NoData so the many-island build passes the scene over; before this, readWindow threw a
+  // TiffError here, which no window that ever traced reached.
+  if (x0 < 0 || y0 < 0 || x0 + windowPx > gi.width || y0 + windowPx > gi.height) throw new NoData(`the window runs off the scene's ${gi.width}×${gi.height} image: the island is at the tile's edge`);
   const g = readWindow(green, gi, x0, y0, windowPx, windowPx).values;
   const n = readWindow(nir, ni, x0, y0, windowPx, windowPx).values;
   for (const v of g) if (v === 0) throw new NoData("the window holds no-data pixels: the island is at the scene's edge");
   const sea = robust(frameValues(Array.from(g, reflectance), windowPx, windowPx, FRAME_PX));
+  // A frame with no spread at all gives no threshold: six sigmas of nothing is the median itself, and every pixel a grain
+  // brighter is "reef". It is water the atmospheric correction has clipped to one value (RF2, 2025-12-26 over Vaikaradhoo:
+  // median 0.0001), a scene that cannot show the reef, so it is passed over as no-data is.
+  if (sea.sigma === 0) throw new NoData(`the open sea's frame has no spread (every pixel ${sea.median.toFixed(4)} in B03): no threshold can be set by it`);
+  if (sea.sigma > FRAME_SIGMA_MAX) throw new NotClosed(`the window's frame is not open sea: it spreads ${sea.sigma.toFixed(4)} in B03, over ${FRAME_SIGMA_MAX}`);
   const edgeThreshold = sea.median + EDGE_SIGMAS * sea.sigma;
   // The green band smoothed (trace.ts `blur`), then land (NIR above green) held above every threshold, so the island is
   // always inside the loops. Land is set after the blur: blurred, the beach's brightness would push the crest outwards.
@@ -210,16 +270,21 @@ export function traceScene(green: Uint8Array, nir: Uint8Array, epsg: number, cen
   const centre: Px = [(c.x - gi.originX) / gi.pixelX - x0, (gi.originY - c.y) / gi.pixelY - y0];
   const edgeLoops = contours(field, windowPx, windowPx, edgeThreshold);
   const edge = loopAround(edgeLoops, centre);
-  if (edge === null) throw new Refused("no closed edge round the island at the open-sea threshold");
+  if (edge === null) throw new NotClosed("no closed edge round the island at the open-sea threshold");
   const water: number[] = [];
+  const inEdge = insideMask(edge, windowPx, windowPx);
   for (let y = 0; y < windowPx; y++)
     for (let x = 0; x < windowPx; x++) {
       const k = y * windowPx + x;
-      if ((n[k] as number) <= (g[k] as number) && inside([x + 0.5, y + 0.5], edge)) water.push(Math.log(field[k] as number));
+      if ((n[k] as number) <= (g[k] as number) && inEdge[k] === 1) water.push(Math.log(field[k] as number));
     }
+  // No water inside the edge: the edge hugs the land, because the window's frame is not open sea but a flat as bright as
+  // the reef (RF2: an islet on a wide flat), so the edge's threshold sits above the reef itself. That is the window being
+  // too small, as a reef running past it is; before RF2 Otsu threw a plain Error here, which no window that traced reached.
+  if (water.length < 2) throw new NotClosed("no reef flat inside the edge: the window's frame lies on the flat, not open sea");
   const crestThreshold = Math.exp(otsu(water));
   const crest = loopAround(contours(field, windowPx, windowPx, crestThreshold), centre);
-  if (crest === null) throw new Refused("no closed crest round the island at the flat's threshold");
+  if (crest === null) throw new NotClosed("no closed crest round the island at the flat's threshold");
   // Pixel coordinates are at pixel centres (trace.ts), measured from the window's top-left pixel's corner.
   const utm = (p: Px): Scene => [gi.originX + (x0 + p[0]) * gi.pixelX, gi.originY - (y0 + p[1]) * gi.pixelY];
   // The loops outside the island's own: neither the edge itself nor a hole inside it.
